@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 function do_dotfiles {
-    DOT_FILES=".bashrc .zshrc .emacs .ssh/config .mbsyncrc"
+    DOT_FILES=".bashrc .zshrc .emacs .ssh/config .mbsyncrc .latexmkrc .config/spotifyd"
 
     for FILE in ${DOT_FILES}; do
         ln -sf "$(pwd)/${FILE}" "${HOME}/${FILE}"
