@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+PKGEXT='.pkg.tar' MAKEFLAGS="-j$(nproc)" yay -Syu --devel --aur --noconfirm
