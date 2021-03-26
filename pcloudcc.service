@@ -1,0 +1,10 @@
+[Unit]
+Description=pCloud console client
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/pcloudcc -u emil.vatai@gmail.com
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
