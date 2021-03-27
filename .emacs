@@ -48,54 +48,6 @@
  '(initial-buffer-choice (lambda nil (get-buffer "*Org Agenda*")))
  '(magit-diff-use-overlays nil)
  '(menu-bar-mode nil)
- '(org-agenda-archives-mode nil t nil "Customized with use-package org")
- '(org-agenda-clockreport-parameter-plist '(:link t :maxlevel 2 :fileskip0 t) nil nil "Customized with use-package org")
- '(org-agenda-files '("~/org/") nil nil "Customized with use-package org")
- '(org-agenda-skip-comment-trees nil nil nil "Customized with use-package org")
- '(org-agenda-skip-function nil t nil "Customized with use-package org")
- '(org-babel-load-languages
-   '((emacs-lisp . t)
-     (C . t)
-     (shell . t)
-     (maxima . t)
-     (sql . t)
-     (dot . t)
-     (ledger . t)
-     (latex . t)
-     (octave . t)
-     (python . t)
-     (ditaa . t)
-     (sqlite . t)) nil nil "Customized with use-package org")
- '(org-capture-templates
-   '(("r" "Remember" entry
-      (file+headline "~/org/capture.org" "Remember")
-      "* %t: %?
-")
-     ("s" "Sudalab Todo" entry
-      (file+headline "~/org/sudalab.org" "Tasks")
-      "* TODO %?
-SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))")
-     ("t" "Todo" entry
-      (file+headline "~/org/capture.org" "Tasks")
-      "* TODO %?
-SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))")
-     ("i" "Idea" entry
-      (file+headline "~/org/capture.org" "Ideas")
-      "* Idea on %t: %?
-")) t nil "Customized with use-package org")
- '(org-catch-invisible-edits 'show-and-error nil nil "Customized with use-package org")
- '(org-clock-persist 'history nil nil "Customized with use-package org")
- '(org-confirm-babel-evaluate nil nil nil "Customized with use-package org")
- '(org-default-notes-file "~/org/capture.org" nil nil "Customized with use-package org")
- '(org-ditaa-eps-jar-path "/usr/share/java/ditaa-eps/DitaaEps.jar" nil nil "Customized with use-package org")
- '(org-ditaa-jar-path "/usr/share/java/ditaa/ditaa-0_10.jar" nil nil "Customized with use-package org")
- '(org-file-apps
-   '((auto-mode . emacs)
-     ("\\.mm\\'" . default)
-     ("\\.x?html?\\'" . default)
-     ("\\.pdf\\'" . "setsid -w xdg-open %s")) nil nil "Customized with use-package org")
- '(org-habit-show-habits-only-for-today nil nil nil "Customized with use-package org")
- '(org-journal-dir "~/org/journal/" t nil "Customized with use-package org")
  '(org-latex-default-packages-alist
    '(("AUTO" "inputenc" t
       ("pdflatex"))
@@ -111,24 +63,12 @@ SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))")
      ("" "amssymb" t nil)
      ("" "capt-of" nil nil)
      ("" "hyperref" nil nil)))
- '(org-latex-listings 'minted nil nil "Customized with use-package org")
- '(org-latex-packages-alist '(("" "minted" nil) ("" "booktabs" nil)) nil nil "Customized with use-package org")
- '(org-latex-pdf-process
-   '("latexmk -pdflatex='%latex -shell-escape -interaction nonstopmode' -pdf -f  %f") nil nil "Customized with use-package org")
- '(org-log-into-drawer t nil nil "Customized with use-package org")
- '(org-mobile-directory "~/.mobileorg" t nil "Customized with use-package org")
- '(org-outline-path-complete-in-steps nil nil nil "Customized with use-package org")
- '(org-preview-latex-default-process 'dvisvgm nil nil "Customized with use-package org")
- '(org-refile-allow-creating-parent-nodes 'confirm nil nil "Customized with use-package org")
- '(org-refile-targets '((org-agenda-files :maxlevel . 3)) nil nil "Customized with use-package org")
- '(org-refile-use-outline-path t nil nil "Customized with use-package org")
- '(org-use-property-inheritance '("NOWEB-REF") nil nil "Customized with use-package org")
  '(package-archives
    '(("gnu" . "http://elpa.gnu.org/packages/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-enable-at-startup nil)
  '(package-selected-packages
-   '(lsp-treemacs solarized-theme telega helm-lsp ob-sagemath ob-sage org-pomodoro proof-general pkgbuild-mode yaml-mode treemacs-evil evil-org org-tree-slide yasnippet-snippets evil-collection evil-surround evil undo-tree delight use-package elcord elcort rustic treemacs-projectile helm-projectile projectile monokai-theme twittering-mode mingus pretty-symbols treemacs-magit fira-code-mode cmake-ide helm-org-refile org-refile cdlatex diminish pos-tip pos-top company-box cargo flycheck-rust ob-rust racer company-auctex auctex helm-org blacken company-postframe py-isort yasnippets blacked telephone-line circadian exec-path-from-shell flycheck-google-cpplint google-c-style all-the-icons-dired all-the-icons dap-lldb oauth2 magit-gh-pulls gist ox-gfm helm-bibtex org-caldav biblio eldoc-mode mu4e ag helm/purpose helm-purpose window-purpose purpose cquery cquary lsp jedi sage-shell-mode mu4e-alert auctex-latexmk org-journal mozc org company-coq dired-sort evil-magit ivy-hydra flx evil-tabs hideshow-org linum-relative ido-vertical-mode ox-mediawiki interleave wc-mode dired-rainbow rainbow-delimiters rainbow-identifiers org-gcal xkcd micgoline cmake-font-lock cmake-mode cuda-mode company-c-headers nyan-mode gnuplot org-ac ghci-completion ghc fuzzy eldoc-eval c-eldoc rainbow-mode ox-reveal auto-package-update))
+   '(dockerfile-mode lsp-treemacs solarized-theme telega helm-lsp ob-sagemath ob-sage org-pomodoro proof-general pkgbuild-mode yaml-mode treemacs-evil evil-org org-tree-slide yasnippet-snippets evil-collection evil-surround evil undo-tree delight use-package elcord elcort rustic treemacs-projectile helm-projectile projectile monokai-theme twittering-mode mingus pretty-symbols treemacs-magit fira-code-mode cmake-ide helm-org-refile org-refile cdlatex diminish pos-tip pos-top company-box cargo flycheck-rust ob-rust racer company-auctex auctex helm-org blacken company-postframe py-isort yasnippets blacked telephone-line circadian exec-path-from-shell flycheck-google-cpplint google-c-style all-the-icons-dired all-the-icons dap-lldb oauth2 magit-gh-pulls gist ox-gfm helm-bibtex org-caldav biblio eldoc-mode mu4e ag helm/purpose helm-purpose window-purpose purpose cquery cquary lsp jedi sage-shell-mode mu4e-alert auctex-latexmk org-journal mozc org company-coq dired-sort evil-magit ivy-hydra flx evil-tabs hideshow-org linum-relative ido-vertical-mode ox-mediawiki interleave wc-mode dired-rainbow rainbow-delimiters rainbow-identifiers org-gcal xkcd micgoline cmake-font-lock cmake-mode cuda-mode company-c-headers nyan-mode gnuplot org-ac ghci-completion ghc fuzzy eldoc-eval c-eldoc rainbow-mode ox-reveal auto-package-update))
  '(pos-tip-background-color "#E6DB74")
  '(pos-tip-foreground-color "#242728")
  '(recentf-max-menu-items 100)
@@ -248,7 +188,6 @@ SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))")
  '(show-trailing-whitespace t)
  '(tool-bar-mode nil)
  '(tool-bar-style 'image)
- '(twittering-icon-mode t t nil "Customized with use-package twittering-mode")
  '(user-full-name "Emil VATAI")
  '(user-mail-address "emil.vatai@gmail.com")
  '(vc-annotate-background nil)
@@ -675,6 +614,8 @@ SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))")
   ;; (add-hook 'sage-shell:sage-mode-hook #'eldoc-mode)
   )
 
+(use-package dockerfile-mode :ensure t)
+ 
 "Latex"
 
 (use-package auctex
