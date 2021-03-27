@@ -17,13 +17,20 @@ function do_syncfiles {
     done
 }
 
-function do_system {
-    find system/ -type f -name '*' | while read FILE; do
-        TARGETDIR="$(dirname ${FILE} | sed -e s!^system!${HOME}!)"
-        mkdir -p "$TARGETDIR"
-	ln -sf "$(pwd)/${FILE}" "$TARGETDIR"
+function do_files {
+    CMD="$1"
+    SRCDIR="$2"
+    TGTDIR="$3"
+    find ${SRCDIR} -type f | while read FILE; do
+        DESTDIR="$(dirname ${FILE} | sed -e s!^$SRCDIR!$TGTDIR!)"/
+        mkdir -p "$DESTDIR"
+	$CMD "$(pwd)/${FILE}" "$DESTDIR"
     done
 }
+
+
 do_dotfiles
 do_syncfiles
-do_system
+
+do_files "ln -sf" system/home ${HOME}
+do_files "sudo ln -sf" system/etc /etc
