@@ -1,5 +1,6 @@
 # sudo pacman -S reflector
 [Trigger]
+Operation = Install
 Operation = Upgrade
 Type = Package
 Target = pacman-mirrorlist
