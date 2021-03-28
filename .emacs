@@ -628,8 +628,12 @@
   ;; (add-hook 'sage-shell:sage-mode-hook #'eldoc-mode)
   )
 
+(use-package docker
+  :ensure t
+  :bind ("C-c d" . docker))
+
 (use-package dockerfile-mode :ensure t)
- 
+
 "Latex"
 
 (use-package auctex
