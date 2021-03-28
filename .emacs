@@ -76,7 +76,21 @@
  '(recentf-mode t)
  '(rustic-format-trigger 'on-save)
  '(safe-local-variable-values
-   '((c-offsets-alist
+   '((eval setq dockerfile-build-args
+           (mapcar
+            (lambda
+              (input)
+              (format "%s=%s"
+                      (car input)
+                      (substring
+                       (shell-command-to-string
+                        (cadr input))
+                       0 -1)))
+            '(("USER_ID" "id -u")
+              ("USER" "id -un")
+              ("GROUP_ID" "id -g")
+              ("GROUP" "id -gn"))))
+     (c-offsets-alist
       (inexpr-class . +)
       (inexpr-statement . +)
       (lambda-intro-cont . +)
