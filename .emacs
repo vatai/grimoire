@@ -68,7 +68,7 @@
      ("melpa" . "https://melpa.org/packages/")))
  '(package-enable-at-startup nil)
  '(package-selected-packages
-   '(dockerfile-mode lsp-treemacs solarized-theme telega helm-lsp ob-sagemath ob-sage org-pomodoro proof-general pkgbuild-mode yaml-mode treemacs-evil evil-org org-tree-slide yasnippet-snippets evil-collection evil-surround evil undo-tree delight use-package elcord elcort rustic treemacs-projectile helm-projectile projectile monokai-theme twittering-mode mingus pretty-symbols treemacs-magit fira-code-mode cmake-ide helm-org-refile org-refile cdlatex diminish pos-tip pos-top company-box cargo flycheck-rust ob-rust racer company-auctex auctex helm-org blacken company-postframe py-isort yasnippets blacked telephone-line circadian exec-path-from-shell flycheck-google-cpplint google-c-style all-the-icons-dired all-the-icons dap-lldb oauth2 magit-gh-pulls gist ox-gfm helm-bibtex org-caldav biblio eldoc-mode mu4e ag helm/purpose helm-purpose window-purpose purpose cquery cquary lsp jedi sage-shell-mode mu4e-alert auctex-latexmk org-journal mozc org company-coq dired-sort evil-magit ivy-hydra flx evil-tabs hideshow-org linum-relative ido-vertical-mode ox-mediawiki interleave wc-mode dired-rainbow rainbow-delimiters rainbow-identifiers org-gcal xkcd micgoline cmake-font-lock cmake-mode cuda-mode company-c-headers nyan-mode gnuplot org-ac ghci-completion ghc fuzzy eldoc-eval c-eldoc rainbow-mode ox-reveal auto-package-update))
+   '(docker dockerfile-mode lsp-treemacs solarized-theme telega helm-lsp ob-sagemath ob-sage org-pomodoro proof-general pkgbuild-mode yaml-mode treemacs-evil evil-org org-tree-slide yasnippet-snippets evil-collection evil-surround evil undo-tree delight use-package elcord elcort rustic treemacs-projectile helm-projectile projectile monokai-theme twittering-mode mingus pretty-symbols treemacs-magit fira-code-mode cmake-ide helm-org-refile org-refile cdlatex diminish pos-tip pos-top company-box cargo flycheck-rust ob-rust racer company-auctex auctex helm-org blacken company-postframe py-isort yasnippets blacked telephone-line circadian exec-path-from-shell flycheck-google-cpplint google-c-style all-the-icons-dired all-the-icons dap-lldb oauth2 magit-gh-pulls gist ox-gfm helm-bibtex org-caldav biblio eldoc-mode mu4e ag helm/purpose helm-purpose window-purpose purpose cquery cquary lsp jedi sage-shell-mode mu4e-alert auctex-latexmk org-journal mozc org company-coq dired-sort evil-magit ivy-hydra flx evil-tabs hideshow-org linum-relative ido-vertical-mode ox-mediawiki interleave wc-mode dired-rainbow rainbow-delimiters rainbow-identifiers org-gcal xkcd micgoline cmake-font-lock cmake-mode cuda-mode company-c-headers nyan-mode gnuplot org-ac ghci-completion ghc fuzzy eldoc-eval c-eldoc rainbow-mode ox-reveal auto-package-update))
  '(pos-tip-background-color "#E6DB74")
  '(pos-tip-foreground-color "#242728")
  '(recentf-max-menu-items 100)
@@ -631,6 +631,8 @@
 (use-package docker
   :ensure t
   :bind ("C-c d" . docker))
+
+(use-package docker-tramp :ensure t)
 
 (use-package dockerfile-mode :ensure t)
 
