@@ -330,11 +330,11 @@
   (evil-set-undo-system 'undo-tree)
   (evil-mode))
 
-;; (use-package evil-surround
-;;   :after evil
-;;   :ensure t
-;;   :config
-;;   (global-evil-surround-mode 1))
+(use-package evil-surround
+  :after evil
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
 
 (use-package evil-collection
   :after evil
