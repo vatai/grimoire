@@ -21,7 +21,7 @@ source /usr/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh
 dropbox-cli start
 alias ringo='ssh -L 8080:ringo.is.s.u-tokyo.ac.jp:80 ringo.is.s.u-tokyo.ac.jp'
 
-PATH=${HOME}/bin:${HOME}/.gem/ruby/2.6.0/bin:${HOME}/.local/bin:${PATH}
+PATH=${HOME}/bin:${HOME}/.local/bin:${PATH}
 
 bindkey -v
 bindkey -M vicmd v edit-command-line
