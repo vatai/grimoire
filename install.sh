@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 function do_dotfiles {
-    DOT_FILES=".profile .bashrc .zshrc .emacs .ssh/config .mbsyncrc .latexmkrc .config/spotifyd .gitconfig"
+    DOT_FILES=".bashrc .zshrc .emacs .ssh/config .mbsyncrc .latexmkrc .config/spotifyd .gitconfig"
 
     for FILE in ${DOT_FILES}; do
         rm -rf "${HOME}/${FILE}"
