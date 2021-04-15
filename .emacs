@@ -997,8 +997,9 @@ SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))")
               "High Performance Aritificial Intelligence Systems Research Team\n"
               "RIKEN Center for Computational Science\n"
               "\n"
-              "16F Toranomon Twin Building East\n"
-              "2-10-1 Toranomon, Minato-ku, Tokyo 105-0001, Japan\n"))))
+              "Nihonbashi 1-chome Mitsui Building, 15th floor\n"
+              "1-4-1 Nihonbashi, Chuo-ku, Tokyo 103-0027, Japan\n"
+              "tel: 03-6225-2473\n"))))
          (riken-ctx
           (make-mu4e-context
            :name "Riken"
