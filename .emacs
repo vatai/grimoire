@@ -890,7 +890,7 @@ SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))")
 
 (load "~/Sync/.emacs.d/indent-file.el")
 (indent-file-when-save)
-;; (add-hook 'c-mode-common-hook #'indent-file-when-save)
+(add-hook 'c-mode-common-hook #'indent-file-when-save)
 
 (use-package all-the-icons
   :ensure t)
