@@ -1,0 +1,23 @@
+!!! Xresources file
+
+!URxvt*termName: rxvt-unicode
+
+URxvt.scrollBar: false
+!!! Native transparency
+URxvt*.transparent: true
+!!! URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
+URxvt*.shading: 10
+URxvt*.reverseVideo: true
+
+!!! true transparency (composite)
+!URxvt.depth: 32
+!URxvt.background: rgba:7777/7777/7777/aaaa
+
+URxvt.font: xft:Inconsolata:pixelsize=16
+!Xft.autohint: 0
+!Xft.dpi: 96
+!Xft.antialias: true
+!Xft.rgba: rgb
+!Xft.hinting: true
+!Xft.hintstyle: hintslight
+!Xft.lcdfilter: lcddefault
