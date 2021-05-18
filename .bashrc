@@ -9,6 +9,8 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+set -o noclobber
+
 alias l="ls -l"
 
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
