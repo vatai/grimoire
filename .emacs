@@ -12,8 +12,6 @@
  '(TeX-source-correlate-mode t)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
- '(ansi-color-names-vector
-   ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
  '(ansi-term-color-vector
    [unspecified "#2d2a2e" "#ff6188" "#a9dc76" "#ffd866" "#78dce8" "#ab9df2" "#ff6188" "#fcfcfa"] t)
  '(bibtex-completion-bibliography '("~/org/notes/index.bib"))
@@ -21,28 +19,16 @@
  '(bibtex-completion-notes-path "~/org/notes/index.org")
  '(column-number-mode t)
  '(compilation-ask-about-save nil)
- '(compilation-message-face 'default)
  '(cua-enable-cua-keys 'shift)
  '(custom-enabled-themes '(solarized-zenburn))
  '(custom-safe-themes
    '("51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773" "13a8eaddb003fd0d561096e11e1a91b029d3c9d64554f8e897b2513dbf14b277" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "00445e6f15d31e9afaa23ed0d765850e9cd5e929be5e8e63b114a3346236c44c" "285d1bf306091644fb49993341e0ad8bafe57130d9981b680c1dbd974475c5c7" "830877f4aab227556548dc0a28bf395d0abe0e3a0ab95455731c9ea5ab5fe4e1" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "7f1d414afda803f3244c6fb4c2c64bea44dac040ed3731ec9d75275b9e831fe5" "0fffa9669425ff140ff2ae8568c7719705ef33b7a927a0ba7c5e2ffcfac09b75" "d9646b131c4aa37f01f909fbdd5a9099389518eb68f25277ed19ba99adeb7279" "8b58ef2d23b6d164988a607ee153fd2fa35ee33efc394281b1028c2797ddeebb" "f3ab34b145c3b2a0f3a570ddff8fabb92dafc7679ac19444c31058ac305275e1" default))
  '(erc-nick "sublime83")
  '(exec-path-from-shell-arguments '("-l"))
- '(fci-rule-color "#3C3D37")
  '(font-use-system-font t)
  '(global-auto-revert-mode t)
  '(global-visual-line-mode t)
  '(helm-minibuffer-history-key "M-p")
- '(highlight-changes-colors '("#FD5FF0" "#AE81FF"))
- '(highlight-tail-colors
-   '(("#3C3D37" . 0)
-     ("#679A01" . 20)
-     ("#4BBEAE" . 30)
-     ("#1DB4D0" . 50)
-     ("#9A8F21" . 60)
-     ("#A75B00" . 70)
-     ("#F309DF" . 85)
-     ("#3C3D37" . 100)))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(initial-buffer-choice (lambda nil (get-buffer "*Org Agenda*")))
@@ -68,9 +54,7 @@
      ("melpa" . "https://melpa.org/packages/")))
  '(package-enable-at-startup nil)
  '(package-selected-packages
-   '(docker dockerfile-mode lsp-treemacs solarized-theme telega helm-lsp ob-sagemath ob-sage org-pomodoro proof-general pkgbuild-mode yaml-mode treemacs-evil evil-org org-tree-slide yasnippet-snippets evil-collection evil-surround evil undo-tree delight use-package elcord elcort rustic treemacs-projectile helm-projectile projectile monokai-theme twittering-mode mingus pretty-symbols treemacs-magit fira-code-mode cmake-ide helm-org-refile org-refile cdlatex diminish pos-tip pos-top company-box cargo flycheck-rust ob-rust racer company-auctex auctex helm-org blacken company-postframe py-isort yasnippets blacked telephone-line circadian exec-path-from-shell flycheck-google-cpplint google-c-style all-the-icons-dired all-the-icons dap-lldb oauth2 magit-gh-pulls gist ox-gfm helm-bibtex org-caldav biblio eldoc-mode mu4e ag helm/purpose helm-purpose window-purpose purpose cquery cquary lsp jedi sage-shell-mode mu4e-alert auctex-latexmk org-journal mozc org company-coq dired-sort evil-magit ivy-hydra flx evil-tabs hideshow-org linum-relative ido-vertical-mode ox-mediawiki interleave wc-mode dired-rainbow rainbow-delimiters rainbow-identifiers org-gcal xkcd micgoline cmake-font-lock cmake-mode cuda-mode company-c-headers nyan-mode gnuplot org-ac ghci-completion ghc fuzzy eldoc-eval c-eldoc rainbow-mode ox-reveal auto-package-update))
- '(pos-tip-background-color "#E6DB74")
- '(pos-tip-foreground-color "#242728")
+   '(org-ref docker dockerfile-mode lsp-treemacs solarized-theme telega helm-lsp ob-sagemath ob-sage org-pomodoro proof-general pkgbuild-mode yaml-mode treemacs-evil evil-org org-tree-slide yasnippet-snippets evil-collection evil-surround evil undo-tree delight use-package elcord elcort rustic treemacs-projectile helm-projectile projectile monokai-theme twittering-mode mingus pretty-symbols treemacs-magit fira-code-mode cmake-ide helm-org-refile org-refile cdlatex diminish pos-tip pos-top company-box cargo flycheck-rust ob-rust racer company-auctex auctex helm-org blacken company-postframe py-isort yasnippets blacked telephone-line circadian exec-path-from-shell flycheck-google-cpplint google-c-style all-the-icons-dired all-the-icons dap-lldb oauth2 magit-gh-pulls gist ox-gfm helm-bibtex org-caldav biblio eldoc-mode mu4e ag helm/purpose helm-purpose window-purpose purpose cquery cquary lsp jedi sage-shell-mode mu4e-alert auctex-latexmk org-journal mozc org company-coq dired-sort evil-magit ivy-hydra flx evil-tabs hideshow-org linum-relative ido-vertical-mode ox-mediawiki interleave wc-mode dired-rainbow rainbow-delimiters rainbow-identifiers org-gcal xkcd micgoline cmake-font-lock cmake-mode cuda-mode company-c-headers nyan-mode gnuplot org-ac ghci-completion ghc fuzzy eldoc-eval c-eldoc rainbow-mode ox-reveal auto-package-update))
  '(recentf-max-menu-items 100)
  '(recentf-max-saved-items 200)
  '(recentf-mode t)
@@ -204,37 +188,14 @@
  '(tool-bar-style 'image)
  '(user-full-name "Emil VATAI")
  '(user-mail-address "emil.vatai@gmail.com")
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   '((20 . "#ff0066")
-     (40 . "#CF4F1F")
-     (60 . "#C26C0F")
-     (80 . "#E6DB74")
-     (100 . "#AB8C00")
-     (120 . "#A18F00")
-     (140 . "#989200")
-     (160 . "#8E9500")
-     (180 . "#63de5d")
-     (200 . "#729A1E")
-     (220 . "#609C3C")
-     (240 . "#4E9D5B")
-     (260 . "#3C9F79")
-     (280 . "#53f2dc")
-     (300 . "#299BA6")
-     (320 . "#2896B5")
-     (340 . "#2790C3")
-     (360 . "#06d8ff")))
- '(vc-annotate-very-old-color nil)
- '(visible-bell t)
- '(weechat-color-list
-   (unspecified "#242728" "#323342" "#F70057" "#ff0066" "#86C30D" "#63de5d" "#BEB244" "#E6DB74" "#40CAE4" "#06d8ff" "#FF61FF" "#ff8eff" "#00b2ac" "#53f2dc" "#f8fbfc" "#ffffff")))
+ '(visible-bell t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Fira Code" :foundry "CTDB" :slant normal :weight normal :height 151 :width normal)))))
+ '(default ((t (:family "Fira Code" :foundry "CTDB" :slant normal :weight normal :height 120 :width normal)))))
 
 (package-initialize)
 
@@ -1185,19 +1146,19 @@ SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))")
 
 ;; helm-bibtex, org-ref
 
-;; (use-package helm-bibtex
-;;   :ensure t
-;;   :requires helm)
+(use-package helm-bibtex
+  :ensure t
+  :requires helm)
 
-;; (use-package org-ref
-;;   :ensure t
-;;   :requires (org helm-bibtex)
-;;   :config
-;;   (setq  reftex-default-bibliography "~/org/bib/index.bib"
-;;          org-ref-bibliography-notes "~/org/bib/index.org"
-;;          org-ref-default-bibliography (quote ("~/org/bib/index.bib"))
-;;          org-ref-notes-directory "~/org/bib"
-;;          org-ref-pdf-directory (quote ("~/org/bib/lib/"))))
+(use-package org-ref
+  :ensure t
+  :requires (org helm-bibtex)
+  :config
+  (setq  reftex-default-bibliography "~/org/bib/index.bib"
+         org-ref-bibliography-notes "~/org/bib/index.org"
+         org-ref-default-bibliography (quote ("~/org/bib/index.bib"))
+         org-ref-notes-directory "~/org/bib"
+         org-ref-pdf-directory (quote ("~/org/bib/pdf/"))))
 
 ;; ivy, flx
 
