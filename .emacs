@@ -1148,21 +1148,20 @@ SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))")
 
 (use-package helm-bibtex
   :ensure t
-  :requires helm
-  :custom
-  (bibtex-completion-bibliography '("~/org/bib/index.org" "~/org/bib/index.bib"))
-  (bibtex-completion-library-path "~/org/bib/pdfs")
-  (bibtex-completion-notes-path "~/org/bib/notes")
-  (reftex-default-bibliography '("~/org/bib/index.bib" "~/org/bib/aux.bib")))
+  :requires helm)
 
 (use-package org-ref
   :ensure t
   :requires (org helm-bibtex)
   :custom
+  (bibtex-completion-bibliography '("~/org/bib/index.org" "~/org/bib/index.bib"))
+  (bibtex-completion-library-path "~/org/bib/pdfs")
+  (bibtex-completion-notes-path "~/org/bib/notes")
+  (reftex-default-bibliography '("~/org/bib/index.bib" "~/org/bib/aux.bib"))
   (org-ref-bibliography-notes "~/org/bib/index.org")
   (org-ref-default-bibliography '("~/org/bib/index.bib" "~/org/bib/aux.bib"))
   (org-ref-notes-directory "~/org/bib/notes")
-  (org-ref-pdf-directory '("~/org/bib/pdfs")))
+  (org-ref-pdf-directory "~/org/bib/pdfs/"))
 
 ;; ivy, flx
 
