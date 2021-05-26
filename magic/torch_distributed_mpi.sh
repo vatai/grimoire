@@ -1,6 +1,6 @@
 #!/bin/bash
 #PJM -L "rscunit=rscunit_ft01,rscgrp=small"
-#PJM -L elapse=00:00:10
+#PJM -L elapse=00:01:00
 #PJM -L "node=2"
 #PJM -j
 #PJM -S
