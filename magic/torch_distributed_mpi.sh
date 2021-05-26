@@ -9,5 +9,5 @@
 # $ pjsub magic.sh
 
 source ~/mytorch/activate.sh
-LD_PRELOAD=libtcmalloc.so mpirun -n $PJM_MPI_PROC python3 magic.py
+LD_PRELOAD=libtcmalloc.so mpirun -n $PJM_MPI_PROC python3 torch_distributed_mpi.py
 
