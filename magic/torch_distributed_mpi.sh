@@ -2,6 +2,7 @@
 #PJM -L "rscunit=rscunit_ft01,rscgrp=small"
 #PJM -L elapse=00:01:00
 #PJM -L "node=2"
+#PJM --mpi "proc=4"
 #PJM -j
 #PJM -S
 
