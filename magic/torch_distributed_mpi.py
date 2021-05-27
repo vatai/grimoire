@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import torch
 import torch.distributed as dist
 
 if __name__ == "__main__":
