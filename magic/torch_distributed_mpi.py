@@ -8,17 +8,6 @@ import torch.distributed as dist
 # from torch.multiprocessing import Process
 
 
-def run(rank, size):
-    """Distributed function to be implemented later."""
-    tensor = torch.zeros(1)
-    if rank == 0:
-        tensor += 1
-        # Send the tensor to process 1
-        dist.send(tensor=tensor, dst=1)
-    else:
-        # Receive tensor from process 0
-        dist.recv(tensor=tensor, src=0)
-    print(f"Rank {rank} (size {size}) has data ", tensor[0])
 
 
 # def init_process(rank, size, fn, backend="gloo"):
@@ -34,4 +23,5 @@ if __name__ == "__main__":
     available = dist.is_mpi_available()
     print(f"mpi available: {available}")
     # init_process(-1, -1, run, backend="mpi")
+    dist.init_process_group("mpi")
     print(f"RANK: {dist.get_rank()}, SIZE: {dist.get_world_size()}")

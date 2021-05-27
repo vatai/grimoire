@@ -8,6 +8,7 @@
 # RUN IT WITH:
 # $ pjsub magic.sh
 
-source ~/mytorch/activate.sh
+export PATH=/home/apps/oss/PyTorch-1.7.0/bin:$PATH
+export LD_LIBRARY_PATH=/home/apps/oss/PyTorch-1.7.0/lib:$LD_LIBRARY_PATH
 LD_PRELOAD=libtcmalloc.so mpirun -n $PJM_MPI_PROC python3 torch_distributed_mpi.py
 
