@@ -813,7 +813,12 @@
 ;;   ;; dark: desert, railscast, monokai, gruvbox
 ;;   (circadian-setup))
 
-(use-package beacon :ensure t :config (beacon-mode))
+(use-package beacon
+  :ensure t
+  :custom
+  (beacon-size 70)
+  (beacon-color "#BB00AA")
+  :config (beacon-mode))
 
 (use-package all-the-icons :ensure t)
 
