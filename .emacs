@@ -648,16 +648,13 @@
    (quote
     (("r" "Remember" entry
       (file+headline "~/org/capture.org" "Remember")
-      "* %t: %?
-")
+      (format "* %T: %?\n"))
      ("t" "Todo" entry
       (file+headline "~/org/capture.org" "Tasks")
-      "* TODO %?
-SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))")
+      (format "* TODO %?\nSCHEDULED: %T\nlink: %a"))
      ("i" "Idea" entry
       (file+headline "~/org/capture.org" "Ideas")
-      "* Idea on %t: %?
-"))))
+      (format "* Idea on %t: %?\n")))))
   (org-clock-persist (quote history))
   (org-confirm-babel-evaluate nil)
   (org-default-notes-file "~/org/capture.org")
