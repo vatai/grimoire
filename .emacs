@@ -650,10 +650,6 @@
       (file+headline "~/org/capture.org" "Remember")
       "* %t: %?
 ")
-     ("s" "Sudalab Todo" entry
-      (file+headline "~/org/sudalab.org" "Tasks")
-      "* TODO %?
-SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))")
      ("t" "Todo" entry
       (file+headline "~/org/capture.org" "Tasks")
       "* TODO %?
