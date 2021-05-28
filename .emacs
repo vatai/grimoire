@@ -680,6 +680,7 @@
   (org-agenda-archives-mode nil)
   (org-agenda-skip-comment-trees nil)
   (org-agenda-skip-function nil)
+  (org-agenda-span 'day)
   (org-catch-invisible-edits 'show-and-error)
   (org-habit-show-habits-only-for-today nil)
   (org-log-into-drawer t)
