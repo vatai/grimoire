@@ -1,0 +1,5 @@
+* Light dark mode switching
+  E.g.
+  #+begin_src elisp
+    emacsclient -q --eval "(load-theme 'solarized-light-high-contrast t)"
+  #+end_src
