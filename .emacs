@@ -14,9 +14,6 @@
    [default default default italic underline success warning error])
  '(ansi-term-color-vector
    [unspecified "#2d2a2e" "#ff6188" "#a9dc76" "#ffd866" "#78dce8" "#ab9df2" "#ff6188" "#fcfcfa"] t)
- '(bibtex-completion-bibliography '("~/org/notes/index.bib"))
- '(bibtex-completion-library-path '("~/org/notes/lib"))
- '(bibtex-completion-notes-path "~/org/notes/index.org")
  '(column-number-mode t)
  '(compilation-ask-about-save nil)
  '(cua-enable-cua-keys 'shift)
@@ -54,7 +51,7 @@
      ("melpa" . "https://melpa.org/packages/")))
  '(package-enable-at-startup nil)
  '(package-selected-packages
-   '(org-ref docker dockerfile-mode lsp-treemacs solarized-theme telega helm-lsp ob-sagemath ob-sage org-pomodoro proof-general pkgbuild-mode yaml-mode treemacs-evil evil-org org-tree-slide yasnippet-snippets evil-collection evil-surround evil undo-tree delight use-package elcord elcort rustic treemacs-projectile helm-projectile projectile monokai-theme twittering-mode mingus pretty-symbols treemacs-magit fira-code-mode cmake-ide helm-org-refile org-refile cdlatex diminish pos-tip pos-top company-box cargo flycheck-rust ob-rust racer company-auctex auctex helm-org blacken company-postframe py-isort yasnippets blacked telephone-line circadian exec-path-from-shell flycheck-google-cpplint google-c-style all-the-icons-dired all-the-icons dap-lldb oauth2 magit-gh-pulls gist ox-gfm helm-bibtex org-caldav biblio eldoc-mode mu4e ag helm/purpose helm-purpose window-purpose purpose cquery cquary lsp jedi sage-shell-mode mu4e-alert auctex-latexmk org-journal mozc org company-coq dired-sort evil-magit ivy-hydra flx evil-tabs hideshow-org ido-vertical-mode ox-mediawiki interleave wc-mode dired-rainbow rainbow-delimiters rainbow-identifiers org-gcal xkcd micgoline cmake-font-lock cmake-mode cuda-mode company-c-headers nyan-mode gnuplot org-ac ghci-completion ghc fuzzy eldoc-eval c-eldoc rainbow-mode ox-reveal auto-package-update))
+   '(evil-numbers org-ref docker dockerfile-mode lsp-treemacs solarized-theme telega helm-lsp ob-sagemath ob-sage org-pomodoro proof-general pkgbuild-mode yaml-mode treemacs-evil evil-org org-tree-slide yasnippet-snippets evil-collection evil-surround evil undo-tree delight use-package elcord elcort rustic treemacs-projectile helm-projectile projectile monokai-theme twittering-mode mingus pretty-symbols treemacs-magit fira-code-mode cmake-ide helm-org-refile org-refile cdlatex diminish pos-tip pos-top company-box cargo flycheck-rust ob-rust racer company-auctex auctex helm-org blacken company-postframe py-isort yasnippets blacked telephone-line circadian exec-path-from-shell flycheck-google-cpplint google-c-style all-the-icons-dired all-the-icons dap-lldb oauth2 magit-gh-pulls gist ox-gfm helm-bibtex org-caldav biblio eldoc-mode mu4e ag helm/purpose helm-purpose window-purpose purpose cquery cquary lsp jedi sage-shell-mode mu4e-alert auctex-latexmk org-journal mozc org company-coq dired-sort evil-magit ivy-hydra flx evil-tabs hideshow-org ido-vertical-mode ox-mediawiki interleave wc-mode dired-rainbow rainbow-delimiters rainbow-identifiers org-gcal xkcd micgoline cmake-font-lock cmake-mode cuda-mode company-c-headers nyan-mode gnuplot org-ac ghci-completion ghc fuzzy eldoc-eval c-eldoc rainbow-mode ox-reveal auto-package-update))
  '(recentf-max-menu-items 100)
  '(recentf-max-saved-items 200)
  '(recentf-mode t)
@@ -290,6 +287,11 @@
   ;; (add-to-list 'evil-emacs-state-modes 'mingus-playlist-mode)
   (evil-set-undo-system 'undo-tree)
   (evil-mode))
+
+(use-package evil-numbers
+  :ensure t
+  :bind (("C-c +" . evil-numbers/inc-at-pt)
+         ("C-c -" . evil-numbers/dec-at-pt)))
 
 (use-package evil-surround
   :after evil
