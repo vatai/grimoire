@@ -580,16 +580,16 @@
 
 (use-package ob-sagemath :ensure t)
 
-(use-package sage-shell-mode
-  :ensure t
-  :config
-  ;; Run SageMath by M-x run-sage instead of M-x sage-shell:run-sage
-  (sage-shell:define-alias)
+;; (use-package sage-shell-mode
+;;   :ensure t
+;;   ;; :config
+;;   ;; Run SageMath by M-x run-sage instead of M-x sage-shell:run-sage
+;;   ;; (sage-shell:define-alias)
 
-  ;; Turn on eldoc-mode in Sage terminal and in Sage source files
-  ;; (add-hook 'sage-shell-mode-hook #'eldoc-mode)
-  ;; (add-hook 'sage-shell:sage-mode-hook #'eldoc-mode)
-  )
+;;   ;; Turn on eldoc-mode in Sage terminal and in Sage source files
+;;   ;; (add-hook 'sage-shell-mode-hook #'eldoc-mode)
+;;   ;; (add-hook 'sage-shell:sage-mode-hook #'eldoc-mode)
+;;   )
 
 (use-package docker
   :ensure t
