@@ -820,11 +820,13 @@
 (defconst dynamic-theme-dark-theme 'tango-dark)
 
 (defun dynamic-theme-light-mode ()
+  (interactive)
   "Switch to light  mode."
   (disable-theme dynamic-theme-dark-theme)
   (load-theme dynamic-theme-light-theme t))
 
 (defun dynamic-theme-dark-mode ()
+  (interactive)
   "Switch to dark mode."
   (disable-theme dynamic-theme-light-theme)
   (load-theme dynamic-theme-dark-theme t))
