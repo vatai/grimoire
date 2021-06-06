@@ -441,7 +441,10 @@
   ;; (lsp-completion-provider :capf)
   ;; customisations
   (lsp-idle-delay 0.500)
-  :hook (prog-mode . lsp)
+  :hook ;; (prog-mode . lsp)
+  (c-mode-common . lsp)
+  (python-mode . lsp)
+  (sh-mode . lsp)
   :commands lsp
   )
 
