@@ -739,13 +739,17 @@
 (use-package org-pomodoro
   :ensure t
   :custom
-  (org-pomodoro-short-break-sound
-   ;; "/usr/share/sounds/freedesktop/stereo/service-logout.oga")
-   "~/Sync/sounds/uhoh.wav")
-  (org-pomodoro-finished-sound
-   ;; "/usr/share/sounds/freedesktop/stereo/service-logout.oga")
-   "~/Sync/sounds/uhoh.wav")
-  ;; (org-pomodoro-audio-player "/usr/bin/paplay")
+  ;; "/usr/share/sounds/freedesktop/stereo/service-logout.oga")
+  (org-pomodoro-finished-sound "~/Sync/sounds/uhoh.wav")
+  (org-pomodoro-finished-sound-args "--volume=40000")
+  ;; "/usr/share/sounds/freedesktop/stereo/service-logout.oga")
+  (org-pomodoro-short-break-sound "~/Sync/sounds/uhoh.wav")
+  (org-pomodoro-finished-sound-args "--volume=40000")
+  ;;
+  (org-pomodoro-long-break-sound "~/Sync/sounds/bell.wav")
+  (org-pomodoro-long-break-sound-args "--volume=30000")
+  ;;
+  (org-pomodoro-audio-player "/usr/bin/paplay")
 )
 
 (use-package ox-gfm
