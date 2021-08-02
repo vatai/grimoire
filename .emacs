@@ -650,7 +650,13 @@
      (sqlite . t))))
   (org-capture-templates
    (quote
-    (("r" "Remember" entry
+    (("p" "Protocol" entry
+      (file+headline "~/org/capture.org" "Inbox")
+      "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?")
+     ("L" "Protocol Link" entry
+      (file+headline "~/org/capture.org" "Inbox")
+      "* %? [[%:link][%:description]] \nCaptured On: %U")
+     ("r" "Remember" entry
       (file+headline "~/org/capture.org" "Remember")
       "* %T: %?\n")
      ("t" "Todo" entry
@@ -696,6 +702,7 @@
 
   :config
   (add-to-list 'org-modules 'org-habit)
+  (add-to-list 'org-modules 'org-protocol)
   (org-clock-persistence-insinuate)
 
   ;; Exporting
