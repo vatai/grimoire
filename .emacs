@@ -743,6 +743,7 @@
 (use-package org-roam
   :ensure t
   :custom
+  (org-roam-v2-ack t)
   (org-roam-directory "~/org/roam")
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
