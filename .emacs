@@ -983,7 +983,7 @@
                t)
   (setq mu4e-view-show-addresses 't)
   (setq mu4e-user-mail-address-list
-  '("emil.vatai@riken.jp" "vatai@inf.elte.hu" "vatai.emil@mail.u-tokyo.ac.jp"))
+        '("emil.vatai@riken.jp" "vatai@inf.elte.hu")) ;; "vatai.emil@mail.u-tokyo.ac.jp"
   (let* (
          (riken-vars
           '((user-mail-address . "emil.vatai@riken.jp")
@@ -1017,38 +1017,6 @@
                          (when msg
                            (string-match-p "^/Riken" (mu4e-message-field msg :maildir))))
            :vars riken-vars))
-         (ut-vars
-          '((user-mail-address . "vatai.emil@mail.u-tokyo.ac.jp")
-            (user-full-name . "Emil VATAI")
-            (smtpmail-smtp-user . "8570589345@utac.u-tokyo.ac.jp")
-            (smtpmail-smtp-server . "smtp.office365.com")
-            (smtpmail-smtp-service . 587)
-            (smtpmail-stream-type . starttls)
-            (mu4e-get-mail-command . "mbsync UT")
-            (mu4e-sent-folder . "/UT/Sent Items")
-            (mu4e-drafts-folder . "/UT/Drafts")
-            (mu4e-refile-folder . "/UT/Archive")
-            (mu4e-trash-folder  . "/UT/Deleted Items")
-            (mu4e-compose-signature
-             .
-             (concat
-              "Emil VATAI (PhD)\n"
-              "The University of Tokyo\n"
-              "Graduate School of Information Science and Technology\n"
-              "Department of Information Science\n"
-              "Tokyo 113-0033, JAPAN\n"
-              "Bunkyo-ku, Hongo 7-3-1\n"
-              "Faculty of Science Bldg.7, 4F, room 403\n"))))
-         (ut-ctx
-          (make-mu4e-context
-           :name "UT"
-           :enter-func (lambda () (mu4e-message "Entering UT context"))
-           :leave-func (lambda () (mu4e-message "Leaving UT context"))
-           ;; we match based on the maildir of the message
-           :match-func (lambda (msg)
-                         (when msg
-                           (string-match-p "^/UT" (mu4e-message-field msg :maildir))))
-           :vars ut-vars))
          (elte-vars
           '((user-mail-address . "vatai@inf.elte.hu")
             (user-full-name . "Emil VATAI" )
@@ -1082,7 +1050,39 @@
                            (string-match-p "^/ELTE" (mu4e-message-field msg :maildir))))
            :vars elte-vars))
          )
-    (setq mu4e-contexts (list riken-ctx ut-ctx elte-ctx)))
+         ;; (ut-vars
+         ;;  '((user-mail-address . "vatai.emil@mail.u-tokyo.ac.jp")
+         ;;    (user-full-name . "Emil VATAI")
+         ;;    (smtpmail-smtp-user . "8570589345@utac.u-tokyo.ac.jp")
+         ;;    (smtpmail-smtp-server . "smtp.office365.com")
+         ;;    (smtpmail-smtp-service . 587)
+         ;;    (smtpmail-stream-type . starttls)
+         ;;    (mu4e-get-mail-command . "mbsync UT")
+         ;;    (mu4e-sent-folder . "/UT/Sent Items")
+         ;;    (mu4e-drafts-folder . "/UT/Drafts")
+         ;;    (mu4e-refile-folder . "/UT/Archive")
+         ;;    (mu4e-trash-folder  . "/UT/Deleted Items")
+         ;;    (mu4e-compose-signature
+         ;;     .
+         ;;     (concat
+         ;;      "Emil VATAI (PhD)\n"
+         ;;      "The University of Tokyo\n"
+         ;;      "Graduate School of Information Science and Technology\n"
+         ;;      "Department of Information Science\n"
+         ;;      "Tokyo 113-0033, JAPAN\n"
+         ;;      "Bunkyo-ku, Hongo 7-3-1\n"
+         ;;      "Faculty of Science Bldg.7, 4F, room 403\n"))))
+         ;; (ut-ctx
+         ;;  (make-mu4e-context
+         ;;   :name "UT"
+         ;;   :enter-func (lambda () (mu4e-message "Entering UT context"))
+         ;;   :leave-func (lambda () (mu4e-message "Leaving UT context"))
+         ;;   ;; we match based on the maildir of the message
+         ;;   :match-func (lambda (msg)
+         ;;                 (when msg
+         ;;                   (string-match-p "^/UT" (mu4e-message-field msg :maildir))))
+         ;;   :vars ut-vars))
+    (setq mu4e-contexts (list riken-ctx elte-ctx))) ;; ut-ctx 
   (setq mu4e-compose-context-policy 'ask-if-none)
   (setq mu4e-context-policy 'pick-first))
 
