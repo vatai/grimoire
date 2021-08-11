@@ -2,3 +2,5 @@
 [user]
 	name = Emil VATAI
 	email = emil.vatai@gmail.com
+[init]
+	defaultBranch = main
