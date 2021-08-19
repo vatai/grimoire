@@ -119,3 +119,6 @@ fi
 # zstyle ':completion:*:ssh:*' hosts off
 
 source $ZSH/oh-my-zsh.sh
+
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/home/vatai/.cache/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
