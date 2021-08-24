@@ -30,8 +30,6 @@
  '(initial-buffer-choice (lambda nil (get-buffer "*Org Agenda*")))
  '(magit-diff-use-overlays nil)
  '(menu-bar-mode nil)
- '(org-agenda-files
-   '("~/org/roam/20210803133134-polyhedral_model.org" "/home/vatai/org/appointments.org" "/home/vatai/org/capture.org" "/home/vatai/org/fugaku-next.org" "/home/vatai/org/gcal.org" "/home/vatai/org/mlt.org" "/home/vatai/org/nlp.org" "/home/vatai/org/olympics.org" "/home/vatai/org/presto.org" "/home/vatai/org/research.org" "/home/vatai/org/riken.org" "/home/vatai/org/sudalab.org") nil nil "Customized with use-package org")
  '(org-latex-default-packages-alist
    '(("AUTO" "inputenc" t
       ("pdflatex"))
@@ -58,7 +56,8 @@
  '(recentf-mode t)
  '(rustic-format-trigger 'on-save)
  '(safe-local-variable-values
-   '((eval setq dockerfile-build-args
+   '((org-export-with-broken-links . t)
+     (eval setq dockerfile-build-args
            (mapcar
             (lambda
               (input)
