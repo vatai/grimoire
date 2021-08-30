@@ -740,7 +740,14 @@
       (replace-regexp-in-string "{{{\\([^\n]+\\)}}}" "<mark>\\1</mark>"
                                 src)))
   (add-to-list 'org-export-filter-src-block-functions
-               'org-html-add-mark-tag))
+               'org-html-add-mark-tag))  ;; end of org
+
+(use-package ob-rust
+  :ensure t)
+
+(use-package ox-gfm
+  :ensure t
+  :after (org))
 
 (use-package org-roam
   :ensure t
@@ -764,8 +771,10 @@
   :ensure t
   :after org-roam)
 
-(use-package ob-rust
-  :ensure t)
+;; (use-package org-noter
+;;   :ensure t
+;;   :custom (org-noter-notes-search-path '("~/org/bib/notes/"))
+;;   :config (org-noter))
 
 (use-package org-pomodoro
   :ensure t
@@ -781,11 +790,17 @@
   (org-pomodoro-long-break-sound-args "--volume=30000")
   ;;
   (org-pomodoro-audio-player "/usr/bin/paplay")
-)
-
-(use-package ox-gfm
-  :ensure t
-  :after (org))
+  :config
+  (add-hook 'org-pomodoro-finished-hook
+            (lambda ()
+              (notifications-notify
+               :title "Pomodoro end!"
+               :body "org-pomodoro <b>finished</b>.")))
+  (add-hook 'org-pomodoro-break-finished-hook
+            (lambda ()
+              (notifications-notify
+               :title "Break end!"
+               :body "Time for a new pomodoro!!!"))))
 
 (use-package org-tree-slide
   :ensure t
