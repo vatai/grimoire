@@ -692,6 +692,7 @@
   (org-agenda-skip-function nil)
   (org-agenda-span 'day)
   (org-catch-invisible-edits 'show-and-error)
+  (org-enforce-todo-dependencies t)
   (org-habit-show-habits-only-for-today nil)
   (org-log-into-drawer t)
   (org-mobile-directory "~/.mobileorg")
