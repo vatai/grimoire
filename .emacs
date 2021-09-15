@@ -706,6 +706,7 @@
   :config
   (add-to-list 'org-modules 'org-habit)
   (add-to-list 'org-modules 'org-protocol)
+  (add-to-list 'org-modules 'org-tempo)
   (org-clock-persistence-insinuate)
 
   ;; Exporting
