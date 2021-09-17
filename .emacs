@@ -401,11 +401,7 @@
   :config
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (setq projectile-project-search-path
-        '("~/code/"
-          ;; "~/Dropbox/"
-          ;; "~/Dropbox/Work/publications/endrody"
-          ))
+  (setq projectile-project-search-path '("~/code/"))
   (projectile-mode +1))
 
 (use-package helm-projectile
@@ -932,7 +928,7 @@
   :delight
   :hook prog-mode)
 
-;; (load "~/Dropbox/.emacs.d/setup-ligatures.el")
+;; (load "~/Sync/.emacs.d/setup-ligatures.el")
 
 (load "~/Sync/.emacs.d/indent-file.el")
 (indent-file-when-save)
