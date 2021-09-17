@@ -30,21 +30,6 @@
  '(initial-buffer-choice (lambda nil (get-buffer "*Org Agenda*")))
  '(magit-diff-use-overlays nil)
  '(menu-bar-mode nil)
- '(org-latex-default-packages-alist
-   '(("AUTO" "inputenc" t
-      ("pdflatex"))
-     ("T1" "fontenc" t
-      ("pdflatex"))
-     ("" "graphicx" t nil)
-     ("" "longtable" nil nil)
-     ("" "wrapfig" nil nil)
-     ("" "rotating" nil nil)
-     ("normalem" "ulem" t nil)
-     ("" "amsmath" t nil)
-     ("" "textcomp" t nil)
-     ("" "amssymb" t nil)
-     ("" "capt-of" nil nil)
-     ("" "hyperref" nil nil)))
  '(package-archives
    '(("gnu" . "http://elpa.gnu.org/packages/")
      ("melpa" . "https://melpa.org/packages/")))
@@ -679,6 +664,21 @@
      ("\\.x?html?\\'" . default)
      ("\\.pdf\\'" . "setsid -w xdg-open %s"))))
   (org-journal-dir "~/org/journal/")
+  (org-latex-default-packages-alist
+   '(("AUTO" "inputenc" t
+      ("pdflatex"))
+     ("T1" "fontenc" t
+      ("pdflatex"))
+     ("" "graphicx" t nil)
+     ("" "longtable" nil nil)
+     ("" "wrapfig" nil nil)
+     ("" "rotating" nil nil)
+     ("normalem" "ulem" t nil)
+     ("" "amsmath" t nil)
+     ("" "textcomp" t nil)
+     ("" "amssymb" t nil)
+     ("" "capt-of" nil nil)
+     ("" "hyperref" nil nil)))
   (org-latex-listings (quote minted))
   (org-latex-packages-alist (quote (("" "minted" nil) ("" "booktabs" nil))))
   (org-latex-pdf-process
@@ -882,19 +882,19 @@
 ;;   ;; dark: desert, railscast, monokai, gruvbox
 ;;   (circadian-setup))
 
-(defconst dynamic-theme-light-theme 'whiteboard)
-(defconst dynamic-theme-dark-theme 'tango-dark)
+(defconst dynamic-theme-light-theme 'tsdh-light)
+(defconst dynamic-theme-dark-theme 'wombat)
 
 (defun dynamic-theme-light-mode ()
   (interactive)
   "Switch to light  mode."
-  (disable-theme dynamic-theme-dark-theme)
+  (mapc #'disable-theme custom-enabled-themes)
   (load-theme dynamic-theme-light-theme t))
 
 (defun dynamic-theme-dark-mode ()
   (interactive)
   "Switch to dark mode."
-  (disable-theme dynamic-theme-light-theme)
+  (mapc #'disable-theme custom-enabled-themes)
   (load-theme dynamic-theme-dark-theme t))
 
 (use-package beacon
@@ -993,10 +993,10 @@
 
 (use-package magit
   :ensure t
-  :config
-  (setq git-commit-setup-hook 'git-commit-turn-on-flyspell
-        git-commit-summary-max-length 50
-        magit-save-repository-buffers 'dontask))
+  :custom
+  (magit-save-repository-buffers 'dontask)
+  (git-commit-setup-hook 'git-commit-turn-on-flyspell)
+  (git-commit-summary-max-length 50))
 
 (use-package gist :ensure t)
 
