@@ -647,7 +647,10 @@
       "* %T: %?\n")
      ("t" "Todo" entry
       (file+headline "~/org/capture.org" "Tasks")
-      "* TODO %?\nSCHEDULED: %T\nlink: %a"))))
+      "* TODO %?\nSCHEDULED: %T\nlink: %a")
+     ("m" "Meeting/appointment" entry
+      (file "~/org/meetings.org")
+      "* TODO %?\n  SCHEDULED: %T\n"))))
   (org-clock-persist (quote history))
   (org-confirm-babel-evaluate nil)
   (org-default-notes-file "~/org/capture.org")
