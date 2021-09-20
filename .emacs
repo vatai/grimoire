@@ -760,6 +760,7 @@
          ("C-c n f" . org-roam-node-find)
          ("C-c n g" . org-roam-graph)
          ("C-c n i" . org-roam-node-insert)
+         ("C-c n I" . org-roam-node-insert-immediate)
          ("C-c n c" . org-roam-capture)
          ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today))
@@ -773,6 +774,20 @@
                  (window-width . 0.33)
                  (window-parameters . ((no-other-window . t)
                                        (no-delete-other-windows . t)))))
+  (defun org-roam-node-insert-immediate (arg &rest args)
+    "Insert an org-roam mode without opening its buffer."
+    (interactive "P")
+    (let* ((args (cons arg args))
+           (template (copy-sequence (car org-roam-capture-templates)))
+           (target (plist-get template :target))
+           (new-text (format "%s#+filetags: stub\n" (caddr target)))
+           (new-target (append (butlast target) (list new-text)))
+           (new-template (plist-put template :target new-target))
+           (org-roam-capture-templates
+            (list (append template '(:immediate-finish t)))))
+      (message "%s" org-roam-capture-templates)
+      (apply #'org-roam-node-insert args)))
+
   ;; If using org-roam-protocol
   (require 'org-roam-protocol))
 
