@@ -896,6 +896,11 @@
   (mapc #'disable-theme custom-enabled-themes)
   (load-theme dynamic-theme-dark-theme t))
 
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+
 (use-package beacon
   :ensure t
   :custom
