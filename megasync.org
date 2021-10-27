@@ -1,0 +1,22 @@
+* AUR
+  #+begin_src shell
+    yay -S megacmd
+  #+end_src
+
+* Login
+  Start =mega-cmd= and log in!
+
+* Setup sync
+  #+begin_src shell
+    mega-sync Mega .
+  #+end_src
+
+* Copy mega-cmd@.service
+  #+begin_src shell
+    sudo cp mega-cmd@.service /etc/systemd/system/
+  #+end_src
+
+* Enable the megasync
+  #+begin_src shell
+    sudo systemctl enable mega-cmd@vatai
+  #+end_src
