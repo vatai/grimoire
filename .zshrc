@@ -30,7 +30,7 @@ source /usr/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh
 
 dropbox-cli start
 alias ringo='ssh -L 8080:ringo.is.s.u-tokyo.ac.jp:80 ringo.is.s.u-tokyo.ac.jp'
-alias wttr="curl wttr.in/Tokyo"
+alias wttr="curl wttr.in"
 
 PATH=${HOME}/bin:${HOME}/.local/bin:${PATH}
 
