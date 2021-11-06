@@ -1062,11 +1062,7 @@
   (bibtex-completion-bibliography '("~/org/bib/bibdb.org" "~/org/bib/bibdb.bib"))
   (bibtex-completion-library-path "~/org/bib/pdfs")
   (bibtex-completion-notes-path "~/org/bib/notes")
-  (reftex-default-bibliography '("~/org/bib/bibdb.bib"))
-  (org-ref-bibliography-notes "~/org/bib/bibdb.org")
-  (org-ref-default-bibliography '("~/org/bib/bibdb.bib"))
-  (org-ref-notes-directory "~/org/bib/notes")
-  (org-ref-pdf-directory "~/org/bib/pdfs/"))
+  (reftex-default-bibliography '("~/org/bib/bibdb.bib")))
 
 ;; ivy, flx
 
