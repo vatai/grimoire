@@ -1062,7 +1062,14 @@
   (bibtex-completion-bibliography '("~/org/bib/bibdb.org" "~/org/bib/bibdb.bib"))
   (bibtex-completion-library-path "~/org/bib/pdfs")
   (bibtex-completion-notes-path "~/org/bib/notes")
-  (reftex-default-bibliography '("~/org/bib/bibdb.bib")))
+  (reftex-default-bibliography '("~/org/bib/bibdb.bib"))
+  (org-ref-insert-link-function 'org-ref-insert-link-hydra/body)
+  (org-ref-insert-cite-function 'org-ref-cite-insert-helm)
+  (org-ref-insert-label-function 'org-ref-insert-label-link)
+  (org-ref-insert-ref-function 'org-ref-insert-ref-link)
+  (org-ref-cite-onclick-function (lambda (_) (org-ref-citation-hydra/body)))
+  :bind (:map org-mode-map
+              ("C-c ]" . 'org-ref-insert-link)))
 
 ;; ivy, flx
 
