@@ -1001,6 +1001,7 @@
 "Octave"
 
 ;; (setq org-babel-octave-shell-command "octave-cli -q")
+(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
 "MISC"
 
