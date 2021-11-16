@@ -5,10 +5,6 @@
 (setq custom-file "~/Sync/.emacs.d/customs.el")
 (load custom-file)
 
-
-
-
-
 (package-initialize)
 
 (require 'smtpmail)
