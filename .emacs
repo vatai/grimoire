@@ -116,19 +116,53 @@
   :config
   (evil-collection-init))
 
-"Helm"
+"Helm/Ivy"
 
-(use-package helm
+;; (use-package helm
+;;   :ensure t
+;;   :delight
+;;   :demand
+;;   :bind (("M-x" . helm-M-x)
+;;          ("C-x r b" . helm-filtered-bookmarks)
+;;          ("C-x C-f" . helm-find-files)
+;;          ("C-x b" . helm-mini))
+;;   :config
+;;   ;; (use-package helm-org :ensure t)
+;;   (helm-mode 1))
+
+(use-package swiper
+  :ensure t)
+
+(use-package counsel
   :ensure t
-  :delight
-  :demand
-  :bind (("M-x" . helm-M-x)
-         ("C-x r b" . helm-filtered-bookmarks)
-         ("C-x C-f" . helm-find-files)
-         ("C-x b" . helm-mini))
-  :config
-  ;; (use-package helm-org :ensure t)
-  (helm-mode 1))
+  :config (counsel-mode))
+
+(use-package ivy
+  :ensure t
+  :custom
+  (ivy-use-virtual-buffers t)
+  (enable-recursive-minibuffers t)
+  (search-default-mode #'char-fold-to-regexp)
+  :config (ivy-mode)
+  :bind
+  ("C-s" . 'swiper )
+  ("C-c C-r" . 'ivy-resume)
+  ("<f6>" . 'ivy-resume)
+  ("M-x" . 'counsel-M-x)
+  ("C-x C-f" . 'counsel-find-file)
+  ("<f1> f" . 'counsel-describe-function)
+  ("<f1> v" . 'counsel-describe-variable)
+  ("<f1> o" . 'counsel-describe-symbol)
+  ("<f1> l" . 'counsel-find-library)
+  ("<f2> i" . 'counsel-info-lookup-symbol)
+  ("<f2> u" . 'counsel-unicode-char)
+  ("C-c g" . 'counsel-git)
+  ("C-c j" . 'counsel-git-grep)
+  ("C-c k" . 'counsel-ag)
+  ("C-x l" . 'counsel-locate)
+  ("C-S-o" . 'counsel-rhythmbox)
+  (:map minibuffer-local-map
+        ("C-r" . 'counsel-minibuffer-history)))
 
 "Development"
 
@@ -230,10 +264,16 @@
   (setq projectile-project-search-path '("~/code/"))
   (projectile-mode +1))
 
-(use-package helm-projectile
+"Helm/Ivy projectile"
+
+;; (use-package helm-projectile
+;;   :ensure t
+;;   :commands helm-projectile
+;;   :config (helm-projectile))
+
+(use-package counsel-projectile
   :ensure t
-  :commands helm-projectile
-  :config (helm-projectile))
+  :config (counsel-projectile-mode))
 
 (use-package eldoc
   :ensure t
@@ -254,12 +294,6 @@
   (python-mode . lsp)
   (sh-mode . lsp)
   :commands lsp
-  )
-
-(use-package helm-lsp
-  :ensure t
-  :config
-  (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
   )
 
 (use-package lsp-ui
@@ -303,6 +337,17 @@
 (use-package lsp-treemacs
   :ensure t
   :commands lsp-treemacs-errors-list)
+
+"Helm/Ivy lsp"
+
+;; (use-package helm-lsp
+;;   :ensure t
+;;   :config
+;;   (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
+;;   )
+
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
 (use-package yasnippet-snippets :ensure t)
 
@@ -702,9 +747,11 @@
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
 
-(use-package helm-org
-  :after helm org
-  :ensure t)
+"Helm/Ivy org"
+
+;; (use-package helm-org
+;;   :after helm org
+;;   :ensure t)
 
 "Bling - Appearance"
 
@@ -1044,20 +1091,32 @@
 (use-package pdf-tools
   :ensure t)
 
-(use-package helm-bibtex
+"Helm/Ivy bibtex ++"
+
+;; (use-package helm-bibtex
+;;   :ensure t
+;;   :requires helm)
+
+(use-package ivy-bibtex
   :ensure t
-  :requires helm)
+  :custom
+  (ivy-re-builders-alist
+   . '((ivy-bibtex . ivy--regex-ignore-order)
+       (t . ivy--regex-plus))))
 
 (use-package org-ref
   :ensure t
-  :requires (org helm-bibtex)
+  :requires
+  ;; (org helm-bibtex org-ref-helm)
+  (org ivy-bibtex org-ref-ivy)
   :custom
   (bibtex-completion-bibliography '("~/org/bib/bibdb.org" "~/org/bib/bibdb.bib"))
   (bibtex-completion-library-path "~/org/bib/pdfs")
   (bibtex-completion-notes-path "~/org/bib/notes")
   (reftex-default-bibliography '("~/org/bib/bibdb.bib"))
   (org-ref-insert-link-function 'org-ref-insert-link-hydra/body)
-  (org-ref-insert-cite-function 'org-ref-cite-insert-helm)
+  ;;;; (org-ref-insert-cite-function 'org-ref-cite-insert-helm)
+  (org-ref-insert-cite-function 'org-ref-cite-insert-ivy)
   (org-ref-insert-label-function 'org-ref-insert-label-link)
   (org-ref-insert-ref-function 'org-ref-insert-ref-link)
   (org-ref-cite-onclick-function
