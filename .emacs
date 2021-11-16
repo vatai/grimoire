@@ -304,10 +304,6 @@
   ;; (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
   :commands lsp-ui-mode)
 
-(use-package helm-lsp
-  :ensure t
-  :commands helm-lsp-workspace-symbol)
-
 (use-package lsp-treemacs
   :ensure t
   :commands lsp-treemacs-errors-list)
@@ -1068,9 +1064,13 @@
   (org-ref-insert-cite-function 'org-ref-cite-insert-helm)
   (org-ref-insert-label-function 'org-ref-insert-label-link)
   (org-ref-insert-ref-function 'org-ref-insert-ref-link)
-  (org-ref-cite-onclick-function (lambda (_) (org-ref-citation-hydra/body)))
-  :bind (:map org-mode-map
-              ("C-c ]" . 'org-ref-insert-link)))
+  (org-ref-cite-onclick-function
+   (lambda (_) (org-ref-citation-hydra/body)))
+  (bibtex-completion-pdf-open-function
+   (lambda (fpath) (call-process "xdg-open" nil 0 nil fpath)))
+  :bind
+  (:map org-mode-map ("C-c ]" . 'org-ref-insert-link))
+  (:map bibtex-mode-map ("H-b" . 'org-ref-bibtex-hydra/body)))
 
 ;; ivy, flx
 
