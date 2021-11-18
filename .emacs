@@ -280,6 +280,10 @@
   :delight
   :hook (emacs-lisp-mode . eldoc-mode))
 
+(use-package which-key
+  :ensure t
+  :config (which-key-mode))
+
 (use-package lsp-mode
   :ensure t
   :custom
