@@ -350,8 +350,9 @@
 ;;   (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
 ;;   )
 
-(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+(use-package lsp-ivy :ensure t :commands lsp-ivy-workspace-symbol)
+
+(use-package lsp-treemacs :ensure t :commands lsp-treemacs-errors-list)
 
 (use-package yasnippet-snippets :ensure t)
 
