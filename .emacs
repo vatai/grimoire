@@ -1107,8 +1107,8 @@
 (use-package org-ref
   :ensure t
   :requires
-  ;; (org helm-bibtex org-ref-helm)
-  (org ivy-bibtex org-ref-ivy)
+  (org ivy-bibtex)
+  ;; (org helm-bibtex)
   :custom
   (bibtex-completion-bibliography '("~/org/bib/bibdb.org" "~/org/bib/bibdb.bib"))
   (bibtex-completion-library-path "~/org/bib/pdfs")
