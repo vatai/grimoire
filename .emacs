@@ -11,8 +11,8 @@
 (let ((package 'use-package))
   (unless (package-installed-p package)
     (package-install package)))
-;; (eval-when-compile
-;;  (require 'use-package))
+(eval-when-compile
+  (require 'use-package))
 (use-package diminish :ensure t)
 (use-package bind-key :ensure t)
 ;; (require 'diminish)                ;; if you use :diminish
