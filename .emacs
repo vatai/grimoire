@@ -599,6 +599,12 @@
   ;; If using org-roam-protocol
   (require 'org-roam-protocol))
 
+(use-package org-roam-bibtex
+  :ensure t
+  :custom (orb-roam-ref-format 'org-ref-v3)
+  :after org-roam
+  :config (org-roam-bibtex-mode))
+
 ;; org-roam-ui
 (use-package websocket :ensure t)
 (use-package simple-httpd :ensure t)
