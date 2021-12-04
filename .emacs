@@ -564,6 +564,11 @@
   (org-roam-directory "~/org/roam")
   (org-roam-node-display-template
    (concat "${title} " (propertize "${tags}" 'face 'org-tag)))
+  (org-roam-capture-templates
+   '(("r" "bibliography reference" plain (file "~/Sync/.emacs.d/template.org")
+      :target
+      (file+head "references/${citekey}.org" "#+title: ${title}\n")
+      :unnarrowed t)))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
          ("C-c n g" . org-roam-graph)
@@ -601,9 +606,20 @@
 
 (use-package org-roam-bibtex
   :ensure t
-  :custom (orb-roam-ref-format 'org-ref-v3)
-  :after org-roam
-  :config (org-roam-bibtex-mode))
+  :after (org-roam)
+  ;; :requires (org-ref)
+
+  :custom
+  (orb-roam-ref-format 'org-ref-v3)
+  (orb-preformat-keywords
+   '("citekey" "title" "url" "author-or-editor" "keywords" "file"))
+  (orb-process-file-keyword t)
+  (orb-attached-file-extensions '("pdf"))
+
+  :config
+  (require 'org-ref)
+  (org-roam-bibtex-mode)
+  )
 
 ;; org-roam-ui
 (use-package websocket :ensure t)
@@ -1031,9 +1047,15 @@
 
 ;; helm-bibtex, org-ref
 
-(use-package pdf-tools :ensure t)
-
 "Helm/Ivy bibtex ++"
+
+(use-package pdf-tools :ensure t
+  :custom
+  (pdf-annot-activate-created-annotations t)
+  :config
+  (pdf-tools-install)
+  ;; Disable swiper
+  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))
 
 ;; (use-package helm-bibtex
 ;;   :ensure t
@@ -1051,13 +1073,13 @@
 (use-package org-ref
   :ensure t
   :custom
-  (bibtex-completion-bibliography '("~/org/bib/bibdb.org" "~/org/bib/bibdb.bib"))
+  ;; (org-ref-insert-cite-function 'org-ref-cite-insert-helm)
+  (org-ref-insert-cite-function 'org-ref-cite-insert-ivy)
+  ;;
+  (bibtex-completion-bibliography "~/org/bib/bibdb.org")
   (bibtex-completion-library-path "~/org/bib/pdfs")
   (bibtex-completion-notes-path "~/org/bib/notes")
-  (reftex-default-bibliography '("~/org/bib/bibdb.bib"))
   (org-ref-insert-link-function 'org-ref-insert-link-hydra/body)
-  ;;;; (org-ref-insert-cite-function 'org-ref-cite-insert-helm)
-  (org-ref-insert-cite-function 'org-ref-cite-insert-ivy)
   (org-ref-insert-label-function 'org-ref-insert-label-link)
   (org-ref-insert-ref-function 'org-ref-insert-ref-link)
   (org-ref-cite-onclick-function
@@ -1066,7 +1088,8 @@
    (lambda (fpath) (call-process "xdg-open" nil 0 nil fpath)))
   :bind
   (:map org-mode-map ("C-c ]" . 'org-ref-insert-link))
-  (:map bibtex-mode-map ("H-b" . 'org-ref-bibtex-hydra/body)))
+  (:map bibtex-mode-map ("H-b" . 'org-ref-bibtex-hydra/body))
+  )
 
 ;; ivy, flx
 
