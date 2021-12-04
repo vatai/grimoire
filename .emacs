@@ -140,6 +140,7 @@
 (use-package ivy
   :ensure t
   :custom
+  (ivy-use-selectable-prompt t)
   (ivy-use-virtual-buffers t)
   (enable-recursive-minibuffers t)
   (search-default-mode #'char-fold-to-regexp)
@@ -424,10 +425,7 @@
   ;; BEGIN [from custom]
   (org-image-actual-width nil)
   (org-agenda-clockreport-parameter-plist (quote (:link t :maxlevel 2 :fileskip0 t)))
-  (org-agenda-files
-   (quote ("~/org/"
-           ;; "~/endrody/endrody.org"
-           )))
+  (org-agenda-files (quote ("~/org/")))
   (org-babel-load-languages
    (quote
     ((emacs-lisp . t)
@@ -564,6 +562,8 @@
   (setq org-roam-v2-ack t)
   :custom
   (org-roam-directory "~/org/roam")
+  (org-roam-node-display-template
+   (concat "${title} " (propertize "${tags}" 'face 'org-tag)))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
          ("C-c n g" . org-roam-graph)
@@ -1035,8 +1035,7 @@
 
 ;; helm-bibtex, org-ref
 
-(use-package pdf-tools
-  :ensure t)
+(use-package pdf-tools :ensure t)
 
 "Helm/Ivy bibtex ++"
 
@@ -1048,8 +1047,8 @@
   :ensure t
   :custom
   (ivy-re-builders-alist
-   . '((ivy-bibtex . ivy--regex-ignore-order)
-       (t . ivy--regex-plus))))
+   '((ivy-bibtex . ivy--regex-ignore-order)
+     (t . ivy--regex-plus))))
 
 (use-package org-ref-ivy)
 
