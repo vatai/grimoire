@@ -611,14 +611,10 @@
 (add-to-list 'load-path "~/code/org-roam-ui")
 (load-library "org-roam-ui")
 
-(use-package org-roam-bibtex
+(use-package org-noter
   :ensure t
-  :after org-roam)
-
-;; (use-package org-noter
-;;   :ensure t
-;;   :custom (org-noter-notes-search-path '("~/org/bib/notes/"))
-;;   :config (org-noter))
+  :custom (org-noter-notes-search-path '("~/org/roam/"))
+  :config (org-noter))
 
 (use-package org-pomodoro
   :ensure t
