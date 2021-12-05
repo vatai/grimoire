@@ -556,8 +556,7 @@
   :ensure t
   :after (org))
 
-(use-package org-roam
-  :ensure t
+(use-package org-roam :ensure t
   :init
   (setq org-roam-v2-ack t)
   :custom
@@ -610,11 +609,7 @@
   ;; If using org-roam-protocol
   (require 'org-roam-protocol))
 
-(use-package org-roam-bibtex
-  :ensure t
-  :after (org-roam)
-  ;; :requires (org-ref)
-
+(use-package org-roam-bibtex :ensure t
   :custom
   (orb-roam-ref-format 'org-ref-v3)
   (orb-preformat-keywords
@@ -624,14 +619,9 @@
 
   :config
   (require 'org-ref)
-  (org-roam-bibtex-mode)
-  )
+  (org-roam-bibtex-mode))
 
-;; org-roam-ui
-(use-package websocket :ensure t)
-(use-package simple-httpd :ensure t)
-(add-to-list 'load-path "~/code/org-roam-ui")
-(load-library "org-roam-ui")
+(use-package org-roam-ui :ensure t)
 
 (use-package org-noter
   :ensure t
