@@ -414,6 +414,14 @@
   (setq cdlatex-math-symbol-alist
         '((?: ("\\cdots" "\\ldots" "\\vdots")))))
 
+(use-package pdf-tools :ensure t
+  :custom
+  (pdf-annot-activate-created-annotations t)
+  :config
+  (pdf-tools-install)
+  ;; Disable swiper
+  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))
+
 "org"
 
 (use-package org
@@ -1044,14 +1052,6 @@
 ;; helm-bibtex, org-ref
 
 "Helm/Ivy bibtex ++"
-
-(use-package pdf-tools :ensure t
-  :custom
-  (pdf-annot-activate-created-annotations t)
-  :config
-  (pdf-tools-install)
-  ;; Disable swiper
-  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))
 
 ;; (use-package helm-bibtex
 ;;   :ensure t
