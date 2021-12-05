@@ -564,10 +564,16 @@
   (org-roam-directory "~/org/roam")
   (org-roam-node-display-template
    (concat "${title} " (propertize "${tags}" 'face 'org-tag)))
+  (org-roam-capture-ref-templates
+   '(("r" "roam-protocol" plain (file "~/org/templates/roam-protocol.org")
+      :target (file+head "webpages/${slug}.org" "#+title: ${title}\n")
+      :unnarrowed t)))
   (org-roam-capture-templates
-   '(("r" "bibliography reference" plain (file "~/Sync/.emacs.d/template.org")
-      :target
-      (file+head "references/${citekey}.org" "#+title: ${title}\n")
+   '(("d" "default" plain (file "~/org/templates/default.org")
+      :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+      :unnarrowed t)
+     ("r" "bibliography reference" plain (file "~/org/templates/reference.org")
+      :target (file+head "references/${citekey}.org" "#+title: ${title}\n")
       :unnarrowed t)))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
