@@ -181,7 +181,7 @@
 (use-package company
   :ensure t
   :delight
-  )
+  :hook (after-init . global-company-mode))
 
 (use-package flycheck
   :ensure t
