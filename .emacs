@@ -572,11 +572,11 @@
   (org-roam-node-display-template
    (concat "${title} " (propertize "${tags}" 'face 'org-tag)))
   (org-roam-capture-ref-templates
-   '(("r" "roam-protocol" plain (file "~/org/templates/roam-protocol.org")
+   '(("r" "roam-protocol" plain "#+filetags: web stub\n\n${body}\n"
       :target (file+head "webpages/${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)))
   (org-roam-capture-templates
-   '(("d" "default" plain (file "~/org/templates/default.org")
+   '(("d" "default" plain "#+filetags: stub\n"
       :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)
      ("r" "bibliography reference" plain (file "~/org/templates/reference.org")
