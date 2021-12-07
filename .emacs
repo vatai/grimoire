@@ -771,8 +771,7 @@
 
 (use-package all-the-icons-dired :ensure t)
 
-(use-package pretty-symbols
-  :ensure t)
+;; (use-package pretty-symbols :ensure t)
 
 (use-package nyan-mode
   :ensure t
