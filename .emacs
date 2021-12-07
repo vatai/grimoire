@@ -117,6 +117,7 @@
   (global-evil-surround-mode 1))
 
 (use-package evil-collection
+  :delight
   :after evil
   :ensure t
   :config
@@ -141,10 +142,12 @@
 
 (use-package counsel
   :ensure t
+  :delight
   :config (counsel-mode))
 
 (use-package ivy
   :ensure t
+  :delight
   :custom
   (ivy-use-selectable-prompt t)
   (ivy-use-virtual-buffers t)
@@ -225,6 +228,7 @@
 
 (use-package which-key
   :ensure t
+  :delight
   :config (which-key-mode))
 
 (use-package lsp-mode
@@ -624,6 +628,7 @@
   (require 'org-roam-protocol))
 
 (use-package org-roam-bibtex :ensure t
+  :delight
   :custom
   (orb-roam-ref-format 'org-ref-v3)
   (orb-preformat-keywords
@@ -756,6 +761,7 @@
 
 (use-package beacon
   :ensure t
+  :delight
   :custom
   (beacon-size 70)
   (beacon-color "#BB00AA")
