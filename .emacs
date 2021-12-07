@@ -773,9 +773,9 @@
 
 ;; (use-package pretty-symbols :ensure t)
 
-(use-package nyan-mode
-  :ensure t
-  :config (nyan-mode))
+;; (use-package nyan-mode
+;;   :ensure t
+;;   :config (nyan-mode))
 
 (use-package telephone-line
   :ensure t
@@ -785,7 +785,7 @@
   (telephone-line-secondary-left-separator 'telephone-line-nil)
   (telephone-line-secondary-right-separator 'telephone-line-nil)
   (telephone-line-evil-use-short-tag t)
-  (telephone-line-center-rhs '((nil telephone-line-nyan-segment)))
+  ;; (telephone-line-center-rhs '((nil telephone-line-nyan-segment)))
   :config
   (telephone-line-mode 1))
 
