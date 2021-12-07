@@ -19,6 +19,12 @@
 ;; (require 'bind-key)                ;; if you use any :bind variant(custom-set-variables
 
 ;; Initial setup
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(show-paren-mode)
+(setq-default show-trailing-whitespace t)
+
+
 ;; (run-at-time nil (* 5 60) 'recentf-save-list)
 (add-hook 'find-file-hook #'recentf-save-list)
 (add-hook 'markdown-mode-hook #'flyspell-mode)
