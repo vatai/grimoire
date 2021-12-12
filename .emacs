@@ -1114,6 +1114,7 @@
   (bibtex-completion-bibliography "~/org/bib/bibdb.org")
   (bibtex-completion-library-path "~/org/bib/pdfs")
   (bibtex-completion-notes-path "~/org/bib/notes")
+  ;; (bibtex-completion-pdf-field "file")
   (org-ref-insert-link-function 'org-ref-insert-link-hydra/body)
   (org-ref-insert-label-function 'org-ref-insert-label-link)
   (org-ref-insert-ref-function 'org-ref-insert-ref-link)
