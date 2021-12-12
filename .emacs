@@ -448,6 +448,7 @@
    (quote
     ((emacs-lisp . t)
      (C . t)
+     (R . t)
      (shell . t)
      (maxima . t)
      (sql . t)
