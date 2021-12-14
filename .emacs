@@ -320,10 +320,9 @@
 (use-package cmake-mode
   :ensure t)
 
-(use-package cquery
-  :commands lsp-cquery-enable
-  :requires (lsp-mode lsp-ui)
-  :hook (c-mode-common . lsp-cquery-enable))
+(use-package ccls
+  :hook ((c-mode c++-mode objc-mode cuda-mode) .
+         (lambda () (require 'ccls) (lsp))))
 
 (use-package dap-mode
   :ensure t
