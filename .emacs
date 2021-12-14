@@ -2,8 +2,17 @@
 ;;; Commentary:
 ;;; Code:
 
+
 (setq custom-file "~/Sync/.emacs.d/customs.el")
 (load custom-file)
+
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/"))
+      package-enable-at-startup nil)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(show-paren-mode)
+(setq-default show-trailing-whitespace t)
 
 (package-initialize)
 
@@ -13,16 +22,9 @@
     (package-install package)))
 (eval-when-compile
   (require 'use-package))
-(use-package diminish :ensure t)
-(use-package bind-key :ensure t)
-;; (require 'diminish)                ;; if you use :diminish
-;; (require 'bind-key)                ;; if you use any :bind variant(custom-set-variables
+(use-package diminish :ensure t)   ;; if you use :diminish
+(use-package bind-key :ensure t)   ;; if you use any :bind variant(custom-set-variables
 
-;; Initial setup
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(show-paren-mode)
-(setq-default show-trailing-whitespace t)
 
 
 ;; (run-at-time nil (* 5 60) 'recentf-save-list)
@@ -202,7 +204,7 @@
   (global-flycheck-mode))
 
 (use-package projectile
-  ;; :ensure t
+  :ensure t
   :delight
   :config
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
