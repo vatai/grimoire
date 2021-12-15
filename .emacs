@@ -209,7 +209,7 @@
   :config
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (setq projectile-project-search-path '("~/code/"))
+  (setq projectile-project-search-path '("~/code" "~/other-code"))
   (projectile-mode +1))
 
 "Helm/Ivy projectile"
