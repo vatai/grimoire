@@ -194,15 +194,6 @@
   :delight
   :hook (after-init . global-company-mode))
 
-(use-package flycheck
-  :ensure t
-  :delight
-  :config
-  (setq flycheck-gcc-language-standard  "c++17")
-  (setq flycheck-clang-language-standard "c++17")
-  (flycheck-add-next-checker 'python-flake8 'python-pylint)
-  (global-flycheck-mode))
-
 (use-package projectile
   :ensure t
   :delight
@@ -232,6 +223,34 @@
   :ensure t
   :delight
   :config (which-key-mode))
+
+(use-package flycheck
+  :ensure t
+  :delight
+  ;; :after (lsp)
+  :custom
+  (flycheck-gcc-language-standard  "c++17")
+  (flycheck-clang-language-standard "c++17")
+  :config
+  (flycheck-add-mode 'proselint 'latex-mode)
+  (flycheck-add-next-checker 'python-flake8 'python-pylint)
+  (global-flycheck-mode))
+
+;; (use-package lsp-latex
+;;   :ensure t
+;;   :hook
+;;   (tex-mode . lsp)
+;;   (latex-mode . lsp))
+
+(use-package lsp-ltex
+  :ensure t
+  :hook
+  (text-mode . (lambda ()
+                 (require 'lsp-ltex)
+                 (lsp)))
+  :config
+  (flycheck-add-next-checker 'lsp (t . 'proselint))
+  )
 
 (use-package lsp-mode
   :ensure t
@@ -279,7 +298,6 @@
   (lsp-ui-peek-enable t)
   ;; lsp-ui
   (lsp-ui-flycheck-enable t)
-  :config
   ;; (add-hook 'lsp-ui-doc-frame-hook
   ;;           (lambda (frame _w)
   ;;             (set-face-attribute 'default frame :height 50)))
@@ -628,6 +646,7 @@
       (apply #'org-roam-node-insert args)))
 
   ;; If using org-roam-protocol
+  (org-roam-db-autosync-mode)
   (require 'org-roam-protocol))
 
 (use-package org-roam-bibtex :ensure t
