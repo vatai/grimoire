@@ -615,7 +615,7 @@
       :unnarrowed t)))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
-         ("C-c n g" . org-roam-graph)
+         ("C-c n g" . org-roam-ui-mode)
          ("C-c n i" . org-roam-node-insert)
          ("C-c n I" . org-roam-node-insert-immediate)
          ("C-c n c" . org-roam-capture)
