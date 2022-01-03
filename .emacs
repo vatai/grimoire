@@ -248,8 +248,8 @@
   (text-mode . (lambda ()
                  (require 'lsp-ltex)
                  (lsp)))
-  :config
-  (flycheck-add-next-checker 'lsp (t . 'proselint))
+  ;; :config
+  ;; (flycheck-add-next-checker 'lsp 'proselint)
   )
 
 (use-package lsp-mode
