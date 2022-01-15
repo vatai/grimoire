@@ -657,7 +657,6 @@
    '("citekey" "title" "url" "author-or-editor" "keywords" "file"))
   (orb-process-file-keyword t)
   (orb-attached-file-extensions '("pdf"))
-
   :config
   (require 'org-ref)
   (org-roam-bibtex-mode))
@@ -1132,7 +1131,7 @@
   ;; (org-ref-insert-cite-function 'org-ref-cite-insert-helm)
   (org-ref-insert-cite-function 'org-ref-cite-insert-ivy)
   ;;
-  (bibtex-completion-bibliography "~/org/bib/bibdb.org")
+  (bibtex-completion-bibliography "~/org/bib/bibdb.bib")
   (bibtex-completion-library-path "~/org/bib/pdfs")
   (bibtex-completion-notes-path "~/org/bib/notes")
   ;; (bibtex-completion-pdf-field "file")
