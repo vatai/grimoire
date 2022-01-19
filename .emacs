@@ -708,13 +708,10 @@
 (defun update-org-latex-fragments ()
   "Hook to sync latex fragments and text scale."
   (when (derived-mode-p 'org-mode)
-    (org-toggle-latex-fragment '(64))
-    ;; (org-latex-preview '(64))
-    (plist-put org-format-latex-options
-               :scale (* 1.5 text-scale-mode-amount))
-    (org-toggle-latex-fragment '(16))
-    ;; (org-latex-preview '(16))
-    ))
+    (org-latex-preview '(64)) ;; clear all frags
+    (let ((scale (expt text-scale-mode-step text-scale-mode-amount)))
+      (plist-put org-format-latex-options :scale (max 1 (* 1.3 scale))))
+    (org-latex-preview '(16))))
 (add-hook 'text-scale-mode-hook 'update-org-latex-fragments)
 
 (use-package oauth2 :ensure t)
