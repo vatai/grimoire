@@ -25,8 +25,6 @@
 (use-package diminish :ensure t)   ;; if you use :diminish
 (use-package bind-key :ensure t)   ;; if you use any :bind variant(custom-set-variables
 
-
-
 ;; (run-at-time nil (* 5 60) 'recentf-save-list)
 (add-hook 'find-file-hook #'recentf-save-list)
 (add-hook 'markdown-mode-hook #'flyspell-mode)
@@ -245,9 +243,8 @@
 (use-package lsp-ltex
   :ensure t
   :hook
-  (text-mode . (lambda ()
-                 (require 'lsp-ltex)
-                 (lsp)))
+  ;; (org-mode . (lambda () (require 'lsp-ltex) (lsp)))
+  (LaTeX-mode . (lambda () (require 'lsp-ltex) (lsp)))
   ;; :config
   ;; (flycheck-add-next-checker 'lsp 'proselint)
   )
