@@ -748,15 +748,10 @@
 ;; (load "~/.emacs.d/sanity.el")
 ;; (load "~/.emacs.d/elegance.el")
 
-;; (use-package circadian :ensure t
-;;   :config
-;;   (setq circadian-themes '(("6:00" . standard) ("19:30" . railscast)))
-;;   ;; light: blippblopp
-;;   ;; dark: desert, railscast, monokai, gruvbox
-;;   (circadian-setup))
+(use-package color-theme-sanityinc-solarized :ensure t)
 
-(defconst dynamic-theme-light-theme 'tsdh-light)
-(defconst dynamic-theme-dark-theme 'wombat)
+(defconst dynamic-theme-light-theme 'sanityinc-solarized-light)
+(defconst dynamic-theme-dark-theme 'sanityinc-solarized-dark)
 
 (defun dynamic-theme-light-mode ()
   (interactive)
@@ -769,6 +764,8 @@
   "Switch to dark mode."
   (mapc #'disable-theme custom-enabled-themes)
   (load-theme dynamic-theme-dark-theme t))
+
+(dynamic-theme-light-mode)
 
 (use-package rainbow-delimiters
   :ensure t
@@ -796,8 +793,10 @@
 (use-package telephone-line
   :ensure t
   :custom
-  (telephone-line-primary-left-separator 'telephone-line-abs-left)
-  (telephone-line-primary-right-separator 'telephone-line-abs-right)
+  ;; (telephone-line-primary-left-separator 'telephone-line-abs-left)
+  ;; (telephone-line-primary-right-separator 'telephone-line-abs-right)
+  (telephone-line-primary-left-separator 'telephone-line-nil)
+  (telephone-line-primary-right-separator 'telephone-line-nil)
   (telephone-line-secondary-left-separator 'telephone-line-nil)
   (telephone-line-secondary-right-separator 'telephone-line-nil)
   (telephone-line-evil-use-short-tag t)
