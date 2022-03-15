@@ -242,9 +242,9 @@
 
 (use-package lsp-ltex
   :ensure t
-  :hook
+  ;; :hook
   ;; (org-mode . (lambda () (require 'lsp-ltex) (lsp)))
-  (LaTeX-mode . (lambda () (require 'lsp-ltex) (lsp)))
+  ;; (LaTeX-mode . (lambda () (require 'lsp-ltex) (lsp)))
   ;; :config
   ;; (flycheck-add-next-checker 'lsp 'proselint)
   )
@@ -700,6 +700,8 @@
          ("<prior>" . org-tree-slide-move-previous-tree)
          ("<next>" . org-tree-slide-move-next-tree)
          ("<f11>" . org-tree-slide-content)))
+
+(use-package org-drill :ensure t)
 
 ;; scale latex fragments
 (defun update-org-latex-fragments ()
