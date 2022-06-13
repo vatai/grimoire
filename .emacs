@@ -524,7 +524,7 @@
   (org-latex-packages-alist (quote (("" "minted" nil) ("" "booktabs" nil))))
   (org-latex-pdf-process
    (quote
-    ("latexmk -pdflatex='%latex -shell-escape -bibtex -interaction nonstopmode' -pdf -f  %f")))
+    ("latexmk -pdflatex='%latex -shell-escape -bibtex -interaction nonstopmode' -pdf -f  %f -output-directory=%o")))
   (org-preview-latex-default-process (quote dvisvgm))
   (org-use-property-inheritance (quote ("NOWEB-REF")))
   ;; END [from custom]
