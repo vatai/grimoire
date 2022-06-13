@@ -541,6 +541,7 @@
   (org-refile-allow-creating-parent-nodes 'confirm)
   (org-refile-targets '((org-agenda-files :maxlevel . 3)))
   (org-refile-use-outline-path t)
+  (org-babel-latex-preamble (lambda (_) "\\documentclass[preview]{standalone}\n"))
   ;; (org-completion-use-ido nil) ;; Doesn't work (from https://emacs.stackexchange.com/questions/14535/how-can-i-use-helm-with-org-refile)
   ;; (org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
 
