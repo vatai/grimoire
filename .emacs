@@ -79,6 +79,7 @@
   :ensure t
   :delight
   :config
+  (setq undo-tree-history-directory-alist '(("." . "/tmp")))
   (global-undo-tree-mode))
 
 ;; (use-package idle-highlight-mode
