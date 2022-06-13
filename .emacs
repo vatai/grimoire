@@ -470,7 +470,6 @@
      (maxima . t)
      (sql . t)
      (dot . t)
-     (ledger . t)
      (latex . t)
      (octave . t)
      (python . t)
