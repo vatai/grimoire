@@ -1,0 +1,31 @@
+* Beter bibtex, 
+
+** citation key format
+
+auth.lower+year+veryshorttitle.lower
+
+* Zotfile
+
+** Source folder (new files):
+
+/home/vatai/Downloads/zotero-new
+
+** Location of files
+
+/home/vatai/Sync/zotero-data/pdfs
+
+** Renaming rules
+
+{%a}{%y}{%t}
+
+Check everything EXCEPT first (Add user input to filename) and last (Add suffix)
+
+* Zotero Advanced perf
+
+** Base dir
+
+/home/vatai/Sync
+
+** Data Directory Location
+
+/home/vatai/Sync/zotero-data
