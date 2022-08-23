@@ -1,4 +1,4 @@
-* Beter bibtex, 
+* Beter bibtex
 
 ** citation key format
 
