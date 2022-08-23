@@ -787,6 +787,12 @@
 
 (use-package all-the-icons-dired :ensure t)
 
+(use-package treemacs-icons-dired :ensure t)
+(use-package treemacs-all-the-icons :ensure t)
+(use-package all-the-icons-ivy-rich :ensure t)
+(use-package all-the-icons-ivy :ensure t)
+(use-package all-the-icons-completion :ensure t)
+
 ;; (use-package pretty-symbols :ensure t)
 
 ;; (use-package nyan-mode
