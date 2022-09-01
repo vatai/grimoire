@@ -1,9 +1,3 @@
-* Beter bibtex
-
-** citation key format
-
-auth.lower+year+veryshorttitle.lower
-
 * Zotfile
 
 ** Source folder (new files):
@@ -19,6 +13,12 @@ auth.lower+year+veryshorttitle.lower
 {%a}{%y}{%t}
 
 Check everything EXCEPT first (Add user input to filename) and last (Add suffix)
+
+* Beter bibtex
+
+** citation key format
+
+auth.lower+year+veryshorttitle.lower
 
 * Zotero Advanced perf
 
