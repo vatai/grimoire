@@ -9,10 +9,14 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/"))
       package-enable-at-startup nil)
+
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (show-paren-mode)
 (setq-default show-trailing-whitespace t)
+(set-frame-parameter (selected-frame) 'alpha '(95 . 100))
+(add-to-list 'default-frame-alist '(alpha . (95 . 100)))
+
 
 (package-initialize)
 
@@ -692,9 +696,21 @@
                :title "Break end!"
                :body "Time for a new pomodoro!!!"))))
 
+(use-package visual-fill-column :ensure t)
+
 (use-package org-tree-slide
   :ensure t
   :requires org
+  :custom
+  (visual-fill-column-width 160)
+  (visual-fill-column-center-text t)
+  :hook ((org-tree-slide-play . (lambda ()
+                                  (visual-fill-column-mode 1)
+                                  (visual-line-mode 1)))
+         (org-tree-slide-stop . (lambda ()
+                                  (visual-fill-column-mode 0)
+                                  (visual-line-mode 0)))
+         )
   :bind (("<f8>" . org-tree-slide-mode)
          ("S-<f8>" . org-tree-slide-skip-done-toggle)
          :map org-tree-slide-mode-map
