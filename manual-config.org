@@ -1,0 +1,49 @@
+* Zotero
+
+** Zotfile
+
+*** Source folder (new files):
+
+/home/vatai/Downloads
+
+
+*** Location of files
+
+/home/vatai/Sync/zotero-data/pdfs
+
+
+*** Renaming rules
+
+{%a}{%y}{%t}
+
+Check everything EXCEPT first (Add user input to filename) and last (Add suffix)
+
+
+** Beter bibtex
+
+*** citation key format
+
+auth.lower+year+veryshorttitle.lower
+
+
+** Zotero Advanced perf
+
+*** Base dir
+
+/home/vatai/Sync
+
+
+*** Data Directory Location
+
+/home/vatai/Sync/zotero-data
+
+* Riken Wifi r-ccs-wlan
+
+- Security: WPA & WPA2 Enterprise
+- Authentication: TLS
+- Identity: rNNNNNN-XXXX-YYYY
+- User cert: None
+- CA cert: None
+- Checked No CA cert is required
+- Private key: rNNNNNN-XXXX-YYYY.p12
+- Password: see authinfo
