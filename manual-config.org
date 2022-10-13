@@ -47,3 +47,9 @@ auth.lower+year+veryshorttitle.lower
 - Checked No CA cert is required
 - Private key: rNNNNNN-XXXX-YYYY.p12
 - Password: see authinfo
+
+* Gnome keyboard
+- Navigation
+  - Switch applications -> Super tab
+  - Switch windows -> Alt tab
+  - Switch windows of an application -> Esc (HHKB) or `
