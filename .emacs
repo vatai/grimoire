@@ -508,6 +508,7 @@
      ("\\.mm\\'" . default)
      ("\\.x?html?\\'" . default)
      ("\\.pdf\\'" . "setsid -w xdg-open %s"))))
+  (org-hide-emphasis-markers t)
   (org-journal-dir "~/org/journal/")
   (org-latex-default-packages-alist
    '(("AUTO" "inputenc" t
@@ -706,10 +707,12 @@
   (visual-fill-column-center-text t)
   :hook ((org-tree-slide-play . (lambda ()
                                   (visual-fill-column-mode 1)
-                                  (visual-line-mode 1)))
+                                  (visual-line-mode 1)
+                                  (setq header-line-format " ")))
          (org-tree-slide-stop . (lambda ()
                                   (visual-fill-column-mode 0)
-                                  (visual-line-mode 0)))
+                                  (visual-line-mode 0)
+                                  (setq header-line-format nil)))
          )
   :bind (("<f8>" . org-tree-slide-mode)
          ("S-<f8>" . org-tree-slide-skip-done-toggle)
