@@ -622,6 +622,7 @@
          ("C-c n i" . org-roam-node-insert)
          ("C-c n I" . org-roam-node-insert-immediate)
          ("C-c n c" . org-roam-capture)
+         ("C-c n b" . ivy-bibtex)
          ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
