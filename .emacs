@@ -313,13 +313,18 @@
 
 "Helm/Ivy lsp"
 
-;; (use-package helm-lsp
-;;   :ensure t
-;;   :config
-;;   (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
-;;   )
+(use-package helm-lsp
+  :ensure t
+  :config
+  (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
+  )
 
-(use-package lsp-ivy :ensure t :commands lsp-ivy-workspace-symbol)
+(use-package lsp-ivy
+  :ensure t
+  :commands lsp-ivy-workspace-symbol
+  ;; (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
+  :bind (:map lsp-mode-map
+              ([remap xref-find-apropos] . helm-lsp-workspace-symbol)))
 
 (use-package lsp-treemacs :ensure t :commands lsp-treemacs-errors-list)
 
