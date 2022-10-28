@@ -400,6 +400,14 @@
   :ensure t
   :config (add-hook 'before-save-hook #'py-isort-before-save))
 
+(use-package sphinx-mode
+  :ensure t
+  :hook (python-mode . sphinx-doc-mode))
+
+(use-package sphinx-doc
+  :ensure t
+  :hook (python-mode . sphinx-doc-mode))
+
 (defun remove-py-isort-hook ()
   (interactive)
   (remove-hook 'before-save-hook #'py-isort-before-save))
