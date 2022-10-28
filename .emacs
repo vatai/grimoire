@@ -14,8 +14,8 @@
 (scroll-bar-mode -1)
 (show-paren-mode)
 (setq-default show-trailing-whitespace t)
-(set-frame-parameter (selected-frame) 'alpha '(95 . 100))
-(add-to-list 'default-frame-alist '(alpha . (95 . 100)))
+(set-frame-parameter (selected-frame) 'alpha '(97 . 100))
+(add-to-list 'default-frame-alist '(alpha . (97 . 100)))
 
 
 (package-initialize)
