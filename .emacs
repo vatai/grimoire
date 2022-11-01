@@ -654,7 +654,7 @@
     (let* ((args (cons arg args))
            (template (copy-sequence (car org-roam-capture-templates)))
            (target (plist-get template :target))
-           (new-text (format "%s#+filetags: stub\n" (caddr target)))
+           (new-text (caddr target))
            (new-target (append (butlast target) (list new-text)))
            (new-template (plist-put template :target new-target))
            (org-roam-capture-templates
