@@ -397,12 +397,25 @@
 
 "Development - Python"
 
-(use-package blacken
+;; (use-package blacken
+;;   :ensure t
+;;   :hook (python-mode . blacken-mode))
+
+(use-package python-black
   :ensure t
-  :hook (python-mode . blacken-mode))
+  :demand t
+  :after python
+  :hook (python-mode . python-black-on-save-mode))
 
 (use-package py-isort
   :ensure t
+  :custom
+  (py-isort-options '("--multi-line=3"
+                      "--line-length=88"
+                      "--trailing-comma"
+                      "--use-parentheses"
+                      "--ensure-newline-before-comments"
+                      "--force-grid-wrap=0"))
   :config (add-hook 'before-save-hook #'py-isort-before-save))
 
 (use-package sphinx-mode
