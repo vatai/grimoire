@@ -265,6 +265,7 @@
   (lsp-idle-delay 0.500)
   :hook ;; (prog-mode . lsp)
   (c-mode-common . lsp)
+  (cuda-menu . lsp)
   (python-mode . lsp)
   (sh-mode . lsp)
   :commands lsp
@@ -363,7 +364,7 @@
   :ensure t
   :hook (c-mode-common . c-turn-on-eldoc-mode))
 
-(use-package cuda-mode :ensure t)
+;; (use-package cuda-mode :ensure t)
 
 "Development - Java"
 
