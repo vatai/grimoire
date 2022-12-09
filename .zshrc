@@ -58,7 +58,7 @@ export PATH="$PATH:$GEM_HOME/bin"
 powerline-daemon -q
 source /usr/lib/python3.10/site-packages/powerline/bindings/zsh/powerline.zsh
 
-dropbox-cli start
+which dropbox-cli 1>/dev/null 2>&1 && dropbox-cli start
 alias ringo='ssh -L 8080:ringo.is.s.u-tokyo.ac.jp:80 ringo.is.s.u-tokyo.ac.jp'
 alias wttr="curl wttr.in"
 
