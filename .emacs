@@ -1101,6 +1101,12 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(use-package mastodon
+  :ensure t
+  :custom
+  (mastodon-instance-url "https://mast.hpc.social")
+  (mastodon-active-user "vatai"))
+
 "MAXIMA"
 
 ;; (add-to-list 'load-path
