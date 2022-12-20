@@ -630,6 +630,7 @@
   (setq org-roam-v2-ack t)
   :custom
   (org-roam-directory "~/org/roam")
+  (org-roam-completion-everywhere t)
   (org-roam-node-display-template
    (concat "${title} " (propertize "${tags}" 'face 'org-tag)))
   (org-roam-capture-ref-templates
