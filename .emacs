@@ -308,10 +308,6 @@
   ;; (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
   :commands lsp-ui-mode)
 
-(use-package lsp-treemacs
-  :ensure t
-  :commands lsp-treemacs-errors-list)
-
 "Helm/Ivy lsp"
 
 (use-package helm-lsp
