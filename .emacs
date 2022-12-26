@@ -1104,6 +1104,11 @@
   (mastodon-instance-url "https://mast.hpc.social")
   (mastodon-active-user "vatai"))
 
+(use-package twittering-mode
+  :ensure t
+  :custom
+  (twittering-icon-mode t))
+
 "MAXIMA"
 
 ;; (add-to-list 'load-path
@@ -1134,13 +1139,6 @@
 ;; (setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode)) auto-mode-alist))
 
 (use-package proof-general :ensure t)
-
-"Twitter"
-
-(use-package twittering-mode
-  :ensure t
-  :custom
-  (twittering-icon-mode t))
 
 "ERC"
 
