@@ -1109,6 +1109,10 @@
   :custom
   (twittering-icon-mode t))
 
+"eshell"
+
+(add-to-list 'eshell-visual-commands "htop")
+
 "MAXIMA"
 
 ;; (add-to-list 'load-path
