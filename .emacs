@@ -261,6 +261,7 @@
   (gc-cons-threshold 100000000)
   (read-process-output-max (* 1024 1024))
   (lsp-completion-provider :capf)
+  (lsp-restart 'auto-restart)
   ;; customisations
   (lsp-idle-delay 0.500)
   :hook ;; (prog-mode . lsp)
