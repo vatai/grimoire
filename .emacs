@@ -26,8 +26,12 @@
     (package-install package)))
 (eval-when-compile
   (require 'use-package))
-(use-package diminish :ensure t)   ;; if you use :diminish
-(use-package bind-key :ensure t)   ;; if you use any :bind variant(custom-set-variables
+
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+(use-package diminish)   ;; if you use :diminish
+(use-package bind-key)   ;; if you use any :bind variant(custom-set-variables
+(use-package delight)
 
 ;; (run-at-time nil (* 5 60) 'recentf-save-list)
 (add-hook 'find-file-hook #'recentf-save-list)
@@ -969,6 +973,7 @@
 "mu4e"
 
 (use-package mu4e
+  :ensure nil
   ;; use mbsync/isync for mail fetching
   :bind
   (([C-f1] . mu4e))
@@ -1074,6 +1079,7 @@
   (mu4e-alert-set-default-style 'libnotify))
 
 (use-package org-mu4e
+  :ensure nil
   :config
   (setq org-mu4e-link-query-in-headers-mode nil))
 
@@ -1187,7 +1193,7 @@
    '((ivy-bibtex . ivy--regex-ignore-order)
      (t . ivy--regex-plus))))
 
-(use-package org-ref-ivy)
+(use-package org-ref-ivy :ensure nil)
 
 (use-package org-ref
   :ensure t
