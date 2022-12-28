@@ -44,25 +44,20 @@
 ;;
 ;; Without special settings, emacs daemon doesn't start properly.
 (use-package exec-path-from-shell
-  :ensure t
   :init (exec-path-from-shell-initialize))
 
 (use-package mozc
   :custom (default-input-method "japanese-mozc"))
 
-;; (setq system-time-locale "ja_JP.utf8") ;; LC_TIME should kick in
-;; (set-language-environment "Japanese")
+(setq system-time-locale "ja_JP.utf8") ;; LC_TIME should kick in
+(set-language-environment "Japanese")
 
-(use-package diminish :ensure t)
-
-(use-package delight :ensure t)
 
 "Functionality"
 
-(use-package ag :ensure t)
+(use-package ag)
 
 ;; (use-package smartparens
-;;   :ensure t
 ;;   :delight
 ;;   :config
 ;;   (sp-pair "'" nil :actions :rem)
@@ -70,7 +65,6 @@
 ;;   (smartparens-global-mode 1))
 
 (use-package hideshow
-  :ensure t
   :delight hs-minor-mode
   :diminish
   :hook ((c-mode-common . hs-minor-mode)
@@ -820,7 +814,6 @@
 (dynamic-theme-light-mode)
 
 (use-package rainbow-delimiters
-  :ensure t
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
