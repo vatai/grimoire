@@ -1167,7 +1167,7 @@
 ;; Default browser
 (setq browse-url-browser-function 'browse-url-generic  browse-url-generic-program "firefox")
 
-(load "~/org/projects.el")
+;; (load "~/org/projects.el")
 (setq cursor-type 'bar)
 
 ;; Trash
