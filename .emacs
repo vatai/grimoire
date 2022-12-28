@@ -1110,7 +1110,8 @@
 
 "eshell"
 
-(add-to-list 'eshell-visual-commands "htop")
+(use-package eshell-autojump)
+;; (add-to-list 'eshell-visual-commands "htop")
 
 "MAXIMA"
 
