@@ -817,13 +817,12 @@
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
-(use-package beacon
-  :ensure t
-  :delight
-  :custom
-  (beacon-size 70)
-  (beacon-color "#BB00AA")
-  :config (beacon-mode))
+;; (use-package beacon
+;;   :delight
+;;   :custom
+;;   (beacon-size 70)
+;;   (beacon-color "#BB00AA")
+;;   :config (beacon-mode))
 
 (use-package all-the-icons :ensure t)
 
