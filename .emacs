@@ -278,7 +278,7 @@
   ;; lsp-ui-doc
   (lsp-ui-doc-enable t)  ;; big gray window covering everything
   (lsp-ui-doc-delay 0.2)
-  (lsp-ui-doc-header t)
+  (lsp-ui-doc-header nil)
   (lsp-ui-doc-include-signature t)
   (lsp-ui-doc-position 'at-point) ;; top, bottom, or at-point
   (lsp-ui-doc-max-width 120)
@@ -287,11 +287,11 @@
   (lsp-ui-doc-use-webkit t)
   ;; lsp-ui-sideline
   (lsp-ui-sideline-enable t)
-  (lsp-ui-sideline-delay 3)
+  (lsp-ui-sideline-delay 0.2)
   (lsp-ui-sideline-ignore-duplicate t)
   (lsp-ui-sideline-show-symbol t)
-  (lsp-ui-sideline-show-hover t) ;; sideline: message from the statusbar making text to jump
-  (lsp-ui-sideline-show-diagnostics nil)
+  (lsp-ui-sideline-show-hover nil) ;; sideline: message from the statusbar making text to jump
+  (lsp-ui-sideline-show-diagnostics t)
   (lsp-ui-sideline-show-code-actions t)
   (lsp-ui-sideline-code-actions-prefix "")
   ;; lsp-ui-imenu
