@@ -255,6 +255,7 @@
 
 (use-package lsp-mode
   :ensure t
+
   :custom
   ;; Optimisations (see lsp-doctor)
   (gc-cons-threshold 100000000)
@@ -263,9 +264,10 @@
   (lsp-restart 'auto-restart)
   ;; customisations
   (lsp-idle-delay 0.500)
+
   :hook ;; (prog-mode . lsp)
   (c-mode-common . lsp)
-  (cuda-menu . lsp)
+  (cuda-mode . lsp)
   (python-mode . lsp)
   (sh-mode . lsp)
   (flycheck-mode . (lambda ()
