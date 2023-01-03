@@ -230,13 +230,12 @@
 (use-package flycheck
   :ensure t
   :delight
-  ;; :after (lsp)
+  :after (lsp)
   :custom
   (flycheck-gcc-language-standard  "c++17")
   (flycheck-clang-language-standard "c++17")
   :config
   (flycheck-add-mode 'proselint 'latex-mode)
-  (flycheck-add-next-checker 'python-flake8 'python-pylint)
   (global-flycheck-mode))
 
 ;; (use-package lsp-latex
@@ -269,6 +268,11 @@
   (cuda-menu . lsp)
   (python-mode . lsp)
   (sh-mode . lsp)
+  (flycheck-mode . (lambda ()
+                     (flycheck-add-next-checker 'lsp 'python-flake8)
+                     (flycheck-add-next-checker 'python-flake8 'python-pylint)
+                     (flycheck-add-next-checker 'python-pylint 'python-mypy)
+                     ))
   :commands lsp
   )
 
