@@ -225,6 +225,8 @@
   :delight
   :config (which-key-mode))
 
+(use-package flycheck-mypy)
+
 (use-package flycheck
   :ensure t
   :delight
