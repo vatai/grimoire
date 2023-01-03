@@ -181,7 +181,7 @@
 
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
-(add-hook 'prog-mode-hook #'flymake-mode)
+;; (add-hook 'prog-mode-hook #'flymake-mode)
 
 (use-package display-line-numbers
   :custom
