@@ -59,8 +59,13 @@ powerline-daemon -q
 source /usr/lib/python3.10/site-packages/powerline/bindings/zsh/powerline.zsh
 
 which dropbox-cli 1>/dev/null 2>&1 && dropbox-cli start
+
+# alias
 alias ringo='ssh -L 8080:ringo.is.s.u-tokyo.ac.jp:80 ringo.is.s.u-tokyo.ac.jp'
 alias wttr="curl wttr.in"
+
+# kitty alias
+[ "$TERM" = "xterm-kitty" ] && alias s="kitty +kitten ssh"
 
 PATH=${HOME}/bin:${HOME}/.local/bin:${PATH}
 
