@@ -271,8 +271,8 @@
   (python-mode . lsp)
   (sh-mode . lsp)
   (flycheck-mode . (lambda ()
+                     (flycheck-add-next-checker 'lsp 'python-pylint)
                      (flycheck-add-next-checker 'lsp 'python-flake8)
-                     (flycheck-add-next-checker 'python-flake8 'python-pylint)
                      (flycheck-add-next-checker 'python-pylint 'python-mypy)
                      ))
   :commands lsp
