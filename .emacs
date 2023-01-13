@@ -1121,6 +1121,33 @@
 (use-package eshell-autojump)
 ;; (add-to-list 'eshell-visual-commands "htop")
 
+(defvar prepend-env-paths '(("PATH" "bin")
+                           ("PATH" "bin64")
+                           ("LD_LIBRARY_PATH" "lib")
+                           ("LD_LIBRARY_PATH" "lib64")
+                           ("C_INCLUDE_PATH" "include")
+                           ("CPLUS_INCLUDE_PATH" "include")))
+
+(defun prepend-env-add-path (var dir)
+  (let ((oldval (getenv var)))
+    ;; (message (format "var: %s\ndir: %s\noldval: %s\nexists: %s\nsuffix: %s\ncheck: %s"
+    ;;                  var dir oldval exists suffix (and oldval exists)))
+    (if (file-directory-p dir)
+        (format "%s%s" dir (if oldval (format ":%s" oldval) ""))
+      oldval)))
+
+(defun prepend-env (dir)
+  (dolist (item prepend-env-paths)
+    (let ((subdir (format "%s/%s" dir (cadr item)))
+          (var (car item)))
+      ;; (message (format "addpath: %s" (my-set-env-add-path var subdir)))
+      (setenv var (prepend-env-add-path var subdir))
+      (if (string= var "PATH")
+          (add-to-list 'exec-path subdir)))))
+
+(prepend-env "/home/vatai/code/polyhedral-tutor/deps/opt/pluto-0.11.4")
+(prepend-env "/home/vatai/code/polyhedral-tutor/deps/opt/llvm-project-10.0.0")
+
 "MAXIMA"
 
 ;; (add-to-list 'load-path
