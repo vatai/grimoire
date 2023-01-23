@@ -78,3 +78,4 @@ auth.lower+year+veryshorttitle.lower
   - Switch applications -> Super tab
   - Switch windows -> Alt tab
   - Switch windows of an application -> Esc (HHKB) or `
+  - If eisu-toggle make problems: Tweaks -> Keyboard & Mouse -> Additional Layout Options -> Caps Lock behaviour -> Make Caps Lock an additional Ctrl
