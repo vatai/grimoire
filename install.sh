@@ -13,7 +13,7 @@ function do_syncfiles {
     SYNC_FILES="org .authinfo.gpg"
 
     for FILE in ${SYNC_FILES}; do
-        ln -sf "${HOME}/Sync/${FILE}" "${HOME}/${FILE}"
+        [ -L ${HOME}/${FILE} ] || ln -sf "${HOME}/Sync/${FILE}" "${HOME}/${FILE}"
     done
 }
 
