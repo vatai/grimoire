@@ -628,6 +628,8 @@
   :ensure t
   :after (org))
 
+(use-package ox-reveal :after (org))
+
 (use-package org-roam :ensure t
   :init
   (setq org-roam-v2-ack t)
