@@ -64,9 +64,6 @@ which dropbox-cli 1>/dev/null 2>&1 && dropbox-cli start
 alias ringo='ssh -L 8080:ringo.is.s.u-tokyo.ac.jp:80 ringo.is.s.u-tokyo.ac.jp'
 alias wttr="curl wttr.in"
 
-# kitty alias
-[ "$TERM" = "xterm-kitty" ] && alias s="kitty +kitten ssh"
-
 PATH=${HOME}/bin:${HOME}/.local/bin:${PATH}
 
 # Vim keys
@@ -86,6 +83,9 @@ zle -N zle-keymap-select
 # fi
 
 if [ "$TERM" = xterm-kitty ]; then
-	echo KITTY autocomplete
-	kitty + complete setup zsh | source /dev/stdin
+    alias s="kitty +kitten ssh"
+    KITTY_SHELL_INTEGRATION="enabled"
+    autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
+    kitty-integration
+    unfunction kitty-integration
 fi
