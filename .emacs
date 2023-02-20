@@ -355,8 +355,21 @@
          (lambda () (require 'ccls) (lsp))))
 
 (use-package dap-mode
-  :ensure t
-  :requires (lsp))
+  ;; :custom
+  ;; (dap-auto-configure-mode t "Automatically configure dap.")
+  ;; (dap-auto-configure-features
+  ;;  '(sessions locals breakpoints expressions tooltip)  "Remove the button panel in the top.")
+  :config
+  (require 'dap-cpptools)
+  ;; (dap-ui-mode 1)
+  ;; (add-hook 'dap-stopped-hook
+  ;;           (lambda (arg) (call-interactively #'dap-hydra)))
+  :bind (("<f5>" . dap-debug)
+         ("C-<f5>" . dap-continue)
+         ("C-<f6>" . dap-next)
+         ("C-<f7>" . dap-step-in)
+         ("C-<f8>" . dap-step-out))
+  )
 
 (use-package google-c-style
   :ensure t
