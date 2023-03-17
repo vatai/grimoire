@@ -26,7 +26,7 @@ export PATH
 [[ -e ~/spack/share/spack/setup-env.sh ]] && source ~/spack/share/spack/setup-env.sh
 
 # git prompt
-source /usr/share/git-core/contrib/completion/git-prompt.sh
+source /usr/share/git/completion/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 
 # My stuff
