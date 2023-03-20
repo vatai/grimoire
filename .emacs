@@ -361,6 +361,8 @@
   ;;  '(sessions locals breakpoints expressions tooltip)  "Remove the button panel in the top.")
   :config
   (require 'dap-cpptools)
+  (require 'dap-python)
+  (setq dap-python-debugger 'debugpy)
   ;; (dap-ui-mode 1)
   ;; (add-hook 'dap-stopped-hook
   ;;           (lambda (arg) (call-interactively #'dap-hydra)))
