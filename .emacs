@@ -361,6 +361,7 @@
   ;;  '(sessions locals breakpoints expressions tooltip)  "Remove the button panel in the top.")
   :config
   (require 'dap-cpptools)
+  (require 'dap-gdb-lldb)
   (require 'dap-python)
   (setq dap-python-debugger 'debugpy)
   ;; (dap-ui-mode 1)
