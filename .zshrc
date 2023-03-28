@@ -56,8 +56,8 @@ export PATH="$PATH:$GEM_HOME/bin"
 
 # Powerline
 # prompt off
-powerline-daemon -q
-source /usr/lib/python3.10/site-packages/powerline/bindings/zsh/powerline.zsh
+# powerline-daemon -q
+# source /usr/lib/python3.10/site-packages/powerline/bindings/zsh/powerline.zsh
 
 which dropbox-cli 1>/dev/null 2>&1 && dropbox-cli start
 
