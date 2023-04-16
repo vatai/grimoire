@@ -427,13 +427,6 @@
 
 (use-package py-isort
   :ensure t
-  :custom
-  (py-isort-options '("--multi-line=3"
-                      "--line-length=88"
-                      "--trailing-comma"
-                      "--use-parentheses"
-                      "--ensure-newline-before-comments"
-                      "--force-grid-wrap=0"))
   :config (add-hook 'before-save-hook #'py-isort-before-save))
 
 (use-package sphinx-mode
