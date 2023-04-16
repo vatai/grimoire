@@ -197,6 +197,8 @@
 
 (use-package projectile
   :ensure t
+  :custom
+  (projectile-indexing-method 'native)
   :delight
   :config
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
@@ -258,12 +260,13 @@
 
   :custom
   ;; Optimisations (see lsp-doctor)
-  (gc-cons-threshold 100000000)
+  (gc-cons-threshold (* 100 1024 1024))
   (read-process-output-max (* 1024 1024))
+  (treemacs-space-between-root-nodes nil)
   (lsp-completion-provider :capf)
   (lsp-restart 'auto-restart)
   ;; customisations
-  (lsp-idle-delay 0.500)
+  (lsp-idle-delay 0.100)
 
   :hook ;; (prog-mode . lsp)
   (c-mode-common . lsp)
@@ -348,11 +351,6 @@
 
 (use-package cmake-mode
   :ensure t)
-
-(use-package ccls
-  :ensure t
-  :hook ((c-mode c++-mode objc-mode cuda-mode) .
-         (lambda () (require 'ccls) (lsp))))
 
 (use-package dap-mode
   ;; :custom
@@ -1163,7 +1161,7 @@
       (if (string= var "PATH")
           (add-to-list 'exec-path subdir)))))
 
-(prepend-env "/home/vatai/code/polyhedral-tutor/deps/opt/pluto-0.11.4")
+;; (prepend-env "/home/vatai/code/polyhedral-tutor/deps/opt/pluto-0.11.4")
 (prepend-env "/home/vatai/code/polyhedral-tutor/deps/opt/llvm-project-10.0.0")
 
 "MAXIMA"
