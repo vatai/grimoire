@@ -707,9 +707,11 @@
 
 (use-package org-roam-ui :ensure t)
 
+(use-package org-pdftools)
+(use-package org-noter-pdftools)
 (use-package org-noter
   :ensure t
-  :custom (org-noter-notes-search-path '("~/org/roam/"))
+  :custom (org-noter-notes-search-path '("~/org/roam/references/"))
   :config (org-noter))
 
 (use-package org-pomodoro
