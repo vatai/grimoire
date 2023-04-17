@@ -1087,10 +1087,10 @@
   :config
   (mu4e-alert-set-default-style 'libnotify))
 
-(use-package org-mu4e
-  :ensure nil
-  :config
-  (setq org-mu4e-link-query-in-headers-mode nil))
+;; (use-package org-mu4e
+;;   :ensure nil
+;;   :config
+;;   (setq org-mu4e-link-query-in-headers-mode nil))
 
 ;;
 
