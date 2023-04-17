@@ -279,6 +279,8 @@
                      (flycheck-add-next-checker 'python-pylint 'python-mypy)
                      ))
   :commands lsp
+  :config
+  (setq-default flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck c/c++-gcc))
   )
 
 (use-package lsp-ui
