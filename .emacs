@@ -778,6 +778,7 @@
     ;; (org-latex-preview '(16))
     ))
 (add-hook 'text-scale-mode-hook 'update-org-latex-fragments)
+(add-hook 'text-scale-mode-hook (lambda() (face-remap--remap-face 'line-number)))
 
 (use-package oauth2 :ensure t)
 
