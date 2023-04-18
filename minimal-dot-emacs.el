@@ -1,4 +1,4 @@
-
+;; Use with emacs -q --load minimal-dot-emacs.el
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/"))
       package-enable-at-startup nil)
