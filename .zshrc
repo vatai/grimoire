@@ -14,6 +14,12 @@ HISTSIZE=1000
 SAVEHIST=1000
 # End of lines configured by zsh-newuser-install
 
+
+##### My stuff #####
+
+# git -C 
+git -C $(dirname $(readlink -f ~/.zshrc)) pull &
+
 # Insert last arg M-.
 bindkey -M viins '\e.' insert-last-word
 
