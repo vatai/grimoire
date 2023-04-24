@@ -18,7 +18,8 @@ SAVEHIST=1000
 ##### My stuff #####
 
 # git -C 
-git -C $(dirname $(readlink -f ~/.zshrc)) pull &
+GRIMOIRE_PATH=$(dirname $(readlink -f ~/.zshrc))
+git -C ${GRIMOIRE_PATH} pull &
 
 # Insert last arg M-.
 bindkey -M viins '\e.' insert-last-word
@@ -71,6 +72,7 @@ which dropbox-cli 1>/dev/null 2>&1 && dropbox-cli start
 alias ringo='ssh -L 8080:ringo.is.s.u-tokyo.ac.jp:80 ringo.is.s.u-tokyo.ac.jp'
 alias wttr="curl wttr.in"
 alias kt="kitty +kitten themes"
+alias gg="git -C ${GRIMOIRE_PATH}"
 
 PATH=${HOME}/bin:${HOME}/.local/bin:${PATH}
 
