@@ -70,6 +70,7 @@ which dropbox-cli 1>/dev/null 2>&1 && dropbox-cli start
 # alias
 alias ringo='ssh -L 8080:ringo.is.s.u-tokyo.ac.jp:80 ringo.is.s.u-tokyo.ac.jp'
 alias wttr="curl wttr.in"
+alias kt="kitty +kitten themes"
 
 PATH=${HOME}/bin:${HOME}/.local/bin:${PATH}
 
