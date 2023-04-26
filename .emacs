@@ -197,8 +197,8 @@
 
 (use-package projectile
   :ensure t
-  :custom
-  (projectile-indexing-method 'native)
+  ;; :custom
+  ;; (projectile-indexing-method 'native)
   :delight
   :config
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
