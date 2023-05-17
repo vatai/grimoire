@@ -495,6 +495,16 @@
 
 "org"
 
+;; (let (
+;;       ;; (dirs (directory-files "~vatai/org"))
+;;       ;; (dirs (file-expand-wildcards "~/org/*.org"))
+;;       (dirs (buffer-list))
+;;       )
+;;   (dolist (var dirs)
+;;     (let ((org-buffer-p (string-suffix-p ".org" (format "%s" var))))
+;;       (if org-buffer-p
+;;           (message (format "%s %s" var org-buffer-p))))))
+
 (use-package org
   :ensure t
   :hook ((after-init . org-agenda-list)
