@@ -19,7 +19,7 @@ SAVEHIST=1000
 
 # git -C 
 GRIMOIRE_PATH=$(dirname $(readlink -f ~/.zshrc))
-git -C ${GRIMOIRE_PATH} pull &
+git -C ${GRIMOIRE_PATH} pull 1>/dev/null &
 
 # Insert last arg M-.
 bindkey -M viins '\e.' insert-last-word
