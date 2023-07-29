@@ -52,6 +52,17 @@
 (setq system-time-locale "ja_JP.utf8") ;; LC_TIME should kick in
 (set-language-environment "Japanese")
 
+(with-eval-after-load 'dired
+  (require 'dired-x)
+  ;; Set dired-x global variables here.  For example:
+  ;; (setq dired-guess-shell-gnutar "gtar")
+  ;; (setq dired-x-hands-off-my-keys nil)
+  )
+(add-hook 'dired-mode-hook
+          (lambda ()
+            ;; Set dired-x buffer-local variables here.  For example:
+            ;; (dired-omit-mode 1)
+            ))
 
 "Functionality"
 
