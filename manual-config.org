@@ -62,6 +62,16 @@ auth.lower+year+veryshorttitle.lower
     sudo systemctl enable mega-cmd@vatai
   #+end_src
 
+* pCloud
+#+begin_src shell
+  # ./config/systemd/user/pcloudcc.service
+  systemctl --user stop pcloudcc.service
+  pcloudcc -u emil.vatai@gmail.com -p -s
+  systemctl --user start pcloudcc.service
+  systemctl --user status pcloudcc.service
+
+#+end_src
+
 * Riken Wifi r-ccs-wlan
 
 - Security: WPA & WPA2 Enterprise
