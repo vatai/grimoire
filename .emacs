@@ -119,6 +119,7 @@
   (evil-set-undo-system 'undo-tree)
   (evil-mode))
 
+;; Increment and decrement numbers
 (use-package evil-numbers
   :ensure t
   :bind (("C-c +" . evil-numbers/inc-at-pt)
@@ -1314,8 +1315,6 @@
 ;; (use-package evil-tabs
 ;;   :config
 ;;   (global-evil-tabs-mode t))
-
-;; (use-package evil-dvorak :config (global-evil-dvorak-mode))
 
 (provide '.emacs)
 ;;; .emacs ends here
