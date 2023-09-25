@@ -218,6 +218,7 @@
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (setq projectile-project-search-path '("~/code" "~/other-code"))
+  (setq projectile-run-use-comint-mode t)
   (projectile-mode +1))
 
 "Helm/Ivy projectile"
@@ -287,6 +288,7 @@
   (cuda-mode . lsp)
   (python-mode . lsp)
   (sh-mode . lsp)
+  (go-mode . lsp)
   (flycheck-mode . (lambda ()
                      (flycheck-add-next-checker 'lsp 'python-pylint)
                      (flycheck-add-next-checker 'lsp 'python-flake8)
@@ -424,6 +426,15 @@
 ;;   :hook
 ;;   (rustic-mode . (lambda () (setq buffer-save-without-query t)))
 ;;   )
+
+"Development - Go"
+
+(use-package go-projectile)
+
+(use-package go-mode
+  :config
+  ;; (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save))
 
 "Development - R"
 
