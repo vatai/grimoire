@@ -743,6 +743,7 @@
 (use-package org-roam-ui :ensure t)
 
 (use-package org-pdftools)
+
 (use-package org-noter
   :ensure t
   :custom (org-noter-notes-search-path '("~/org/roam/references/"))
@@ -837,6 +838,17 @@
   :config
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
+
+(use-package org-projectile)
+
+(use-package org-project-capture
+  :bind (("C-c n p" . org-project-capture-project-todo-completing-read))
+  :custom
+  (org-project-capture-backend
+   (make-instance 'org-project-capture-projectile-backend))
+  (org-project-capture-projects-file "~/org/projects.org")
+  :config
+  (org-project-capture-single-file))
 
 "Helm/Ivy org"
 
