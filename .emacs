@@ -867,7 +867,7 @@
   (mapc #'disable-theme custom-enabled-themes)
   (load-theme dynamic-theme-dark-theme t))
 
-(dynamic-theme-light-mode)
+(dynamic-theme-dark-mode)
 
 (use-package rainbow-delimiters
   :config
