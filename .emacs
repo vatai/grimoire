@@ -839,17 +839,6 @@
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
 
-(use-package org-projectile)
-
-(use-package org-project-capture
-  :bind (("C-c n p" . org-project-capture-project-todo-completing-read))
-  :custom
-  (org-project-capture-backend
-   (make-instance 'org-project-capture-projectile-backend))
-  (org-project-capture-projects-file "~/org/projects.org")
-  :config
-  (org-project-capture-single-file))
-
 "Helm/Ivy org"
 
 ;; (use-package helm-org
