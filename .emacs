@@ -723,7 +723,21 @@
             (list (append template '(:immediate-finish t)))))
       (message "%s" org-roam-capture-templates)
       (apply #'org-roam-node-insert args)))
-
+  ;; From: https://dev.to/devteam/resolving-an-unable-to-resolve-link-error-for-org-mode-in-emacs-2n1f
+  ;;
+  ;; I encountered the following message when attempting
+  ;; to export data:
+  ;;
+  ;; "org-export-data: Unable to resolve link: FILE-ID"
+  (defun my/force-org-rebuild-cache ()
+    "Rebuild the `org-mode' and `org-roam' cache."
+    (interactive)
+    (org-id-update-id-locations)
+    ;; Note: you may need `org-roam-db-clear-all'
+    ;; followed by `org-roam-db-sync'
+    (org-roam-db-clear-all)
+    (org-roam-db-sync)
+    (org-roam-update-org-id-locations))
   ;; If using org-roam-protocol
   (org-roam-db-autosync-mode)
   (require 'org-roam-protocol))
