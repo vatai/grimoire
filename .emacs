@@ -766,6 +766,7 @@
 
 (use-package org-pomodoro
   :ensure t
+  :bind (("C-c n p" . org-pomodoro))
   :custom
   ;; "/usr/share/sounds/freedesktop/stereo/service-logout.oga")
   (org-pomodoro-finished-sound "~/Sync/sounds/uhoh.wav")
