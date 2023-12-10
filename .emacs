@@ -868,7 +868,8 @@
 (use-package color-theme-sanityinc-solarized :ensure t)
 
 (defconst dynamic-theme-light-theme 'sanityinc-solarized-light)
-(defconst dynamic-theme-dark-theme 'sanityinc-solarized-dark)
+;; (defconst dynamic-theme-dark-theme 'sanityinc-solarized-dark)
+(defconst dynamic-theme-dark-theme 'monokai)
 
 (defun dynamic-theme-light-mode ()
   (interactive)
