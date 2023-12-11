@@ -871,7 +871,7 @@
 
 (defconst dynamic-theme-light-theme 'sanityinc-solarized-light)
 ;; (defconst dynamic-theme-dark-theme 'sanityinc-solarized-dark)
-(defconst dynamic-theme-dark-theme 'monokai)
+(defconst dynamic-theme-dark-theme 'modus-vivendi)
 
 (defun dynamic-theme-light-mode ()
   (interactive)
