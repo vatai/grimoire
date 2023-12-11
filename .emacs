@@ -18,7 +18,9 @@
 ;; (add-to-list 'default-frame-alist '(alpha . (97 . 100)))
 (global-auto-revert-mode)
 (winner-mode)
-
+(add-hook 'compilation-mode-hook
+          (lambda ()
+            (text-scale-decrease 3)))
 
 (package-initialize)
 
