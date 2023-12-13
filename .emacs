@@ -829,7 +829,7 @@
     ;; (org-latex-preview '(16))
     ))
 (add-hook 'text-scale-mode-hook 'update-org-latex-fragments)
-(add-hook 'text-scale-mode-hook (lambda() (face-remap--remap-face 'line-number)))
+;; (add-hook 'text-scale-mode-hook (lambda() (face-remap--remap-face 'line-number))) ;; fix line-number scaling issue for buggy themes
 
 (use-package oauth2 :ensure t)
 
@@ -867,10 +867,15 @@
 ;; (load "~/.emacs.d/sanity.el")
 ;; (load "~/.emacs.d/elegance.el")
 
-(use-package color-theme-sanityinc-solarized :ensure t)
-
-(defconst dynamic-theme-light-theme 'sanityinc-solarized-light)
+;; (use-package color-theme-sanityinc-solarized :ensure t)
 ;; (defconst dynamic-theme-dark-theme 'sanityinc-solarized-dark)
+;; (defconst dynamic-theme-light-theme 'sanityinc-solarized-light)
+
+;; (use-package solarized-theme :ensure t)
+;; (defconst dynamic-theme-light-theme 'solarized-light)
+;; (defconst dynamic-theme-dark-theme 'solarized-dark-high-contrast)
+
+(defconst dynamic-theme-light-theme 'adwaita)
 (defconst dynamic-theme-dark-theme 'modus-vivendi)
 
 (defun dynamic-theme-light-mode ()
@@ -886,6 +891,7 @@
   (load-theme dynamic-theme-dark-theme t))
 
 (dynamic-theme-dark-mode)
+;; (dynamic-theme-light-mode)
 
 (use-package rainbow-delimiters
   :config
