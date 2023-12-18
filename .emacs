@@ -223,6 +223,8 @@
   (setq projectile-run-use-comint-mode t)
   (projectile-mode +1))
 
+(use-package zig-mode)
+
 "Helm/Ivy projectile"
 
 ;; (use-package helm-projectile
