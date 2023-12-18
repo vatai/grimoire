@@ -760,7 +760,9 @@
 
 (use-package org-roam-ui :ensure t)
 
-(use-package org-pdftools)
+;; (use-package org-pdftools)
+
+(use-package org-noter-pdftools)
 
 (use-package org-noter
   :ensure t
