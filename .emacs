@@ -518,7 +518,8 @@
   :config
   (pdf-loader-install)
   ;; Disable swiper
-  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))
+  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
+  :hook (pdf-view-mode . pdf-view-auto-slice-minor-mode))
 
 "org"
 
@@ -766,6 +767,7 @@
 
 (use-package org-noter
   :ensure t
+  :bind (("C-c n n" . org-noter))
   :custom (org-noter-notes-search-path '("~/org/roam/references/"))
   :config
   (org-noter))
