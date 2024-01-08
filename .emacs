@@ -472,6 +472,8 @@
   (interactive)
   (remove-hook 'before-save-hook #'py-isort-before-save))
 
+(use-package cython-mode)
+
 "Development - Science"
 
 ;; (use-package ein :ensure t)
