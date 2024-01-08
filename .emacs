@@ -20,7 +20,7 @@
 (winner-mode)
 (add-hook 'compilation-mode-hook
           (lambda ()
-            (text-scale-decrease 3)))
+            (text-scale-decrease 1)))
 
 (package-initialize)
 
