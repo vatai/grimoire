@@ -962,8 +962,11 @@ With a prefix ARG, remove start location."
 
 ;; (use-package pretty-symbols :ensure t)
 
+(require 'zone)
+(zone-when-idle 120)
 (use-package zone-nyan
-  :config (zone-when-idle 120))
+  :custom
+  (zone-programs (vconcat [zone-nyan] zone-programs)))
 
 ;; (use-package nyan-mode
 ;;   :ensure t
