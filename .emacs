@@ -866,6 +866,8 @@ With a prefix ARG, remove start location."
 (use-package org-drill :ensure t)
 
 ;; scale latex fragments
+(plist-put org-format-latex-options :foreground nil)
+(plist-put org-format-latex-options :background nil)
 (defun update-org-latex-fragments ()
   "Hook to sync latex fragments and text scale."
   (when (derived-mode-p 'org-mode)
