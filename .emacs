@@ -16,7 +16,7 @@
 (setq-default show-trailing-whitespace t)
 ;; (set-frame-parameter (selected-frame) 'alpha '(97 . 100))
 ;; (add-to-list 'default-frame-alist '(alpha . (97 . 100)))
-(global-auto-revert-mode)
+
 (winner-mode)
 (add-hook 'compilation-mode-hook
           (lambda ()
