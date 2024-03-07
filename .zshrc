@@ -73,6 +73,7 @@ alias ringo='ssh -L 8080:ringo.is.s.u-tokyo.ac.jp:80 ringo.is.s.u-tokyo.ac.jp'
 alias wttr="curl wttr.in"
 alias kt="kitty +kitten themes"
 alias gg="git -C ${GRIMOIRE_PATH}"
+alias ee="emacsclient -r -n"
 
 PATH=${HOME}/bin:${HOME}/.local/bin:${PATH}
 
