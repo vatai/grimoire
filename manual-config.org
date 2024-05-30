@@ -45,7 +45,7 @@ auth.lower+year+veryshorttitle.lower
   #+end_src
 
 - Login
-  Start =mega-cmd= and and run =login <email> <password>=!
+  Start =mega-cmd= and run =login <email> <password>=!
 
 - Setup sync
   #+begin_src shell
