@@ -527,7 +527,6 @@
 ;;           (message (format "%s %s" var org-buffer-p))))))
 
 (use-package org
-  :ensure t
   :hook ((after-init . org-agenda-list)
          (org-mode . turn-on-org-cdlatex)
          (org-mode . flyspell-mode))
@@ -660,6 +659,9 @@
                                 src)))
   (add-to-list 'org-export-filter-src-block-functions
                'org-html-add-mark-tag))  ;; end of org
+
+(use-package org-fragtog
+  :hook (org-mode . org-fragtog-mode))
 
 (use-package ob-rust
   :ensure t)
