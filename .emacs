@@ -200,8 +200,8 @@
 ;; (add-hook 'prog-mode-hook #'flymake-mode)
 
 (use-package display-line-numbers
-  :custom
-  (display-line-numbers-type 'relative)
+  ;; :custom
+  ;; (display-line-numbers-type 'relative)
   ;; :config
   ;; (global-display-line-numbers-mode)
   )
