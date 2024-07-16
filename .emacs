@@ -474,6 +474,8 @@
 
 (use-package cython-mode)
 
+(use-package poetry)
+
 "Development - Science"
 
 ;; (use-package ein :ensure t)
