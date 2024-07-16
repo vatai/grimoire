@@ -879,7 +879,6 @@ With a prefix ARG, remove start location."
     ;; (org-latex-preview '(16))
     ))
 (add-hook 'text-scale-mode-hook 'update-org-latex-fragments)
-;; (add-hook 'text-scale-mode-hook (lambda() (face-remap--remap-face 'line-number))) ;; fix line-number scaling issue for buggy themes
 
 (use-package oauth2 :ensure t)
 
@@ -913,6 +912,9 @@ With a prefix ARG, remove start location."
 ;;   :ensure t)
 
 "Bling - Appearance"
+
+;; Fix for themes which keep the line number the same
+(custom-set-faces '(line-number ((t (:inherit default)))))
 
 ;; (load "~/.emacs.d/sanity.el")
 ;; (load "~/.emacs.d/elegance.el")
