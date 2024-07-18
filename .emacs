@@ -932,10 +932,12 @@ With a prefix ARG, remove start location."
 ;; (defconst dynamic-theme-light-theme 'adwaita)
 ;; (defconst dynamic-theme-dark-theme 'modus-vivendi)
 
-(use-package color-theme-sanityinc-solarized)
-(use-package monokai-pro-theme)
-(defconst dynamic-theme-light-theme 'sanityinc-solarized-light)
-(defconst dynamic-theme-dark-theme 'monokai-pro-machine)
+;; (use-package color-theme-sanityinc-solarized)
+(use-package solarized-theme)
+(use-package monokai-theme)
+(use-package color-theme-sanityinc-tomorrow)
+(defconst dynamic-theme-light-theme 'solarized-gruvbox-light)
+(defconst dynamic-theme-dark-theme 'monokai)
 
 (defun dynamic-theme-light-mode ()
   (interactive)
