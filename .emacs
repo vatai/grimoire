@@ -504,11 +504,6 @@
 (use-package auctex
   :hook (LaTeX-mode . flyspell-mode))
 
-(use-package auctex-latexmk
-  :ensure t
-  :config
-  (auctex-latexmk-setup))
-
 (use-package cdlatex
   :ensure t
   :hook (LaTeX-mode . cdlatex-mode)
