@@ -502,7 +502,13 @@
 "Latex"
 
 (use-package auctex
-  :hook (LaTeX-mode . flyspell-mode))
+  :hook
+  (LaTeX-mode . flyspell-mode)
+  (LaTeX-mode . prettify-symbols-mode)
+  (LaTeX-mode . outline-minor-mode)
+  :custom
+  (prettify-symbols-unprettify-at-point t)
+  )
 
 (use-package cdlatex
   :ensure t
