@@ -673,7 +673,9 @@
   :ensure t
   :after (org))
 
-(use-package ox-reveal :after (org))
+(use-package org-re-reveal
+  :after (org)
+  :custom (org-re-reveal-root "file:///home/vatai/.local/reveal.js"))
 
 (use-package org-roam :ensure t
   :init
