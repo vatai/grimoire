@@ -1,13 +1,14 @@
 # Sync New ReNew Flags
-Expunge Both
+Expunge Near
 
 IMAPAccount Riken
-Host postman.riken.jp
-User emil.vatai
-PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine postman.riken.jp login emil.vatai/ {print $NF}'"
+Host outlook.office365.com
+User emil.vatai@riken.jp
 # Use SSL
-SSLType IMAPS
+TLSType IMAPS
 # CertificateFile /etc/pki/tls/certs/ca-bundle.crt
+AuthMechs XOAUTH2
+PassCmd "oama access emil.vatai@riken.jp"
 
 IMAPStore Riken-remote
 Account Riken
@@ -23,42 +24,42 @@ Far :Riken-remote:
 Near :Riken-local:
 # Exclude everything under the internal [Gmail] folder, except the interesting folders
 # Patterns INBOX INBOX/* Draft Sent SPAM Trash
+# Patterns INBOX INBOX/* Archive Drafts Archive "Sent Items" "Deleted Items"
 # Or include everything
 Patterns *
 # Automatically create missing mailboxes, both locally and on the server
-Create Both
+Create Near
 # Save the synchronization state files in the relevant directory
 SyncState *
-Expunge Both
-
+Expunge Near
 #######################################################
 
-IMAPAccount ELTE
-Host outlook.office365.com
-User vatai@inf.elte.hu
-PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine outlook.office365.com login vatai@inf.elte.hu/ {print $NF}'"
-# Use SSL
-SSLType IMAPS
-# CertificateFile /etc/pki/tls/certs/ca-bundle.crt
+# IMAPAccount ELTE
+# Host outlook.office365.com
+# User vatai@inf.elte.hu
+# PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine outlook.office365.com login vatai@inf.elte.hu/ {print $NF}'"
+# # Use SSL
+# SSLType IMAPS
+# # CertificateFile /etc/pki/tls/certs/ca-bundle.crt
 
-IMAPStore ELTE-remote
-Account ELTE
+# IMAPStore ELTE-remote
+# Account ELTE
 
-MaildirStore ELTE-local
-# The trailing "/" is important
-SubFolders Legacy
-Path ~/.mail/ELTE/
-Inbox ~/.mail/ELTE/Inbox
+# MaildirStore ELTE-local
+# # The trailing "/" is important
+# SubFolders Legacy
+# Path ~/.mail/ELTE/
+# Inbox ~/.mail/ELTE/Inbox
 
-Channel ELTE
-Far :ELTE-remote:
-Near :ELTE-local:
-# Exclude everything under the internal [Gmail] folder, except the interesting folders
-Patterns INBOX INBOX/* Archive Drafts Archive "Sent Items" "Deleted Items"
-# Or include everything
-# Patterns *
-# Automatically create missing mailboxes, both locally and on the server
-Create Both
-# Save the synchronization state files in the relevant directory
-SyncState *
+# Channel ELTE
+# Far :ELTE-remote:
+# Near :ELTE-local:
+# # Exclude everything under the internal [Gmail] folder, except the interesting folders
+# Patterns INBOX INBOX/* Archive Drafts Archive "Sent Items" "Deleted Items"
+# # Or include everything
+# # Patterns *
+# # Automatically create missing mailboxes, both locally and on the server
+# Create Both
+# # Save the synchronization state files in the relevant directory
+# SyncState *
 

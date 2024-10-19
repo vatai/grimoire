@@ -1112,113 +1112,75 @@ With a prefix ARG, remove start location."
 
 (use-package gist :ensure t)
 
-"mu4e"
+"email"
 
-;; (use-package mu4e
-;;   :ensure nil
-;;   ;; use mbsync/isync for mail fetching
-;;   :bind
-;;   (([C-f1] . mu4e))
-;;   :hook (mu4e-compose-mode . flyspell-mode)
-;;   :config
-;;   (setq mu4e-maildir "~/.mail"
-;;         mu4e-change-filenames-when-moving t
-;;         mu4e-update-interval 600
-;;         mu4e-headers-date-format "%F")
-;;   (add-to-list 'mu4e-bookmarks
-;;                (make-mu4e-bookmark
-;;                 :name "Flagged"
-;;                 :query "flag:f AND NOT flag:trashed"
-;;                 :key ?f)
-;;                t)
-;;   (setq mu4e-view-show-addresses 't)
-;;   (setq mu4e-user-mail-address-list
-;;         '("emil.vatai@riken.jp" "vatai@inf.elte.hu"))
-;;   (let* (
-;;          ;; Riken
-;;          (riken-vars
-;;           '((user-mail-address . "emil.vatai@riken.jp")
-;;             (user-full-name . "Emil VATAI")
-;;             (smtpmail-smtp-user . "emil.vatai")
-;;             (smtpmail-smtp-server . "postman.riken.jp")
-;;             (smtpmail-smtp-service . 587)
-;;             (smtpmail-stream-type . nil)
-;;             (mu4e-get-mail-command . "mbsync Riken")
-;;             (mu4e-sent-folder . "/Riken/Sent")
-;;             (mu4e-drafts-folder . "/Riken/Draft")
-;;             (mu4e-refile-folder . "/Riken/Inbox/.Archive")
-;;             (mu4e-trash-folder  . "/Riken/Trash")
-;;             (mu4e-compose-signature
-;;              .
-;;              (concat
-;;               "Emil VATAI (PhD)\n"
-;;               "High Performance Aritificial Intelligence Systems Research Team\n"
-;;               "RIKEN Center for Computational Science\n"
-;;               "\n"
-;;               "Nihonbashi 1-chome Mitsui Building, 15th floor\n"
-;;               "1-4-1 Nihonbashi, Chuo-ku, Tokyo 103-0027, Japan\n"
-;;               "tel: 03-6225-2473\n"))))
-;;          (riken-ctx
-;;           (make-mu4e-context
-;;            :name "Riken"
-;;            :enter-func (lambda () (mu4e-message "Entering Riken context"))
-;;            :leave-func (lambda () (mu4e-message "Leaving Riken context"))
-;;            ;; we match based on the maildir of the message
-;;            :match-func (lambda (msg)
-;;                          (when msg
-;;                            (string-match-p "^/Riken" (mu4e-message-field msg :maildir))))
-;;            :vars riken-vars))
-;;          ;; ELTE
-;;          (elte-vars
-;;           '((user-mail-address . "vatai@inf.elte.hu")
-;;             (user-full-name . "Emil VATAI" )
-;;             (smtpmail-smtp-user . "vatai@inf.elte.hu")
-;;             (smtpmail-smtp-server . "smtp.office365.com")
-;;             (smtpmail-smtp-service . 587)
-;;             (smtpmail-stream-type . starttls)
-;;             (mu4e-get-mail-command . "mbsync ELTE")
-;;             (mu4e-sent-folder . "/ELTE/Sent Items")
-;;             (mu4e-drafts-folder . "/ELTE/Drafts")
-;;             (mu4e-refile-folder . "/ELTE/Archive")
-;;             (mu4e-trash-folder  . "/ELTE/Deleted Items")
-;;             (mu4e-compose-signature
-;;              . (concat
-;;                 "Emil VATAI (PhD)\n"
-;;                 "ELTE Eötvös Loránd University\n"
-;;                 "Faculty of Infromatics\n"
-;;                 "Department of Computer Algebra\n"
-;;                 "1117 Budapest, HUNGARY\n"
-;;                 "Pázmány Péter sétány 1/C\n"
-;;                 "Room D2-204 (South building)\n")
-;;              )))
-;;          (elte-ctx
-;;           (make-mu4e-context
-;;            :name "ELTE"
-;;            :enter-func (lambda () (mu4e-message "Entering ELTE context"))
-;;            :leave-func (lambda () (mu4e-message "Leaving ELTE context"))
-;;            ;; we match based on the maildir of the message
-;;            :match-func (lambda (msg)
-;;                          (when msg
-;;                            (string-match-p "^/ELTE" (mu4e-message-field msg :maildir))))
-;;            :vars elte-vars))
-;;          )
-;;     (setq mu4e-contexts (list riken-ctx elte-ctx)))
-;;   (setq mu4e-compose-context-policy 'ask-if-none)
-;;   (setq mu4e-context-policy 'pick-first))
+(use-package mu4e
+  :ensure nil
+  ;; use mbsync/isync for mail fetching
+  :bind
+  (([C-f1] . mu4e))
+  :custom
+  (mu4e-change-filenames-when-moving t)
+  (mu4e-update-interval 600)
+  (mu4e-headers-date-format "%F")
+  (mu4e-headers-time-format "%R")
+  (user-mail-address "emil.vatai@riken.jp")
+  (user-full-name "Emil VATAI")
+  (smtpmail-smtp-user "emil.vatai@riken.jp")
+  (message-send-mail-function 'sendmail-send-it)
+  (sendmail-program "/usr/bin/msmtp")
+  (mail-specify-envelope-from t)
+  (message-sendmail-envelope-from 'header)
+  (mail-envelope-from 'header)
+  ;; (smtpmail-smtp-server "outlook.office365.com")
+  ;; (smtpmail-smtp-service 587)
+  ;; (smtpmail-stream-type 'starttls)
+  ;; (smtp-auth 'xoauth2)
+  (mu4e-get-mail-command "mbsync Riken")
+  (mu4e-sent-folder "/Sent Items")
+  (mu4e-drafts-folder "/Drafts")
+  (mu4e-refile-folder "/Archive")
+  (mu4e-trash-folder  "/Deleted Items")
+  (mu4e-compose-signature
+   (concat
+    "Emil VATAI (PhD)\n"
+    "High Performance Aritificial Intelligence Systems Research Team\n"
+    "RIKEN Center for Computational Science\n"
+    "\n"
+    "Nihonbashi 1-chome Mitsui Building, 15th floor\n"
+    "1-4-1 Nihonbashi, Chuo-ku, Tokyo 103-0027, Japan\n"
+    "tel: 03-6225-2473\n"))
+  :hook
+  ((mu4e-compose-mode . flyspell-mode)
+   (mu4e-headers-mode
+    . (lambda ()
+        (message "FooBar")
+        (setq-local truncate-lines t)
+        (message (format "tr lines is %s; buffer: %s" truncate-lines (buffer-name))))))
+  )
 
-;; (use-package mu4e-conversation
-;;   :ensure t
-;;   :after mu4e
-;;   :config
-;;   (global-mu4e-conversation-mode))
+(use-package mu4e-alert
+  :ensure t
+  :requires mu4e
+  :hook ((after-init . mu4e-alert-enable-notifications)
+         (after-init . mu4e-alert-enable-mode-line-display))
+  :config
+  (mu4e-alert-set-default-style 'libnotify))
 
-;; (use-package mu4e-alert
-;;   :ensure t
-;;   :requires mu4e
-;;   :hook ((after-init . mu4e-alert-enable-notifications)
-;;          (after-init . mu4e-alert-enable-mode-line-display))
-;;   :config
-;;   (mu4e-alert-set-default-style 'libnotify))
+(use-package mu4e-column-faces
+  :after mu4e
+  :config (mu4e-column-faces-mode))
+
+(use-package mu4e-marker-icons
+  :init (mu4e-marker-icons-mode 1)
+  :custom
+  (mu4e-marker-icons-use-unicode t)
+  ;; :config
+  ;; (dolist (charset '(kana han cjk-misc bopomofo gb18030))
+  ;;   (set-fontset-font "fontset-default" charset "github-octicons" nil 'append)
+  ;;   (set-fontset-font "fontset-default" charset "FontAwesome" nil 'append)
+  ;;   (set-fontset-font "fontset-default" charset "Material Icons" nil 'append))
+  )
 
 ;; (use-package org-mu4e
 ;;   :ensure nil
@@ -1227,34 +1189,38 @@ With a prefix ARG, remove start location."
 
 ;;
 
-"mew"
+;; "mew"
 
-(use-package mew
-  :config
-  (autoload 'mew-send "mew" nil t)
-  (setq read-mail-command 'mew)
-  (autoload 'mew-user-agent-compose "mew" nil t)
-  (if (boundp 'mail-user-agent)
-      (setq mail-user-agent 'mew-user-agent))
-  (if (fboundp 'define-mail-user-agent)
-      (define-mail-user-agent
-        'mew-user-agent
-        'mew-user-agent-compose
-        'mew-draft-send-message
-        'mew-draft-kill
-        'mew-send-hook))
-  ;; TODO
-  (setq mew-mail-domain "riken.jp")
-  ;; SMPT
-  ;; Port: 587; Encryption method: STARTTLS
-  (setq mew-smtp-server "smtp.office365.com")
-  ;; IMAP
-  ;; Port: 993; Encryption method: TLS
-  (setq mew-mailbox-type 'imap) ;; ?
-  (setq mew-proto "%")
-  (setq mew-imap-user "emil.vatai") ;; 200562
-  (setq mew-imap-server "outlook.office365.com")
-  )
+;; (use-package mew
+;;   :custom
+;;   (read-mail-command 'mew)
+;;   (mail-user-agent 'mew-user-agent)
+;;   ;; TODO
+;;   (mew-mail-domain "riken.jp")
+;;   ;; SMPT
+;;   ;; Port: 587; Encryption method: STARTTLS
+;;   (mew-smtp-server "smtp.office365.com")
+;;   ;; IMAP
+;;   ;; Port: 993; Encryption method: TLS
+;;   (mew-mailbox-type 'imap) ;; ?
+;;   (mew-oauth2-client-id "1902f6f0-4729-4d09-ab2d-614a3d23420c")
+;;   (mew-proto "%")
+;;   (mew-imap-user "emil.vatai") ;; 200562
+;;   (mew-imap-server "outlook.office365.com")
+;;   :config
+;;   ;; (autoload 'mew-send "mew" nil t)
+;;   ;; (setq read-mail-command 'mew)
+;;   ;; (autoload 'mew-user-agent-compose "mew" nil t)
+;;   ;; (if (boundp 'mail-user-agent)
+;;   ;;     (setq mail-user-agent 'mew-user-agent))
+;;   (if (fboundp 'define-mail-user-agent)
+;;       (define-mail-user-agent
+;;         'mew-user-agent
+;;         'mew-user-agent-compose
+;;         'mew-draft-send-message
+;;         'mew-draft-kill
+;;         'mew-send-hook))
+;;   )
 
 "Apps"
 
