@@ -1417,16 +1417,16 @@ With a prefix ARG, remove start location."
 ;;   :config
 ;;   (global-evil-tabs-mode t))
 
-(use-package org-ai
-  :commands (org-ai-mode
-             org-ai-global-mode)
-  :init
-  (add-hook 'org-mode-hook #'org-ai-mode) ; enable org-ai in org-mode
-  :custom
-  (org-ai-default-chat-model "gpt-4") ; if you are on the gpt-4 beta:
-  :config
-  (org-ai-global-mode) ; installs global keybindings on C-c M-a
-  (org-ai-install-yasnippets)) ; if you are using yasnippet and want `ai` snippets
+;; (use-package org-ai
+;;   :commands (org-ai-mode
+;;              org-ai-global-mode)
+;;   :init
+;;   (add-hook 'org-mode-hook #'org-ai-mode) ; enable org-ai in org-mode
+;;   :custom
+;;   (org-ai-default-chat-model "gpt-4") ; if you are on the gpt-4 beta:
+;;   :config
+;;   (org-ai-global-mode) ; installs global keybindings on C-c M-a
+;;   (org-ai-install-yasnippets)) ; if you are using yasnippet and want `ai` snippets
 
 (provide '.emacs)
 ;;; .emacs ends here
