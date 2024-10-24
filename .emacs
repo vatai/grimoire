@@ -1418,7 +1418,8 @@ With a prefix ARG, remove start location."
 ;;   (global-evil-tabs-mode t))
 
 (use-package gptel
-  :bind (("C-c m s" . gptel-send)))
+  :bind (("C-c m m" . gptel-menu)
+         ("C-c m s" . gptel-send)))
 
 ;; (use-package org-ai
 ;;   :commands (org-ai-mode
