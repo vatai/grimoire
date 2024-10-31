@@ -1,0 +1,5 @@
+#+title: My notes on The Grimoire
+
+* System dependent stuff
+
+ln -s {arch,fugaku,cloud.testbed} system
