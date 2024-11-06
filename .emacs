@@ -1433,6 +1433,7 @@ With a prefix ARG, remove start location."
 ;;   (org-ai-install-yasnippets)) ; if you are using yasnippet and want `ai` snippets
 
 (use-package read-aloud
+  ;; Currently using RHVoice
   :bind (("C-c r b" . read-aloud-buf)
          ("C-c r t" . read-aloud-this)
          ("C-c r s" . read-aloud-stop)))
