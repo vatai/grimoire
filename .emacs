@@ -1432,5 +1432,10 @@ With a prefix ARG, remove start location."
 ;;   (org-ai-global-mode) ; installs global keybindings on C-c M-a
 ;;   (org-ai-install-yasnippets)) ; if you are using yasnippet and want `ai` snippets
 
+(use-package read-aloud
+  :bind (("C-c r b" . read-aloud-buf)
+         ("C-c r t" . read-aloud-this)
+         ("C-c r s" . read-aloud-stop)))
+
 (provide '.emacs)
 ;;; .emacs ends here
