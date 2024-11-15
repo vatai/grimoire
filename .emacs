@@ -1434,6 +1434,7 @@ With a prefix ARG, remove start location."
 
 (use-package read-aloud
   ;; Currently using RHVoice
+  ;; piper-tts (in aur) is big bug VERY nice
   :bind (("C-c r b" . read-aloud-buf)
          ("C-c r t" . read-aloud-this)
          ("C-c r s" . read-aloud-stop)))
