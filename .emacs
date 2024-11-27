@@ -251,111 +251,25 @@
 (use-package flycheck
   :ensure t
   :delight
-  :after (lsp)
-  :custom
-  (flycheck-gcc-language-standard  "c++17")
-  (flycheck-clang-language-standard "c++17")
+  ;; :custom
+  ;; (flycheck-gcc-language-standard  "c++17")
+  ;; (flycheck-clang-language-standard "c++17")
   :config
   (flycheck-add-mode 'proselint 'latex-mode)
   (global-flycheck-mode))
 
-;; (use-package lsp-latex
-;;   :ensure t
-;;   :hook
-;;   (tex-mode . lsp)
-;;   (latex-mode . lsp))
-
-(use-package lsp-ltex
-  :ensure t
-  ;; :hook
-  ;; (org-mode . (lambda () (require 'lsp-ltex) (lsp)))
-  ;; (LaTeX-mode . (lambda () (require 'lsp-ltex) (lsp)))
-  ;; :config
-  ;; (flycheck-add-next-checker 'lsp 'proselint)
-  )
-
-(use-package lsp-mode
-  :ensure t
-
-  :custom
-  ;; Optimisations (see lsp-doctor)
-  (gc-cons-threshold (* 100 1024 1024))
-  (read-process-output-max (* 1024 1024))
-  (treemacs-space-between-root-nodes nil)
-  (lsp-completion-provider :capf)
-  (lsp-restart 'auto-restart)
-  ;; customisations
-  (lsp-idle-delay 0.100)
-
+(use-package eglot
   :hook ;; (prog-mode . lsp)
-  (c-mode-common . lsp)
-  (cuda-mode . lsp)
-  (python-mode . lsp)
-  (sh-mode . lsp)
-  (go-mode . lsp)
-  (flycheck-mode . (lambda ()
-                     (flycheck-add-next-checker 'lsp 'python-pylint)
-                     (flycheck-add-next-checker 'lsp 'python-flake8)
-                     (flycheck-add-next-checker 'python-pylint 'python-mypy)
-                     ))
-  :commands lsp
-  :config
-  (setq-default flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck c/c++-gcc))
+  (c-mode-common . eglot-ensure)
+  (cuda-mode . eglot-ensure)
+  (python-mode . eglot-ensure)
+  (sh-mode . eglot-ensure)
+  (go-mode . eglot-ensure)
+  ;; (flycheck-mode . (lambda ()
+  ;;                    (flycheck-add-next-checker 'eglot 'python-pylint)
+  ;;                    (flycheck-add-next-checker 'eglot 'python-flake8)
+  ;;                    (flycheck-add-next-checker 'python-pylint 'python-mypy)))
   )
-
-(use-package lsp-ui
-  :ensure t
-  ;; :requires lsp-mode
-  :hook ((lsp-mode . lsp-ui-mode))
-  :custom
-  ;; lsp-ui-doc
-  (lsp-ui-doc-enable t)  ;; big gray window covering everything
-  (lsp-ui-doc-delay 0.2)
-  (lsp-ui-doc-header nil)
-  (lsp-ui-doc-include-signature t)
-  (lsp-ui-doc-position 'at-point) ;; top, bottom, or at-point
-  (lsp-ui-doc-max-width 120)
-  (lsp-ui-doc-max-height 30)
-  (lsp-ui-doc-use-childframe t)
-  (lsp-ui-doc-use-webkit t)
-  ;; lsp-ui-sideline
-  (lsp-ui-sideline-enable t)
-  (lsp-ui-sideline-delay 0.2)
-  (lsp-ui-sideline-ignore-duplicate t)
-  (lsp-ui-sideline-show-symbol t)
-  (lsp-ui-sideline-show-hover nil) ;; sideline: message from the statusbar making text to jump
-  (lsp-ui-sideline-show-diagnostics t)
-  (lsp-ui-sideline-show-code-actions t)
-  (lsp-ui-sideline-code-actions-prefix "")
-  ;; lsp-ui-imenu
-  (lsp-ui-imenu-enable t)
-  ;; lsp-ui-peek
-  (lsp-ui-peek-enable t)
-  ;; lsp-ui
-  (lsp-ui-flycheck-enable t)
-  ;; (add-hook 'lsp-ui-doc-frame-hook
-  ;;           (lambda (frame _w)
-  ;;             (set-face-attribute 'default frame :height 50)))
-  ;; (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
-  ;; (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
-  :commands lsp-ui-mode)
-
-"Helm/Ivy lsp"
-
-(use-package helm-lsp
-  :ensure t
-  :config
-  (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
-  )
-
-(use-package lsp-ivy
-  :ensure t
-  :commands lsp-ivy-workspace-symbol
-  ;; (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
-  :bind (:map lsp-mode-map
-              ([remap xref-find-apropos] . helm-lsp-workspace-symbol)))
-
-(use-package lsp-treemacs :ensure t :commands lsp-treemacs-errors-list)
 
 (use-package yasnippet-snippets :ensure t)
 
@@ -374,25 +288,25 @@
 (use-package cmake-mode
   :ensure t)
 
-(use-package dap-mode
-  ;; :custom
-  ;; (dap-auto-configure-mode t "Automatically configure dap.")
-  ;; (dap-auto-configure-features
-  ;;  '(sessions locals breakpoints expressions tooltip)  "Remove the button panel in the top.")
-  :config
-  (require 'dap-cpptools)
-  (require 'dap-gdb-lldb)
-  (require 'dap-python)
-  (setq dap-python-debugger 'debugpy)
-  ;; (dap-ui-mode 1)
-  ;; (add-hook 'dap-stopped-hook
-  ;;           (lambda (arg) (call-interactively #'dap-hydra)))
-  :bind (("<f5>" . dap-debug)
-         ("C-<f5>" . dap-continue)
-         ("C-<f6>" . dap-next)
-         ("C-<f7>" . dap-step-in)
-         ("C-<f8>" . dap-step-out))
-  )
+;; (use-package dap-mode
+;;   ;; :custom
+;;   ;; (dap-auto-configure-mode t "Automatically configure dap.")
+;;   ;; (dap-auto-configure-features
+;;   ;;  '(sessions locals breakpoints expressions tooltip)  "Remove the button panel in the top.")
+;;   :config
+;;   (require 'dap-cpptools)
+;;   (require 'dap-gdb-lldb)
+;;   (require 'dap-python)
+;;   (setq dap-python-debugger 'debugpy)
+;;   ;; (dap-ui-mode 1)
+;;   ;; (add-hook 'dap-stopped-hook
+;;   ;;           (lambda (arg) (call-interactively #'dap-hydra)))
+;;   :bind (("<f5>" . dap-debug)
+;;          ("C-<f5>" . dap-continue)
+;;          ("C-<f6>" . dap-next)
+;;          ("C-<f7>" . dap-step-in)
+;;          ("C-<f8>" . dap-step-out))
+;;   )
 
 (use-package google-c-style
   :ensure t
@@ -407,7 +321,7 @@
 
 "Development - Java"
 
-(use-package lsp-java :ensure t)
+;; (use-package lsp-java :ensure t)
 
 "Development - Rust"
 
