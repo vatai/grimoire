@@ -255,7 +255,7 @@
   ;; (flycheck-gcc-language-standard  "c++17")
   ;; (flycheck-clang-language-standard "c++17")
   :config
-  (flycheck-add-mode 'proselint 'latex-mode)
+  ;; (flycheck-add-mode 'proselint 'latex-mode)
   (global-flycheck-mode))
 
 (use-package eglot
