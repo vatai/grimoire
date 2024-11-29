@@ -200,10 +200,10 @@
 ;; (add-hook 'prog-mode-hook #'flymake-mode)
 
 (use-package display-line-numbers
-  ;; :custom
-  ;; (display-line-numbers-type 'relative)
-  ;; :config
-  ;; (global-display-line-numbers-mode)
+  :custom
+  (display-line-numbers-type 'relative)
+  :config
+  (global-display-line-numbers-mode)
   )
 
 (use-package company
@@ -352,7 +352,11 @@
 (use-package go-mode
   :config
   ;; (setq gofmt-command "goimports")
-  (add-hook 'before-save-hook 'gofmt-before-save))
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  :bind
+  (("C-c C-c C-t" . 'go-test-current-test)
+   ("C-c C-c C-f" . 'go-test-current-file)
+   ("C-c C-c C-r" . 'go-run)))
 
 "Development - R"
 
