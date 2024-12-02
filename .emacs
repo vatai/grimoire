@@ -269,7 +269,18 @@
   ;;                    (flycheck-add-next-checker 'eglot 'python-pylint)
   ;;                    (flycheck-add-next-checker 'eglot 'python-flake8)
   ;;                    (flycheck-add-next-checker 'python-pylint 'python-mypy)))
-  )
+  :config
+  (require 'project)
+
+  (defun project-find-go-module (dir)
+    (when-let ((root (locate-dominating-file dir "go.mod")))
+      (cons 'go-module root)))
+
+  (cl-defmethod project-root ((project (head go-module)))
+    (cdr project))
+
+  (add-hook 'project-find-functions #'project-find-go-module)
+)
 
 (use-package yasnippet-snippets :ensure t)
 
@@ -352,11 +363,7 @@
 (use-package go-mode
   :config
   ;; (setq gofmt-command "goimports")
-  (add-hook 'before-save-hook 'gofmt-before-save)
-  :bind
-  (("C-c C-c C-t" . 'go-test-current-test)
-   ("C-c C-c C-f" . 'go-test-current-file)
-   ("C-c C-c C-r" . 'go-run)))
+  (add-hook 'before-save-hook 'gofmt-before-save))
 
 "Development - R"
 
