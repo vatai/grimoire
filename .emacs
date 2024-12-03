@@ -223,8 +223,6 @@
   (setq projectile-run-use-comint-mode t)
   (projectile-mode +1))
 
-(use-package zig-mode)
-
 "Helm/Ivy projectile"
 
 ;; (use-package helm-projectile
@@ -296,6 +294,15 @@
   ;;   (trace-function fun))
   (yas-global-mode 1))
 
+"Development - C/C++"
+
+(use-package clang-format
+  :hook
+  (c-mode-common
+   . (lambda ()
+       (add-hook (make-local-variable 'before-save-hook)
+                 'clang-format-buffer))))
+
 (use-package cmake-mode
   :ensure t)
 
@@ -364,6 +371,10 @@
   :config
   ;; (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
+
+"Development - Zig"
+
+(use-package zig-mode)
 
 "Development - R"
 
