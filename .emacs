@@ -1046,6 +1046,8 @@ With a prefix ARG, remove start location."
   (git-commit-setup-hook 'git-commit-turn-on-flyspell)
   (git-commit-summary-max-length 50))
 
+(use-package forge :after magit)
+
 (use-package gist :ensure t)
 
 "email"
