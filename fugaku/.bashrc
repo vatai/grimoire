@@ -108,6 +108,7 @@ if [[ ${TERM} == *screen* ]]; then
   exec zsh -l
 else
   if [[ $- == *i* ]]; then
+    pjstat
     echo "Choose your path"
     fndscr
   fi
