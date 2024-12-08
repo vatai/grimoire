@@ -125,8 +125,6 @@ alias qt="pjstat"
 source /etc/profile.d/modules.sh
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
-fndscr(){ for i in $(seq 1 6); do host=$(printf "login%d" $i);  echo -n "ssh ${host}:"; ssh $host screen -list | tail -n+2 | head -n1; done }
-
 GIT_PROMPT_IGNORE_SUBMODULES=1
 
 # Functions
