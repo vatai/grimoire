@@ -1038,7 +1038,9 @@ With a prefix ARG, remove start location."
   (git-commit-setup-hook 'git-commit-turn-on-flyspell)
   (git-commit-summary-max-length 50))
 
-(use-package forge :after magit)
+(use-package forge
+  :after magit
+  :custom (forge-add-default-bindings nil))
 
 (use-package gist :ensure t)
 
