@@ -1029,14 +1029,6 @@ With a prefix ARG, remove start location."
 ;;   :config
 ;;   (nyan-mode 1))
 
-(use-package dimmer :ensure t
-  :custom
-  (dimmer-fraction 0.4)
-  :config
-  (dimmer-configure-magit)
-  (dimmer-configure-hydra)
-  (dimmer-mode t))
-
 "git"
 
 (use-package magit
