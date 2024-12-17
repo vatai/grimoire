@@ -974,10 +974,6 @@ With a prefix ARG, remove start location."
 
 ;; (load "~/Sync/.emacs.d/setup-ligatures.el")
 
-(load "~/Sync/.emacs.d/indent-file.el")
-(indent-file-when-save)
-(add-hook 'c-mode-common-hook #'indent-file-when-save)
-
 (use-package all-the-icons
   :ensure t)
 
