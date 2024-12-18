@@ -223,6 +223,12 @@
   (setq projectile-run-use-comint-mode t)
   (projectile-mode +1))
 
+"BASH"
+
+(use-package shfmt
+  :hook
+  (sh-mode . shfmt-on-save))
+
 "Helm/Ivy projectile"
 
 ;; (use-package helm-projectile
