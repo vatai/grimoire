@@ -20,7 +20,8 @@
 (winner-mode)
 (add-hook 'compilation-mode-hook
           (lambda ()
-            (text-scale-decrease 1)))
+            (if (display-graphic-p)
+                (text-scale-decrease 1))))
 
 (package-initialize)
 
