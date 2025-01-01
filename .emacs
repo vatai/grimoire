@@ -228,7 +228,7 @@
 
 (use-package shfmt
   :hook
-  (sh-mode . shfmt-on-save))
+  (sh-mode . shfmt-on-save-mode))
 
 "Helm/Ivy projectile"
 
