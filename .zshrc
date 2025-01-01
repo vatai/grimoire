@@ -74,6 +74,7 @@ alias wttr="curl wttr.in"
 alias kt="kitty +kitten themes"
 alias gg="git -C ${GRIMOIRE_PATH}"
 alias ee="emacsclient -r -n"
+alias en="emacsclient -nw"
 
 PATH=${HOME}/bin:${HOME}/.local/bin:${PATH}
 
