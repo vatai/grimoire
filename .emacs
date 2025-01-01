@@ -305,10 +305,7 @@
 
 (use-package clang-format
   :hook
-  (c-mode-common
-   . (lambda ()
-       (add-hook (make-local-variable 'before-save-hook)
-                 'clang-format-buffer))))
+  (c-mode-common . clang-format-on-save-mode))
 
 (use-package cmake-mode
   :ensure t)
