@@ -625,16 +625,24 @@
   (org-roam-completion-everywhere t)
   (org-roam-node-display-template
    (concat "${title} " (propertize "${tags}" 'face 'org-tag)))
-  (org-roam-capture-ref-templates
-   '(("r" "roam-protocol" plain "#+filetags: web stub\n\n${body}\n"
-      :target (file+head "webpages/${slug}.org" "#+title: ${title}\n")
-      :unnarrowed t)))
   (org-roam-capture-templates
    '(("d" "default" plain "#+filetags: stub\n"
       :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)
      ("r" "bibliography reference" plain "#+filetags: :paper:\n\n- keywords :: %^{keywords}\n\n* %^{title}\n  :PROPERTIES:\n  :ROAM_REF: %^{citekey}\n  :URL: %^{url}\n  :AUTHOR: %^{author-or-editor}\n  :NOTER_DOCUMENT: %^{file}\n  :NOTER_PAGE:\n  :END:\n"
       :target (file+head "references/${citekey}.org" "#+title: ${title}\n")
+      :unnarrowed t)))
+  ;; for dailies
+;;   (org-roam-dailies-capture-templates
+;;    '(("d" "default" entry "* %?" :target
+;;       (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>
+;; "))
+;;      ("w" "week" entry "* %?" :target
+;;       (file+head "" ""))))
+  ;; for roam-ref protocol
+  (org-roam-capture-ref-templates
+   '(("r" "roam-protocol" plain "#+filetags: web stub\n\n${body}\n"
+      :target (file+head "webpages/${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
