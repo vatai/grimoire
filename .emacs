@@ -872,23 +872,23 @@ With a prefix ARG, remove start location."
 ;; (load "~/.emacs.d/sanity.el")
 ;; (load "~/.emacs.d/elegance.el")
 
-;; (use-package color-theme-sanityinc-solarized :ensure t)
+(use-package solarized-theme)
+(use-package monokai-theme)
+(use-package color-theme-sanityinc-tomorrow)
+;; (use-package color-theme-sanityinc-solarized)
+
 ;; (defconst dynamic-theme-dark-theme 'sanityinc-solarized-dark)
 ;; (defconst dynamic-theme-light-theme 'sanityinc-solarized-light)
 
-;; (use-package solarized-theme :ensure t)
 ;; (defconst dynamic-theme-light-theme 'solarized-light)
 ;; (defconst dynamic-theme-dark-theme 'solarized-dark-high-contrast)
 
 ;; (defconst dynamic-theme-light-theme 'adwaita)
-;; (defconst dynamic-theme-dark-theme 'modus-vivendi)
+(defconst dynamic-theme-light-theme 'louven)
+(defconst dynamic-theme-dark-theme 'modus-vivendi)
 
-;; (use-package color-theme-sanityinc-solarized)
-(use-package solarized-theme)
-(use-package monokai-theme)
-(use-package color-theme-sanityinc-tomorrow)
-(defconst dynamic-theme-light-theme 'solarized-gruvbox-light)
-(defconst dynamic-theme-dark-theme 'monokai)
+;; (defconst dynamic-theme-light-theme 'solarized-gruvbox-light)
+;; (defconst dynamic-theme-dark-theme 'monokai)
 
 (defun dynamic-theme-light-mode ()
   (interactive)
