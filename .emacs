@@ -481,7 +481,11 @@
   (org-agenda-custom-commands
    '(("n" "Agenda and all TODOs" ((agenda "" nil) (alltodo "" nil)) nil)
      ("N" "Next tasks" todo "NEXT" nil)
-     ("q" "Test query" tags "+work" ((org-agenda-files '("~/org/roam/daily"))))))
+     ("q" "Test query" tags "+work"
+      ((org-agenda-files '("~/org/roam/daily"))))
+     ("r" "Test query" agenda ""
+      ((org-agenda-span 15)
+       (org-agenda-start-day "-14d")))))
   (org-babel-load-languages
    (quote
     ((emacs-lisp . t)
