@@ -478,6 +478,10 @@
   (org-image-actual-width nil)
   (org-agenda-clockreport-parameter-plist (quote (:link t :maxlevel 2 :fileskip0 t)))
   (org-agenda-files (quote ("~/org/")))
+  (org-agenda-custom-commands
+   '(("n" "Agenda and all TODOs" ((agenda "" nil) (alltodo "" nil)) nil)
+     ("N" "Next tasks" todo "NEXT" nil)
+     ("q" "Test query" tags "+tadashi" ((org-agenda-files '("~/org/roam/daily"))))))
   (org-babel-load-languages
    (quote
     ((emacs-lisp . t)
