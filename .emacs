@@ -200,6 +200,8 @@
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 ;; (add-hook 'prog-mode-hook #'flymake-mode)
 
+(use-package realgud)
+
 (use-package display-line-numbers
   :custom
   (display-line-numbers-type 'relative)
