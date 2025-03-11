@@ -875,6 +875,9 @@ With a prefix ARG, remove start location."
 "Bling - Appearance"
 
 ;; Fix for themes which keep the line number the same
+(set-face-attribute 'default nil :family "Iosevka")
+(set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
+(set-face-attribute 'default nil :height 160)
 (custom-set-faces '(line-number ((t (:inherit default)))))
 
 ;; (load "~/.emacs.d/sanity.el")
