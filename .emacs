@@ -897,7 +897,7 @@ With a prefix ARG, remove start location."
 ;; (defconst dynamic-theme-dark-theme 'solarized-dark-high-contrast)
 
 ;; (defconst dynamic-theme-light-theme 'adwaita)
-(defconst dynamic-theme-light-theme 'louven)
+(defconst dynamic-theme-light-theme 'leuven)
 (defconst dynamic-theme-dark-theme 'modus-vivendi)
 
 ;; (defconst dynamic-theme-light-theme 'solarized-gruvbox-light)
