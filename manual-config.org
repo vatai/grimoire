@@ -1,22 +1,27 @@
+* Syncthing
+
+Ignore pattern: #include stignore-shared.txt
+
 * Zotero
 
-** Zotfile
+** ZotMoov
 
-*** Source folder (new files):
-
-/home/vatai/Downloads
-
-
-*** Location of files
+*** Directory to Move/Copy Files To
 
 /home/vatai/Sync/zotero-data/pdfs
 
+*** Check 3 checkboxes
 
-*** Renaming rules
+- Automatically Move/Copy Files When Added
+- Automatically Move/Copy Files to Subdirectory
+  - Subdirectory Sting {%c}
+- Automatically Delete Linked Files...
 
-{%a}{%y}{%t}
+*** Advanced: Search folder for attaching new files
 
-Check everything EXCEPT first (Add user input to filename) and last (Add suffix)
+/home/vatai/Downloads
+
+- check "confirm"
 
 
 ** Beter bibtex
@@ -36,6 +41,7 @@ auth.lower+year+veryshorttitle.lower
 *** Data Directory Location
 
 /home/vatai/Sync/zotero-data
+
 
 * Megasync
 
@@ -59,8 +65,10 @@ auth.lower+year+veryshorttitle.lower
 
 - Enable the megasync
   #+begin_src shell
-    sudo systemctl enable mega-cmd@vatai
+    sudo systemctl enable --now mega-cmd@vatai
   #+end_src
+
+  #+RESULTS:
 
 * pCloud
 #+begin_src shell
@@ -89,3 +97,11 @@ auth.lower+year+veryshorttitle.lower
   - Switch windows -> Alt tab
   - Switch windows of an application -> Esc (HHKB) or `
   - If eisu-toggle make problems: Tweaks -> Keyboard & Mouse -> Additional Layout Options -> Caps Lock behaviour -> Make Caps Lock an additional Ctrl
+
+* Gnome Extensions
+** nightthemeswitcher
+#+begin_src bash
+  yay -S gnome-shell-extension-nightthemeswitcher-git 
+#+end_src
+  - ~emacsclient -e '(dynamic-theme-light-mode)'~
+  - ~emacsclient -e '(dynamic-theme-dark-mode)'~
