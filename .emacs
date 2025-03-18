@@ -216,14 +216,15 @@
 
 (use-package projectile
   :ensure t
-  ;; :custom
+  :custom
   ;; (projectile-indexing-method 'native)
+  (projectile-project-search-path '("~/code" "~/other-code"))
+  (projectile-run-use-comint-mode t)
   :delight
   :config
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (setq projectile-project-search-path '("~/code" "~/other-code"))
-  (setq projectile-run-use-comint-mode t)
+  (projectile-discover-projects-in-search-path)
   (projectile-mode +1))
 
 "BASH"
