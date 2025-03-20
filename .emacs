@@ -1173,11 +1173,6 @@ With a prefix ARG, remove start location."
   (mastodon-instance-url "https://mast.hpc.social")
   (mastodon-active-user "vatai"))
 
-(use-package twittering-mode
-  :ensure t
-  :custom
-  (twittering-icon-mode t))
-
 "eshell"
 
 (use-package eshell-autojump)
