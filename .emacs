@@ -877,10 +877,14 @@ With a prefix ARG, remove start location."
 
 "Bling - Appearance"
 
+(defun get-font-size ()
+  (let ((font-list '((shub-niggurath . 100))))
+    (alist-get (intern (system-name)) font-list 160)))
+
 ;; Fix for themes which keep the line number the same
 (set-face-attribute 'default nil :family "Iosevka")
 (set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height (get-font-size))
 (custom-set-faces '(line-number ((t (:inherit default)))))
 
 ;; (load "~/.emacs.d/sanity.el")
