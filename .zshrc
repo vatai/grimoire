@@ -75,6 +75,7 @@ alias kt="kitty +kitten themes"
 alias gg="git -C ${GRIMOIRE_PATH}"
 alias ee="emacsclient -r -n"
 alias en="emacsclient -nw"
+alias yuy="PKGEXT=.pkg.tar MAKEFLAGS=-j yay -Syu --noconfirm; yay -Scc"
 
 PATH=${HOME}/bin:${HOME}/.local/bin:${PATH}
 
