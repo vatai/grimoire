@@ -878,7 +878,8 @@ With a prefix ARG, remove start location."
 "Bling - Appearance"
 
 (defun get-font-size ()
-  (let ((font-list '((shub-niggurath . 100))))
+  (let ((font-list '((shub-niggurath . 100)
+                     (silencio . 140))))
     (alist-get (intern (system-name)) font-list 160)))
 
 ;; Fix for themes which keep the line number the same
@@ -920,8 +921,8 @@ With a prefix ARG, remove start location."
   (mapc #'disable-theme custom-enabled-themes)
   (load-theme dynamic-theme-dark-theme t))
 
-(dynamic-theme-dark-mode)
-;; (dynamic-theme-light-mode)
+;; (dynamic-theme-dark-mode)
+(dynamic-theme-light-mode)
 
 (use-package rainbow-delimiters
   :config
