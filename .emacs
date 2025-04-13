@@ -924,6 +924,9 @@ With a prefix ARG, remove start location."
 ;; (dynamic-theme-dark-mode)
 (dynamic-theme-light-mode)
 
+;; emoji
+(bind-key "C-c C-." #'emoji-insert)
+
 (use-package rainbow-delimiters
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
