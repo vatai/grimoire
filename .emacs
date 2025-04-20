@@ -421,6 +421,8 @@
 
 "Development - Science"
 
+(use-package haskell-mode)
+
 ;; (use-package ein :ensure t)
 
 (use-package ob-sagemath :ensure t)
@@ -499,6 +501,7 @@
      (sql . t)
      (dot . t)
      (latex . t)
+     (haskell . t)
      (octave . t)
      (python . t)
      (ditaa . t)
@@ -1347,7 +1350,14 @@ With a prefix ARG, remove start location."
 
 (use-package gptel
   :bind (("C-c m m" . gptel-menu)
-         ("C-c m s" . gptel-send)))
+         ("C-c m s" . gptel-send))
+  :custom ((gptel-default-mode 'org-mode))
+  :config
+  (load-library "gptel-org")
+  ;; (setq gptel-prompt-prefix-string "* AI")
+  ;; (setf (alist-get 'org-mode gptel-prompt-prefix-alist) "@user\n")
+  ;; (setf (alist-get 'org-mode gptel-response-prefix-alist) "@assistant\n")
+  'done)
 
 ;; (use-package org-ai
 ;;   :commands (org-ai-mode
