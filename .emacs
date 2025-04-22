@@ -205,8 +205,8 @@
 (use-package display-line-numbers
   :custom
   (display-line-numbers-type 'relative)
-  :config
-  (global-display-line-numbers-mode)
+  ;; :config
+  ;; (global-display-line-numbers-mode)
   )
 
 (use-package company
