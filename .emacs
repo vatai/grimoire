@@ -834,7 +834,20 @@ With a prefix ARG, remove start location."
 
 (use-package org-drill :ensure t)
 
+(defun get-font-size ()
+  "Return the font size based on the host name."
+  (let ((font-list '((shub-niggurath . 100)
+                     (silencio . 140)))
+        (default-font-size 160))
+    (alist-get (intern (system-name)) font-list default-font-size)))
+
+(defun set-adjusted-org-format-latex-scale (scale)
+  "Set SCALE but adjust it to the default font size."
+  (let ((new-scale (* scale 0.004 (get-font-size))))
+    (plist-put org-format-latex-options :scale new-scale)))
+
 ;; scale latex fragments
+(plist-put org-format-latex-options :scale (* (get-font-size) 0.005))
 (plist-put org-format-latex-options :foreground nil)
 (plist-put org-format-latex-options :background nil)
 (defun update-org-latex-fragments ()
@@ -842,7 +855,7 @@ With a prefix ARG, remove start location."
   (when (derived-mode-p 'org-mode)
     ;; (org-latex-preview '(64)) ;; clear all frags
     (let ((scale (expt text-scale-mode-step text-scale-mode-amount)))
-      (plist-put org-format-latex-options :scale (max 1 (* 1.3 scale))))
+      (plist-put org-format-latex-options :scale (* (max 1 (* 1.3 scale)) (get-font-size) 0.005)))
     ;; (org-latex-preview '(16))
     ))
 (add-hook 'text-scale-mode-hook 'update-org-latex-fragments)
@@ -879,11 +892,6 @@ With a prefix ARG, remove start location."
 ;;   :ensure t)
 
 "Bling - Appearance"
-
-(defun get-font-size ()
-  (let ((font-list '((shub-niggurath . 100)
-                     (silencio . 140))))
-    (alist-get (intern (system-name)) font-list 160)))
 
 ;; Fix for themes which keep the line number the same
 (set-face-attribute 'default nil :family "Iosevka")
