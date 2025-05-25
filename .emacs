@@ -627,6 +627,12 @@
   :ensure t
   :after (org))
 
+(use-package ox-gist
+  :after (org))
+
+(use-package ob-mermaid
+  :after (org))
+
 (use-package org-re-reveal
   :after (org)
   :custom (org-re-reveal-root "file:///home/vatai/.local/reveal.js"))
