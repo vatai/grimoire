@@ -505,6 +505,7 @@
      (octave . t)
      (python . t)
      (ditaa . t)
+     (mermaid . t)
      (sqlite . t))))
   (org-capture-templates
    (quote
@@ -631,7 +632,8 @@
   :after (org))
 
 (use-package ob-mermaid
-  :after (org))
+  :after (org)
+  :custom (ob-mermaid-cli-path "mmdc"))
 
 (use-package org-re-reveal
   :after (org)
