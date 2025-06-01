@@ -42,7 +42,6 @@ auth.lower+year+veryshorttitle.lower
 
 /home/vatai/Sync/zotero-data
 
-
 * Megasync
 
 - AUR
@@ -105,3 +104,13 @@ auth.lower+year+veryshorttitle.lower
 #+end_src
   - ~emacsclient -e '(dynamic-theme-light-mode)'~
   - ~emacsclient -e '(dynamic-theme-dark-mode)'~
+
+* Emacs mail
+** IMAP
+- follow mbsync setup on arch wiki
+  - use oama
+    - ~client_id~ is =Application (client) ID=
+    - ~client_secret~ is =Value= under the secrets
+    - ~tenant~ seems to be anything. (I got it working initially with =Directory (tenant) ID=)
+** SMTP
+- msmtp for sendmail...
