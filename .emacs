@@ -25,6 +25,10 @@
 
 (package-initialize)
 
+(use-package unicode-fonts)
+(require 'persistent-soft) ; To cache the fonts and reduce load time
+(unicode-fonts-setup)
+
 (require 'smtpmail)
 (let ((package 'use-package))
   (unless (package-installed-p package)
@@ -960,12 +964,16 @@ With a prefix ARG, remove start location."
 (use-package all-the-icons :ensure t)
 
 (use-package all-the-icons-dired :ensure t)
+(use-package all-the-icons-nerd-fonts :ensure t)
+(use-package all-the-icons-gnus :ensure t)
+(use-package all-the-icons-ibuffer :ensure t)
 
 (use-package treemacs-icons-dired :ensure t)
 (use-package treemacs-all-the-icons :ensure t)
 (use-package all-the-icons-ivy-rich :ensure t)
 (use-package all-the-icons-ivy :ensure t)
 (use-package all-the-icons-completion :ensure t)
+(use-package treemacs-nerd-icons :ensure t)
 
 ;; (use-package pretty-symbols :ensure t)
 
@@ -1131,7 +1139,8 @@ With a prefix ARG, remove start location."
   ;; (dolist (charset '(kana han cjk-misc bopomofo gb18030))
   ;;   (set-fontset-font "fontset-default" charset "github-octicons" nil 'append)
   ;;   (set-fontset-font "fontset-default" charset "FontAwesome" nil 'append)
-  ;;   (set-fontset-font "fontset-default" charset "Material Icons" nil 'append))
+  ;;   (set-fontset-font "fontset-default" charset "Material Icons" nil 'append)
+  ;;   )
   )
 
 ;; (use-package org-mu4e
