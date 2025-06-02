@@ -147,6 +147,8 @@
   :config
   (evil-collection-init))
 
+(use-package evil-mu4e)
+
 "Helm/Ivy"
 
 ;; (use-package helm
@@ -1135,12 +1137,12 @@ With a prefix ARG, remove start location."
   :init (mu4e-marker-icons-mode 1)
   :custom
   (mu4e-marker-icons-use-unicode t)
-  ;; :config
-  ;; (dolist (charset '(kana han cjk-misc bopomofo gb18030))
-  ;;   (set-fontset-font "fontset-default" charset "github-octicons" nil 'append)
-  ;;   (set-fontset-font "fontset-default" charset "FontAwesome" nil 'append)
-  ;;   (set-fontset-font "fontset-default" charset "Material Icons" nil 'append)
-  ;;   )
+  :config
+  (dolist (charset '(kana han cjk-misc bopomofo gb18030))
+    (set-fontset-font "fontset-default" charset "github-octicons" nil 'append)
+    (set-fontset-font "fontset-default" charset "FontAwesome" nil 'append)
+    (set-fontset-font "fontset-default" charset "Material Icons" nil 'append)
+    )
   )
 
 ;; (use-package org-mu4e
