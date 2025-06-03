@@ -25,10 +25,6 @@
 
 (package-initialize)
 
-(use-package unicode-fonts)
-(require 'persistent-soft) ; To cache the fonts and reduce load time
-(unicode-fonts-setup)
-
 (require 'smtpmail)
 (let ((package 'use-package))
   (unless (package-installed-p package)
@@ -146,8 +142,6 @@
   :ensure t
   :config
   (evil-collection-init))
-
-(use-package evil-mu4e)
 
 "Helm/Ivy"
 
