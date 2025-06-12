@@ -23,6 +23,49 @@
             (if (display-graphic-p)
                 (text-scale-decrease 1))))
 
+"auto-insert"
+
+(auto-insert-mode t)
+(setq auto-insert-query nil)
+(define-auto-insert ".*\\.tikz\\.tex\\'"
+  (lambda ()(insert "\\documentclass[tikz,crop]{standalone}
+
+\\usepackage[T1]{fontenc}
+\\usepackage[tt=false,type1=true]{libertine}
+\\usepackage[varqu]{zi4}
+\\usepackage{newtxmath}
+\\usepackage[dvipsnames]{xcolor}
+\\usepackage{tikz,listings}
+\\usepackage{bbding}
+\\usetikzlibrary{arrows,fit,positioning,shadows,shapes,shapes.arrows}
+
+\\lstset{
+    % backgroundcolor=\\color{backcolour},
+    % stringstyle=\\color{codepurple},
+    % commentstyle=\\color{codegreen},
+    keywordstyle=\\bfseries\\color{magenta},
+    numberstyle=\\tiny\\color{codegray},
+    basicstyle=\\ttfamily\\tiny,
+    % captionpos=b,
+    escapeinside={/@}{@/},
+    % breakatwhitespace=false,
+    % breaklines=true,
+    % keepspaces=true,
+    % numbers=left,
+    % numbersep=5pt,
+    % showspaces=false,
+    % showstringspaces=false,
+    % showtabs=false,
+    % tabsize=2
+}
+% \\colorlet{ml-model-bg}{CornflowerBlue!10}
+\\begin{document}
+\\begin{tikzpicture}
+
+\\end{tikzpicture}
+\\end{document}
+")))
+
 (package-initialize)
 
 (require 'smtpmail)
