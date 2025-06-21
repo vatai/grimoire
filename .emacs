@@ -1001,18 +1001,19 @@ With a prefix ARG, remove start location."
 ;;   :config (beacon-mode))
 
 (use-package all-the-icons :ensure t)
+(use-package nerd-icons :ensure t)
 
-(use-package all-the-icons-dired :ensure t)
-(use-package all-the-icons-nerd-fonts :ensure t)
-(use-package all-the-icons-gnus :ensure t)
-(use-package all-the-icons-ibuffer :ensure t)
+;; (use-package all-the-icons-dired)
+;; (use-package all-the-icons-nerd-fonts)
+;; (use-package all-the-icons-gnus :ensure t)
+;; (use-package all-the-icons-ibuffer :ensure t)
 
-(use-package treemacs-icons-dired :ensure t)
-(use-package treemacs-all-the-icons :ensure t)
-(use-package all-the-icons-ivy-rich :ensure t)
-(use-package all-the-icons-ivy :ensure t)
-(use-package all-the-icons-completion :ensure t)
-(use-package treemacs-nerd-icons :ensure t)
+;; (use-package treemacs-icons-dired :ensure t)
+;; (use-package treemacs-all-the-icons :ensure t)
+;; (use-package all-the-icons-ivy-rich :ensure t)
+;; (use-package all-the-icons-ivy :ensure t)
+;; (use-package all-the-icons-completion :ensure t)
+;; (use-package treemacs-nerd-icons :ensure t)
 
 ;; (use-package pretty-symbols :ensure t)
 
@@ -1140,6 +1141,7 @@ With a prefix ARG, remove start location."
   (mu4e-drafts-folder "/Drafts")
   (mu4e-refile-folder "/Archive")
   (mu4e-trash-folder  "/Deleted Items")
+  (mu4e-search-threads nil)
   (mu4e-compose-signature
    (concat
     "Emil VATAI (PhD)\n"
@@ -1166,20 +1168,14 @@ With a prefix ARG, remove start location."
   :config
   (mu4e-alert-set-default-style 'libnotify))
 
-(use-package mu4e-column-faces
-  :after mu4e
-  :config (mu4e-column-faces-mode))
+;; (use-package mu4e-column-faces
+;;   :after mu4e
+;;   :config (mu4e-column-faces-mode))
 
 (use-package mu4e-marker-icons
   :init (mu4e-marker-icons-mode 1)
   :custom
   (mu4e-marker-icons-use-unicode t)
-  :config
-  (dolist (charset '(kana han cjk-misc bopomofo gb18030))
-    (set-fontset-font "fontset-default" charset "github-octicons" nil 'append)
-    (set-fontset-font "fontset-default" charset "FontAwesome" nil 'append)
-    (set-fontset-font "fontset-default" charset "Material Icons" nil 'append)
-    )
   )
 
 ;; (use-package org-mu4e
