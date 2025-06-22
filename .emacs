@@ -1136,6 +1136,17 @@ With a prefix ARG, remove start location."
   ;; (smtpmail-smtp-service 587)
   ;; (smtpmail-stream-type 'starttls)
   ;; (smtp-auth 'xoauth2)
+  (mu4e-bookmarks
+   '(
+        (:name "Unread messages" :query "NOT \"maildir:/Junk Email\" AND flag:unread AND NOT flag:trashed" :key 117)
+        (:name "Today's messages" :query "NOT \"maildir:/Junk Email\" AND date:today..now" :key 116)
+        (:name "Last 7 days" :query "NOT \"maildir:/Junk Email\" AND date:7d..now" :hide-unread t :key 119)
+     ;; (:name "Messages with images" :query "mime:image/*" :key 112))
+   ))
+  (mu4e-maildir-shortcuts
+   '(
+     (:maildir "/inbox"     :key  ?i)
+     ))
   (mu4e-get-mail-command "mbsync Riken")
   (mu4e-sent-folder "/Sent Items")
   (mu4e-drafts-folder "/Drafts")
@@ -1327,7 +1338,7 @@ With a prefix ARG, remove start location."
 ;; (remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
 
 ;; Default browser
-(setq browse-url-browser-function 'browse-url-generic  browse-url-generic-program "firefox")
+;; (setq browse-url-browser-function 'browse-url-generic  browse-url-generic-program "firefox")
 
 ;; (load "~/org/projects.el")
 (setq cursor-type 'bar)
