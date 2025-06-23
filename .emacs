@@ -1164,11 +1164,12 @@ With a prefix ARG, remove start location."
     "tel: 03-6225-2473\n"))
   :hook
   ((mu4e-compose-mode . flyspell-mode)
-   (mu4e-headers-mode
-    . (lambda ()
-        (message "FooBar")
-        (setq-local truncate-lines t)
-        (message (format "tr lines is %s; buffer: %s" truncate-lines (buffer-name))))))
+   ;; (mu4e-headers-mode
+   ;;  . (lambda ()
+   ;;      (message "FooBar")
+   ;;      (setq-local truncate-lines t)
+   ;;      (message (format "tr lines is %s; buffer: %s" truncate-lines (buffer-name)))))
+   )
   )
 
 (use-package mu4e-alert
