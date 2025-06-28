@@ -151,6 +151,9 @@
 ;;     idle-highlight-mode idle-highlight-mode)
 ;;   (global-idle-highlight-mode))
 
+(use-package prettier
+  :hook (markdown-mode . prettier-mode))
+
 "evil"
 
 (use-package evil
