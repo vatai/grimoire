@@ -793,10 +793,8 @@
 
 (use-package org-noter
   :ensure t
-  ;; :after (:all org pdf-view)
   :bind (("C-c n n" . org-noter))
   :custom (org-noter-notes-search-path '("~/Sync/zotero-data/pdfs"))
-  ;; :config (require 'org-noter-pdftools)
   )
 
 (use-package org-pomodoro
