@@ -788,7 +788,7 @@
   (pdf-loader-install)
   ;; ;; Disable swiper
   ;; (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
-  ;; :hook (pdf-view-mode . pdf-view-auto-slice-minor-mode)
+  :hook (pdf-view-mode . pdf-view-auto-slice-minor-mode)
   )
 
 (use-package org-noter
