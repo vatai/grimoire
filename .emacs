@@ -159,6 +159,7 @@
 (use-package evil
   :ensure t
   :init
+  (setq evil-respect-visual-line-mode t)
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
   :config
@@ -250,7 +251,7 @@
 
 (use-package display-line-numbers
   :custom
-  (display-line-numbers-type 'relative)
+  (display-line-numbers-type 'visual)
   ;; :config
   ;; (global-display-line-numbers-mode)
   )
