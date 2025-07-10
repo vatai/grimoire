@@ -28,10 +28,10 @@ Near :Riken-local:
 # Or include everything
 Patterns *
 # Automatically create missing mailboxes, both locally and on the server
-Create Near
+Create Both
 # Save the synchronization state files in the relevant directory
 SyncState *
-Expunge Near
+Expunge Both
 #######################################################
 
 # IMAPAccount ELTE
