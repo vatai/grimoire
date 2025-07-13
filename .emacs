@@ -169,6 +169,8 @@
   ;; (add-to-list 'evil-emacs-state-modes 'mingus-browse-mode)
   ;; (add-to-list 'evil-emacs-state-modes 'mingus-playlist-mode)
   (evil-set-undo-system 'undo-tree)
+  ;; This is how you "disable" evil-mode for certain modes
+  (evil-set-initial-state 'epa-key-list-mode 'emacs)
   (evil-mode))
 
 ;; Increment and decrement numbers
