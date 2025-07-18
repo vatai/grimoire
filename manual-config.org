@@ -72,17 +72,6 @@ auth.lower+year+veryshorttitle.lower
 
 #+end_src
 
-* Riken Wifi r-ccs-wlan
-
-- Security: WPA & WPA2 Enterprise
-- Authentication: TLS
-- Identity: rNNNNNN-XXXX-YYYY
-- User cert: None
-- CA cert: None
-- Checked No CA cert is required
-- Private key: rNNNNNN-XXXX-YYYY.p12
-- Password: see authinfo
-
 * Gnome keyboard
 - Navigation
   - Switch applications -> Super tab
@@ -118,3 +107,14 @@ auth.lower+year+veryshorttitle.lower
     - ~tenant~ seems to be anything. (I got it working initially with =Directory (tenant) ID=)
 ** SMTP
 - msmtp for sendmail...
+* Riken Wifi r-ccs-wlan
+
+- Security: WPA & WPA2 Enterprise
+- Authentication: TLS
+- Identity: rNNNNNN-XXXX-YYYY
+- User cert: None
+- CA cert: None
+- Checked No CA cert is required
+- Private key: rNNNNNN-XXXX-YYYY.p12
+- Password: see authinfo
+
