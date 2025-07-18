@@ -3,9 +3,16 @@
 Ignore pattern: #include stignore-shared.txt
 
 * Zotero
+** Zotero Advanced perf
+*** Base dir
 
-** ZotMoov
+/home/vatai/Sync
 
+*** Data Directory Location
+
+/home/vatai/Sync/zotero-data
+
+** [[https://github.com/wileyyugioh/zotmoov][ZotMoov]]
 *** Directory to Move/Copy Files To
 
 /home/vatai/Sync/zotero-data/pdfs
@@ -23,24 +30,11 @@ Ignore pattern: #include stignore-shared.txt
 
 - check "confirm"
 
-
-** Beter bibtex
-
+** [[https://retorque.re/zotero-better-bibtex/installation/][Beter bibtex]]
 *** citation key format
 
 auth.lower+year+veryshorttitle.lower
 
-
-** Zotero Advanced perf
-
-*** Base dir
-
-/home/vatai/Sync
-
-
-*** Data Directory Location
-
-/home/vatai/Sync/zotero-data
 
 * Megasync
 
