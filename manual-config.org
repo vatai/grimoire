@@ -35,7 +35,6 @@ Ignore pattern: #include stignore-shared.txt
 
 auth.lower+year+veryshorttitle.lower
 
-
 * Megasync
 
 - AUR
@@ -100,6 +99,17 @@ auth.lower+year+veryshorttitle.lower
   - ~emacsclient -e '(dynamic-theme-dark-mode)'~
 
 * Emacs mail
+
+#+begin_src bash
+  sudo pacman -S isync
+  yay -S cyrus-sasl-xoauth2-git oama-bin
+  oama authorize microsoft emil.vatai@riken.jp
+  mkdir .mail/Riken
+  mbsync -a
+  mu init --maildir ~/.mail/Riken/ --my-address emil.vatai@riken.jp
+  mu index
+#+end_src
+
 ** IMAP
 - follow mbsync setup on arch wiki
   - use oama
