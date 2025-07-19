@@ -677,9 +677,6 @@
   :ensure t
   :after (org))
 
-(use-package ox-gist
-  :after (org))
-
 (use-package ob-mermaid
   :after (org)
   :custom (ob-mermaid-cli-path "mmdc"))
@@ -1077,8 +1074,6 @@
 (use-package forge
   :after magit
   :custom (forge-add-default-bindings nil))
-
-(use-package gist :ensure t)
 
 "email"
 
