@@ -10,7 +10,7 @@ function do_dotfiles {
 }
 
 function do_syncfiles {
-    SYNC_FILES="org .authinfo.gpg"
+    SYNC_FILES="org .authinfo.gpg .password-store"
 
     for FILE in ${SYNC_FILES}; do
         [ -L ${HOME}/${FILE} ] || ln -sf "${HOME}/Sync/${FILE}" "${HOME}/${FILE}"
