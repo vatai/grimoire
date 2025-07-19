@@ -855,7 +855,7 @@
 
 (defun get-font-size ()
   "Return the font size based on the host name."
-  (let ((font-list '((shub-niggurath . 100)
+  (let ((font-list '((nou . 100)
                      (silencio . 140)))
         (default-font-size 160))
     (alist-get (intern (system-name)) font-list default-font-size)))
