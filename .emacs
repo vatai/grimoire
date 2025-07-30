@@ -909,9 +909,11 @@
 "Bling - Appearance"
 
 ;; Fix for themes which keep the line number the same
-(set-face-attribute 'default nil :family "Iosevka")
-(set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
-(set-face-attribute 'default nil :height (get-font-size))
+;; (add-to-list 'default-frame-alist
+;;              '(font . "NovaMono-12"))
+;; (set-face-attribute 'default nil :family "Iosevka")
+;; (set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
+;; (set-face-attribute 'default nil :height (get-font-size))
 (custom-set-faces '(line-number ((t (:inherit default)))))
 
 ;; (load "~/.emacs.d/sanity.el")
