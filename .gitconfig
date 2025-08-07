@@ -13,3 +13,5 @@
 	process = git-lfs filter-process
 [github]
 	user = vatai
+[alias]
+	root = rev-parse --show-toplevel
