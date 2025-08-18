@@ -1,3 +1,23 @@
+* Grimoire
+
+#+begin_src bash
+  ln -s arch system
+#+end_src
+
+* Emacs
+
+#+begin_src bash
+  yay -S mu
+#+end_src
+
+* Keyring
+
+#+begin_src bash
+  systemctl --user enable --now gcr-ssh-agent.socket
+#+end_src
+
+Restart?
+
 * Syncthing
 
 Ignore pattern: #include stignore-shared.txt
