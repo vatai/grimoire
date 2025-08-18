@@ -10,13 +10,15 @@
   yay -S mu
 #+end_src
 
+- *and run Emacs FROM THE TERMINAL (not as a service!)*
+
 * Keyring
 
 #+begin_src bash
   systemctl --user enable --now gcr-ssh-agent.socket
 #+end_src
 
-Restart?
+- *RESTART!*
 
 * Syncthing
 
@@ -51,7 +53,7 @@ Ignore pattern: #include stignore-shared.txt
 - check "confirm"
 
 ** [[https://retorque.re/zotero-better-bibtex/installation/][Beter bibtex]]
-*** citation key format
+*** citation key formula
 
 auth.lower+year+veryshorttitle.lower
 
@@ -83,8 +85,11 @@ auth.lower+year+veryshorttitle.lower
   #+RESULTS:
 
 * pCloud
+
+- First in stall ~pcloudcc-lneely~ from AUR.
+- Copy ~pcloudcc.service~ to ~./config/systemd/user/.~
+
 #+begin_src shell
-  # ./config/systemd/user/pcloudcc.service
   systemctl --user stop pcloudcc.service
   pcloudcc -u emil.vatai@gmail.com -p -s
   systemctl --user start pcloudcc.service
@@ -97,7 +102,7 @@ auth.lower+year+veryshorttitle.lower
   - Switch applications -> Super tab
   - Switch windows -> Alt tab
   - Switch windows of an application -> Esc (HHKB) or `
-  - If eisu-toggle make problems: Tweaks -> Keyboard & Mouse -> Additional Layout Options -> Caps Lock behaviour -> Make Caps Lock an additional Ctrl
+  - If eisu-toggle makes problems: Tweaks -> Keyboard & Mouse -> Additional Layout Options -> Caps Lock behaviour -> Make Caps Lock an additional Ctrl
 
 * Gnome Extensions
 ** nightthemeswitcher
@@ -113,7 +118,7 @@ auth.lower+year+veryshorttitle.lower
   sudo pacman -S isync
   yay -S cyrus-sasl-xoauth2-git oama-bin
   oama authorize microsoft emil.vatai@riken.jp
-  mkdir .mail/Riken
+  mkdir ~/.mail/Riken
   mbsync -a
   mu init --maildir ~/.mail/Riken/ --my-address emil.vatai@riken.jp
   mu index
