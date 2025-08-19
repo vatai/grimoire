@@ -57,6 +57,14 @@ Ignore pattern: #include stignore-shared.txt
 
 auth.lower+year+veryshorttitle.lower
 
+** Emacs .bib file
+
+- My Library, right click "Export Library"
+  - Better BibTex
+  - Export Notes
+  - Keep updated
+- Export as ~/org/bib/zotero.bib
+
 * Megasync
 
 - AUR
