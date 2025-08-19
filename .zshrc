@@ -57,9 +57,9 @@ function set_env ()
 # AutoJump
 source /usr/share/autojump/autojump.zsh
 
-# Gem
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-export PATH="$PATH:$GEM_HOME/bin"
+### # Gem
+### export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+### export PATH="$PATH:$GEM_HOME/bin"
 
 # Powerline
 # prompt off
