@@ -109,8 +109,11 @@ auth.lower+year+veryshorttitle.lower
 #+begin_src bash
   yay -S gnome-shell-extension-nightthemeswitcher-git 
 #+end_src
-  - ~emacsclient -e '(dynamic-theme-light-mode)'~
-  - ~emacsclient -e '(dynamic-theme-dark-mode)'~
+
+#+begin_example
+  emacsclient -e '(dynamic-theme-light-mode)'
+  emacsclient -e '(dynamic-theme-dark-mode)'
+#+end_example
 
 * Emacs mail
 
