@@ -930,12 +930,14 @@
 ;; (defconst dynamic-theme-light-theme 'solarized-light)
 ;; (defconst dynamic-theme-dark-theme 'solarized-dark-high-contrast)
 
-;; (defconst dynamic-theme-light-theme 'adwaita)
-(defconst dynamic-theme-light-theme 'leuven)
-(defconst dynamic-theme-dark-theme 'modus-vivendi)
+;; (defconst dynamic-theme-light-theme 'leuven)
+;; (defconst dynamic-theme-dark-theme 'modus-vivendi)
 
 ;; (defconst dynamic-theme-light-theme 'solarized-gruvbox-light)
 ;; (defconst dynamic-theme-dark-theme 'monokai)
+
+(defconst dynamic-theme-light-theme 'modus-operandi-tinted)
+(defconst dynamic-theme-dark-theme 'modus-vivendi-tinted)
 
 (defun dynamic-theme-light-mode ()
   (interactive)
