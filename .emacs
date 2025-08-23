@@ -17,6 +17,10 @@
 ;; (set-frame-parameter (selected-frame) 'alpha '(97 . 100))
 ;; (add-to-list 'default-frame-alist '(alpha . (97 . 100)))
 
+;; (add-to-list 'major-mode-remap-alist '(c-mode . c-ts-mode))
+;; (add-to-list 'major-mode-remap-alist '(c++-mode . c++-ts-mode))
+(add-to-list 'major-mode-remap-alist '(python-mode . python-ts-mode))
+
 (winner-mode)
 (add-hook 'compilation-mode-hook
           (lambda ()
@@ -134,7 +138,7 @@
          (sage-mode . hs-minor-mode)
          (perl-mode . hs-minor-mode)
          (sh-mode . hs-minor-mode)
-         (python-mode . hs-minor-mode)))
+         (python-base-mode . hs-minor-mode)))
 
 (use-package undo-tree
   :ensure t
@@ -319,7 +323,7 @@
   :hook ;; (prog-mode . lsp)
   (c-mode-common . eglot-ensure)
   (cuda-mode . eglot-ensure)
-  (python-mode . eglot-ensure)
+  (python-base-mode . eglot-ensure)
   (sh-mode . eglot-ensure)
   (go-mode . eglot-ensure)
   ;; (flycheck-mode . (lambda ()
@@ -438,15 +442,11 @@
 
 "Development - Python"
 
-;; (use-package blacken
-;;   :ensure t
-;;   :hook (python-mode . blacken-mode))
-
 (use-package python-black
   :ensure t
   :demand t
   :after python
-  :hook (python-mode . python-black-on-save-mode))
+  :hook (python-base-mode . python-black-on-save-mode))
 
 (use-package py-isort
   :ensure t
@@ -454,11 +454,11 @@
 
 (use-package sphinx-mode
   :ensure t
-  :hook (python-mode . sphinx-doc-mode))
+  :hook (python-base-mode . sphinx-doc-mode))
 
 (use-package sphinx-doc
   :ensure t
-  :hook (python-mode . sphinx-doc-mode))
+  :hook (python-base-mode . sphinx-doc-mode))
 
 (defun remove-py-isort-hook ()
   (interactive)
