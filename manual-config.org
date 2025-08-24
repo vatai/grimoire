@@ -145,6 +145,8 @@ auth.lower+year+veryshorttitle.lower
 - msmtp for sendmail...
 * Riken Wifi r-ccs-wlan
 
+https://auth.ict.r-ccs.riken.jp/user/
+
 - Security: WPA & WPA2 Enterprise
 - Authentication: TLS
 - Identity: rNNNNNN-XXXX-YYYY
