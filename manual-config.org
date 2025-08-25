@@ -143,16 +143,21 @@ auth.lower+year+veryshorttitle.lower
     - ~tenant~ seems to be anything. (I got it working initially with =Directory (tenant) ID=)
 ** SMTP
 - msmtp for sendmail...
-* Riken Wifi r-ccs-wlan
-
+* Riken VPN
 https://auth.ict.r-ccs.riken.jp/user/
 
+- Gateway: vpn.ict.r-ccs.riken.jp
+- User cert: emil.vatai.cert.pem
+- User key: emil.vatai.key.pem
+- Start the connection and enter the username and password from authinfo when asked
+
+* Riken Wifi r-ccs-wlan
 - Security: WPA & WPA2 Enterprise
 - Authentication: TLS
-- Identity: rNNNNNN-XXXX-YYYY
-- User cert: None
+- Identity: emil.vatai
 - CA cert: None
+- User cert: emil.vatai_1.p12
 - Checked No CA cert is required
-- Private key: rNNNNNN-XXXX-YYYY.p12
-- Password: see authinfo
+- Private key: emil.vatai_1.p12
+- Password: one given when downloading cert (I think)
 
