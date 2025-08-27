@@ -57,6 +57,10 @@ Ignore pattern: #include stignore-shared.txt
 
 auth.lower+year+veryshorttitle.lower
 
+*** Add URL to Bibtex export
+
+in URL field
+
 ** Emacs .bib file
 
 - My Library, right click "Export Library"
@@ -64,6 +68,7 @@ auth.lower+year+veryshorttitle.lower
   - Export Notes
   - Keep updated
 - Export as ~/org/bib/zotero.bib
+- In settings confirm: "Add URL to Bibtex export" is "in URL field"
 
 * Megasync
 
