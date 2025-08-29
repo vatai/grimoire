@@ -448,9 +448,13 @@
   :after python
   :hook (python-base-mode . python-black-on-save-mode))
 
-(use-package py-isort
-  :ensure t
-  :config (add-hook 'before-save-hook #'py-isort-before-save))
+(use-package python-isort
+  :hook (python-base-mode . python-isort-on-save-mode))
+
+(use-package pet
+  :hook
+  (python-base-mode . pet-mode))
+
 
 (use-package sphinx-mode
   :ensure t
