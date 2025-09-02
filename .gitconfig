@@ -5,7 +5,7 @@
 [init]
 	defaultBranch = main
 [credential]
-	helper = store
+	helper = /usr/lib/git-core/git-credential-libsecret
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
