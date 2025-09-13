@@ -885,11 +885,7 @@
   :ensure t
   :after (org oauth2)
   :custom
-  (org-caldav-oauth2-client-id "486464281128-d4o0bo3lfhod2ktv96emo7466g0c2jjv.apps.googleusercontent.com")
-  (org-caldav-oauth2-client-secret "raDsBy9aoQ8WabCB44ixmfj1")
   (org-caldav-url 'google)
-  ;; (org-caldav-calendar-id "cgla0c274be9pqkmqar32lflrc@group.calendar.google.com")
-  (org-caldav-calendar-id "2dspcp6dv5geckhhv9av9ik6ag@group.calendar.google.com")
   ;; (org-caldav-inbox "~/org/gcal.org")
   (org-icalendar-timezone "UTC")
   (plstore-cache-passphrase-for-symmetric-encryption t))
