@@ -855,10 +855,12 @@
 
 (defun get-font-size ()
   "Return the font size based on the host name."
-  (let ((font-list '((nou . 100)
+  (let ((font-list '((nou . 200)
                      (silencio . 140)))
         (default-font-size 160))
     (alist-get (intern (system-name)) font-list default-font-size)))
+
+(set-face-attribute 'default nil :height (get-font-size))
 
 (defun set-adjusted-org-format-latex-scale (scale)
   "Set SCALE but adjust it to the default font size."
