@@ -20,6 +20,7 @@
 ;; (add-to-list 'major-mode-remap-alist '(c-mode . c-ts-mode))
 ;; (add-to-list 'major-mode-remap-alist '(c++-mode . c++-ts-mode))
 (add-to-list 'major-mode-remap-alist '(python-mode . python-ts-mode))
+;; (add-to-list 'major-mode-remap-alist '(rust-mode . rust-ts-mode))
 
 (winner-mode)
 (add-hook 'compilation-mode-hook
@@ -326,6 +327,7 @@
   (python-base-mode . eglot-ensure)
   (sh-mode . eglot-ensure)
   (go-mode . eglot-ensure)
+  (rustic-mode . eglot-ensure)
   ;; (flycheck-mode . (lambda ()
   ;;                    (flycheck-add-next-checker 'eglot 'python-pylint)
   ;;                    (flycheck-add-next-checker 'eglot 'python-flake8)
@@ -403,25 +405,18 @@
 
 "Development - Rust"
 
-;; (use-package flycheck-rust
-;;   :ensure t)
+(use-package rust-mode
+  :init (setq rust-mode-treesitter-derive t))
 
-;; (use-package pos-tip
-;;   :ensure t)
-
-;; (use-package racer
-;;   :ensure t)
-
-;; (use-package cargo
-;;   :ensure t)
-
-;; (use-package rustic
-;;   :ensure t
-;;   :custom
-;;   (rustic-format-trigger 'on-save)
-;;   :hook
-;;   (rustic-mode . (lambda () (setq buffer-save-without-query t)))
-;;   )
+(use-package rustic
+  :after (rust-mode)
+  :custom
+  (rustic-format-trigger 'on-save)
+  (rustic-lsp-client 'eglot)
+  ;; (rustic-lsp-setup-p nil)
+  :hook
+  (rustic-mode . (lambda () (setq buffer-save-without-query t)))
+  )
 
 "Development - Go"
 
