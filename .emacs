@@ -1388,21 +1388,28 @@
 (use-package gptel
   :bind (("C-c m m" . gptel-menu)
          ("C-c m s" . gptel-send))
-  :custom ((gptel-default-mode 'org-mode))
+  :custom ((gptel-default-mode 'org-mode)
+           (gptel-model "moonshotai/Kimi-K2-Instruct")
+           (gptel-directives
+            '((default . "You are a large language model and a careful programmer. Provide code and only code as output without any additional text, prompt or note.")
+              (emacs . "You are a large language model living in Emacs and a helpful assistant. Respond concisely.")
+              (writing . "You are a large language model and a writing assistant. Respond concisely.")
+              (chat . "You are a large language model and a conversation partner. Respond concisely.")))
+           (gptel-backend
+            (gptel-make-openai "OpenWebUI"
+              :host "llm.ai.r-ccs.riken.jp"
+              ;; :protocol "http"
+              :key gptel-api-key
+              :stream t
+              :endpoint "/api/chat/completions"
+              :models '("moonshotai/Kimi-K2-Instruct"))))
   :config
   ;; (load-library "gptel-org")
   (gptel-make-gemini "Gemini" :stream t :key gptel-api-key)
-  (gptel-make-openai "OpenWebUI"
-    :host "llm.ai.r-ccs.riken.jp"
-    ;; :protocol "http"
-    :key gptel-api-key
-    :stream t
-    :endpoint "/api/chat/completions"
-    :models '("moonshotai/Kimi-K2-Instruct"))
   ;; (setq gptel-prompt-prefix-string "* AI")
   ;; (setf (alist-get 'org-mode gptel-prompt-prefix-alist) "@user\n")
   ;; (setf (alist-get 'org-mode gptel-response-prefix-alist) "@assistant\n")
-  'done)
+  )
 
 ;; (use-package org-ai
 ;;   :commands (org-ai-mode
