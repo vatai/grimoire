@@ -1390,8 +1390,15 @@
          ("C-c m s" . gptel-send))
   :custom ((gptel-default-mode 'org-mode))
   :config
-  (load-library "gptel-org")
+  ;; (load-library "gptel-org")
   (gptel-make-gemini "Gemini" :stream t :key gptel-api-key)
+  (gptel-make-openai "OpenWebUI"
+    :host "llm.ai.r-ccs.riken.jp"
+    ;; :protocol "http"
+    :key gptel-api-key
+    :stream t
+    :endpoint "/api/chat/completions"
+    :models '("moonshotai/Kimi-K2-Instruct"))
   ;; (setq gptel-prompt-prefix-string "* AI")
   ;; (setf (alist-get 'org-mode gptel-prompt-prefix-alist) "@user\n")
   ;; (setf (alist-get 'org-mode gptel-response-prefix-alist) "@assistant\n")
