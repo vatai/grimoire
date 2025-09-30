@@ -1405,10 +1405,27 @@
   :config
   ;; (load-library "gptel-org")
   (gptel-make-gemini "Gemini" :stream t :key gptel-api-key)
+  (require 'gptel-integrations)
   ;; (setq gptel-prompt-prefix-string "* AI")
   ;; (setf (alist-get 'org-mode gptel-prompt-prefix-alist) "@user\n")
   ;; (setf (alist-get 'org-mode gptel-response-prefix-alist) "@assistant\n")
   )
+
+(use-package mcp
+  :after gptel
+  :custom (mcp-hub-servers
+           `(("filesystem" . (:command "npx" :args ("-y" "@modelcontextprotocol/server-filesystem" "/home/lizqwer/MyProject/")))
+             ("fetch" . (:command "uvx" :args ("mcp-server-fetch")))
+             ("qdrant" . (:url "http://localhost:8000/sse"))
+             ("graphlit" . (
+                            :command "npx"
+                                     :args ("-y" "graphlit-mcp-server")
+                                     :env (
+                                           :GRAPHLIT_ORGANIZATION_ID "your-organization-id"
+                                                                     :GRAPHLIT_ENVIRONMENT_ID "your-environment-id"
+                                                                     :GRAPHLIT_JWT_SECRET "your-jwt-secret")))))
+  :config (require 'mcp-hub)
+  :hook (after-init . mcp-hub-start-all-server))
 
 ;; (use-package org-ai
 ;;   :commands (org-ai-mode
