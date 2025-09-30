@@ -848,7 +848,7 @@
          ("<next>" . org-tree-slide-move-next-tree)
          ("<f11>" . org-tree-slide-content)))
 
-(use-package org-drill :ensure t)
+;; (use-package org-drill)
 
 (defun get-font-size ()
   "Return the font size based on the host name."
@@ -1215,11 +1215,10 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(use-package mastodon
-  :ensure t
-  :custom
-  (mastodon-instance-url "https://mast.hpc.social")
-  (mastodon-active-user "vatai"))
+;; (use-package mastodon
+;;   :custom
+;;   (mastodon-instance-url "https://mast.hpc.social")
+;;   (mastodon-active-user "vatai"))
 
 "eshell"
 
