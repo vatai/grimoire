@@ -99,11 +99,13 @@
 (use-package exec-path-from-shell
   :init (exec-path-from-shell-initialize))
 
-(use-package mozc
-  :custom (default-input-method "japanese-mozc"))
-
 (setq system-time-locale "ja_JP.utf8") ;; LC_TIME should kick in
-(set-language-environment "Japanese")
+;; (set-language-environment "Japanese")
+
+(use-package mozc
+  :custom
+  (default-input-method "japanese-mozc")
+  (mozc-candidate-style 'overlay))
 
 (with-eval-after-load 'dired
   (require 'dired-x)
