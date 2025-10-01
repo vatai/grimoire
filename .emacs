@@ -1387,6 +1387,8 @@
 (use-package gptel
   :bind (("C-c m m" . gptel-menu)
          ("C-c m s" . gptel-send))
+  :hook ((gptel-post-stream . gptel-auto-scroll)
+         (gptel-post-response-functions . gptel-end-of-response))
   :custom ((gptel-default-mode 'org-mode)
            (gptel-model "moonshotai/Kimi-K2-Instruct")
            (gptel-directives
@@ -1452,8 +1454,8 @@
   (require 'gptel-integrations)
   (setq gptel-expert-commands t)
   ;; (setq gptel-prompt-prefix-string "* AI")
-  ;; (setf (alist-get 'org-mode gptel-prompt-prefix-alist) "@user\n")
-  ;; (setf (alist-get 'org-mode gptel-response-prefix-alist) "@assistant\n")
+  (setf (alist-get 'org-mode gptel-prompt-prefix-alist) "@user\n")
+  (setf (alist-get 'org-mode gptel-response-prefix-alist) "@assistant\n")
   )
 
 (use-package mcp
