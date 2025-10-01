@@ -1405,6 +1405,28 @@
   :config
   ;; (load-library "gptel-org")
   (gptel-make-gemini "Gemini" :stream t :key gptel-api-key)
+  (gptel-make-tool
+   :name "compile"
+   :function (lambda (command)
+               "Compile COMMAND."
+               (compile command))
+   :description "Run compile command in emacs with the command parameter provided."
+   :args '((:name "command" :type string :description "The command called by compile emacs command.")))
+  (gptel-make-tool
+   :name "ls-dir"
+   :function (lambda (dirname)
+               (shell-command-to-string
+                (format "ls -l %s" dirname)))
+   :description "List the contents of a directory"
+   :args '((:name "dirname" :type string :description "The directory to list")))
+  (gptel-make-tool
+   :name "read-file"
+   :function (lambda (filename)
+               (with-temp-buffer
+                 (insert-file-contents filename)
+                 (buffer-string)))
+  :description "Read the contents of a file"
+  :args '((:name "filename" :description "File to read" :type string)))
   (require 'gptel-integrations)
   (setq gptel-expert-commands t)
   ;; (setq gptel-prompt-prefix-string "* AI")
