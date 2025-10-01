@@ -1406,6 +1406,7 @@
   ;; (load-library "gptel-org")
   (gptel-make-gemini "Gemini" :stream t :key gptel-api-key)
   (require 'gptel-integrations)
+  (setq gptel-expert-commands t)
   ;; (setq gptel-prompt-prefix-string "* AI")
   ;; (setf (alist-get 'org-mode gptel-prompt-prefix-alist) "@user\n")
   ;; (setf (alist-get 'org-mode gptel-response-prefix-alist) "@assistant\n")
