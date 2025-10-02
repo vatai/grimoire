@@ -1492,5 +1492,7 @@
          ("C-c r t" . read-aloud-this)
          ("C-c r s" . read-aloud-stop)))
 
+(use-package jinx)
+
 (provide '.emacs)
 ;;; .emacs ends here
