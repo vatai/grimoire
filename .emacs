@@ -1492,7 +1492,10 @@
          ("C-c r t" . read-aloud-this)
          ("C-c r s" . read-aloud-stop)))
 
-(use-package jinx)
+(use-package jinx
+  :hook (emacs-startup . global-jinx-mode)
+  :bind (("M-$" . jinx-correct)
+         ("C-M-$" . jinx-languages)))
 
 (provide '.emacs)
 ;;; .emacs ends here
