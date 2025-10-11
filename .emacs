@@ -1390,9 +1390,11 @@
   :hook ((gptel-post-stream . gptel-auto-scroll)
          (gptel-post-response-functions . gptel-end-of-response))
   :custom ((gptel-default-mode 'org-mode)
-           (gptel-model "moonshotai/Kimi-K2-Instruct")
+           (gptel-model 'moonshotai/Kimi-K2-Instruct)
            (gptel-directives
             '((default . "You are a large language model and a careful programmer. Provide code and only code as output without any additional text, prompt or note.")
+              (tikz . "You are a professional TikZ artist. You create professional figures for scientific papers, either as full tex files using \documentclass[tikz,crop]{standalone}
+ or injecting tikz code in tikzpicture environments. You aim for readability and managability in tikz code, using the DRY principle and other good programming practices. Provide code and only code as output without any additional text, prompt or note.")
               (emacs . "You are a large language model living in Emacs and a helpful assistant. Respond concisely.")
               (writing . "You are a large language model and a writing assistant. Respond concisely.")
               (chat . "You are a large language model and a conversation partner. Respond concisely.")))
