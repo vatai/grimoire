@@ -41,7 +41,7 @@
 \\usepackage{newtxmath}
 \\usepackage[dvipsnames]{xcolor}
 \\usepackage{tikz,listings}
-\\usepackage{bbding}
+\\usepackage{bbding,fontawesome}
 \\usetikzlibrary{arrows,fit,positioning,shadows,shapes,shapes.arrows}
 
 \\lstset{
