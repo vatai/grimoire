@@ -918,6 +918,7 @@
 ;; (load "~/.emacs.d/sanity.el")
 ;; (load "~/.emacs.d/elegance.el")
 
+(use-package evangelion-theme)
 (use-package solarized-theme)
 (use-package monokai-theme)
 (use-package color-theme-sanityinc-tomorrow)
@@ -936,7 +937,8 @@
 ;; (defconst dynamic-theme-dark-theme 'monokai)
 
 (defconst dynamic-theme-light-theme 'modus-operandi-tinted)
-(defconst dynamic-theme-dark-theme 'modus-vivendi-tinted)
+;; (defconst dynamic-theme-dark-theme 'modus-vivendi-tinted)
+(defconst dynamic-theme-dark-theme 'evangelion)
 
 (defun dynamic-theme-light-mode ()
   (interactive)
