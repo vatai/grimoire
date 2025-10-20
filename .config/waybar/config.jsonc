@@ -224,9 +224,6 @@
     "hyprland/language": {
         "format": "{short}-{variant}",
         "format-jp": "JP",
-        "format-us": "US",
-        "format-us": "DVP",
-        "format-rs": "SR",
         // "keyboard-name": "sonix-usb-keyboard", // Replace with your keyboard's device name
         // "on-click": "hyprctl switchxkblayout sonix-usb-keyboard next"
     }
