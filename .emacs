@@ -702,11 +702,15 @@
       :target (file+head "references/${citekey}.org" "#+title: ${title}\n")
       :unnarrowed t)))
   ;; for dailies
-  ;; (org-roam-dailies-capture-templates
-  ;;  '(("d" "default" entry "* %?" :target
-  ;;     (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d> "))
-  ;;    ("w" "week" entry "* %?" :target
-  ;;     (file+head "" ""))))
+  (org-roam-dailies-capture-templates
+   '(("d" "default" checkitem "- [ ] %?" :target
+      (file+head+olp "%<%Y>.org" "#+title: Year %<%Y>" ("%<%B>" "%<%Y-%m-%d>"))
+      :unnarrowed t
+      )
+      ;; (file+head+olp "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d> "))
+     ;; ("w" "week" entry "* %?" :target
+     ;;  (file+head "" ""))
+     ))
   ;; for roam-ref protocol
   (org-roam-capture-ref-templates
    '(("r" "roam-protocol" plain "#+filetags: web stub\n\n${body}\n"
