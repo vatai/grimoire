@@ -178,7 +178,10 @@
   (evil-set-undo-system 'undo-tree)
   ;; This is how you "disable" evil-mode for certain modes
   (evil-set-initial-state 'epa-key-list-mode 'emacs)
-  (evil-mode))
+  (evil-mode)
+  ;; This is needed for evil jump to remember python-nav-backward-up-list
+  (evil-add-command-properties #'python-nav-backward-up-list :jump t)
+  )
 
 ;; Increment and decrement numbers
 (use-package evil-numbers
