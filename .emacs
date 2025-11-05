@@ -707,10 +707,12 @@
   ;; for dailies
   (org-roam-dailies-capture-templates
    '(("d" "default" checkitem "- [ ] %?" :target
-      (file+head+olp "%<%Y>.org" "#+title: Year %<%Y>" ("%<%B>" "<%<%Y-%m-%d> %<%a>> [/]"))
+      (file+head+olp "%<%Y>.org" "#+title: Year %<%Y>" ("%<%B>" "Week %<%U>" "<%<%Y-%m-%d> %<%a>>"))
       :unnarrowed t
+      :jump-to-captured t
+      :tree-type week
       )
-      ;; (file+head+olp "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d> "))
+     ;; (file+head+olp "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d> "))
      ;; ("w" "week" entry "* %?" :target
      ;;  (file+head "" ""))
      ))
