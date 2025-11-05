@@ -1405,7 +1405,18 @@
               :key gptel-api-key
               :stream t
               :endpoint "/api/chat/completions"
-              :models '("moonshotai/Kimi-K2-Instruct"))))
+              :models
+              '(LLM360/K2-Think
+                moonshotai/Kimi-K2-Instruct
+                qwen3-coder:30b
+                codellama:latest
+                qwen2.5:0.5b
+                qwen3:8b
+                llava:7b
+                bge-m3:567m
+                gemma3:12b
+                gemma3:27b
+                ))))
   :config
   ;; (load-library "gptel-org")
   (gptel-make-gemini "Gemini" :stream t :key gptel-api-key)
