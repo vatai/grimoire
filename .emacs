@@ -1392,7 +1392,7 @@
   :hook ((gptel-post-stream . gptel-auto-scroll)
          (gptel-post-response-functions . gptel-end-of-response))
   :custom ((gptel-default-mode 'org-mode)
-           (gptel-model 'moonshotai/Kimi-K2-Instruct)
+           (gptel-model 'Kimi-K2-Instruct)
            (gptel-directives
             '((default . "You are a large language model and a careful programmer. Provide code and only code as output without any additional text, prompt or note.")
               (tikz . "You are a professional TikZ artist. You create professional figures for scientific papers, either as full tex files using \documentclass[tikz,crop]{standalone}
@@ -1402,14 +1402,14 @@
               (chat . "You are a large language model and a conversation partner. Respond concisely.")))
            (gptel-backend
             (gptel-make-openai "OpenWebUI"
-              :host "llm.ai.r-ccs.riken.jp"
-              ;; :protocol "http"
+              :host "llm.ai.r-ccs.riken.jp:11434"
+              :protocol "http"
               :key gptel-api-key
               :stream t
-              :endpoint "/api/chat/completions"
+              ;; :endpoint "/v1/chat/completions"
               :models
-              '(LLM360/K2-Think
-                moonshotai/Kimi-K2-Instruct
+              '(K2-Think
+                Kimi-K2-Instruct
                 qwen3-coder:30b
                 codellama:latest
                 qwen2.5:0.5b
