@@ -1476,20 +1476,31 @@
 (use-package mcp
   :after gptel
   :custom (mcp-hub-servers
-           `(("filesystem" . (:command "npx" :args ("-y" "@modelcontextprotocol/server-filesystem" "/home/lizqwer/MyProject/")))
+           `(("filesystem"
+              . (:command
+                 "npx"
+                 :args
+                 ("-y" "@modelcontextprotocol/server-filesystem" "/home/vatai/code/")))
              ("fetch" . (:command "uvx" :args ("mcp-server-fetch")))
-             ("qdrant" . (:url "http://localhost:8000/sse"))
-             ("time" . (:url "http://llm.ai.r-ccs.riken.jp:11434/time/mcp"
-                             :token ,(cadr (auth-source-user-and-password "llm.ai.r-ccs.riken.jp:11434"))))
-             ("paper-search" . (:url "http://llm.ai.r-ccs.riken.jp:11434/papersearch/mcp"
-                             :token ,(cadr (auth-source-user-and-password "llm.ai.r-ccs.riken.jp:11434"))))
-             ("graphlit" . (
-                            :command "npx"
-                                     :args ("-y" "graphlit-mcp-server")
-                                     :env (
-                                           :GRAPHLIT_ORGANIZATION_ID "your-organization-id"
-                                                                     :GRAPHLIT_ENVIRONMENT_ID "your-environment-id"
-                                                                     :GRAPHLIT_JWT_SECRET "your-jwt-secret")))))
+             ("time"
+              . (:url
+                 "http://llm.ai.r-ccs.riken.jp:11434/time/mcp"
+                 :token
+                 ,(cadr (auth-source-user-and-password "llm.ai.r-ccs.riken.jp:11434"))))
+             ("paper-search"
+              . (:url
+                 "http://llm.ai.r-ccs.riken.jp:11434/papersearch/mcp"
+                 :token
+                 ,(cadr (auth-source-user-and-password "llm.ai.r-ccs.riken.jp:11434"))))
+             ;; ("qdrant" . (:url "http://localhost:8000/sse"))
+             ;; ("graphlit" . (
+             ;;                :command "npx"
+             ;;                         :args ("-y" "graphlit-mcp-server")
+             ;;                         :env (
+             ;;                               :GRAPHLIT_ORGANIZATION_ID "your-organization-id"
+             ;;                                                         :GRAPHLIT_ENVIRONMENT_ID "your-environment-id"
+             ;;                                                         :GRAPHLIT_JWT_SECRET "your-jwt-secret")))
+             ))
   :config (require 'mcp-hub)
   :hook (after-init . mcp-hub-start-all-server))
 
