@@ -1479,6 +1479,10 @@
            `(("filesystem" . (:command "npx" :args ("-y" "@modelcontextprotocol/server-filesystem" "/home/lizqwer/MyProject/")))
              ("fetch" . (:command "uvx" :args ("mcp-server-fetch")))
              ("qdrant" . (:url "http://localhost:8000/sse"))
+             ("time" . (:url "http://llm.ai.r-ccs.riken.jp:11434/time/mcp"
+                             :token ,(cadr (auth-source-user-and-password "llm.ai.r-ccs.riken.jp:11434"))))
+             ("paper-search" . (:url "http://llm.ai.r-ccs.riken.jp:11434/papersearch/mcp"
+                             :token ,(cadr (auth-source-user-and-password "llm.ai.r-ccs.riken.jp:11434"))))
              ("graphlit" . (
                             :command "npx"
                                      :args ("-y" "graphlit-mcp-server")
