@@ -1422,50 +1422,6 @@
   :config
   ;; (load-library "gptel-org")
   (gptel-make-gemini "Gemini" :stream t :key gptel-api-key)
-  (gptel-make-tool
-   :name "compile"
-   :description "Run compile command in emacs with the command parameter provided."
-   :category "development"
-   :function (lambda (command)
-               "Compile COMMAND."
-               (compile command))
-   :args '((:name "command"
-                  :type string
-                  :description "The command called by compile emacs command.")))
-  (gptel-make-tool
-   :name "ls_dir"
-   :description "List the contents of a directory"
-   :category "system"
-   :function (lambda (dirname)
-               (shell-command-to-string
-                (format "ls -l %s" dirname)))
-   :args '((:name "dirname"
-                  :type string
-                  :description "The directory to list"))
-   )
-  (gptel-make-tool
-   :name "read_file"
-   :description "Read the contents of a file"
-   :category "system"
-   :function (lambda (filename)
-               (with-temp-buffer
-                 (insert-file-contents filename)
-                 (buffer-string)))
-   :args '((:name "filename"
-                  :description "File to read"
-                  :type string)))
-  (gptel-make-tool
-   :name "read_buffer"
-   :description "return the contents of an emacs buffer"
-   :category "emacs"
-   :function (lambda (buffer)
-               (unless (buffer-live-p (get-buffer buffer))
-                 (error "error: buffer %s is not live." buffer))
-               (with-current-buffer buffer
-                 (buffer-substring-no-properties (point-min) (point-max))))
-   :args '((:name "buffer"
-                  :type string
-                  :description "the name of the buffer whose contents are to be retrieved")))
   (require 'gptel-integrations)
   (setq gptel-expert-commands t)
   ;; (setq gptel-prompt-prefix-string "* AI")
