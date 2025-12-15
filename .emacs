@@ -1429,6 +1429,11 @@
   (setf (alist-get 'org-mode gptel-response-prefix-alist) "@assistant\n")
   )
 
+(use-package gptel-agent
+  :vc ( :url "https://github.com/karthink/gptel-agent"
+        :rev :newest)
+  :config (gptel-agent-update))         ;Read files from agents directories
+
 (use-package mcp
   :after gptel
   :custom (mcp-hub-servers
