@@ -1422,7 +1422,13 @@
                 ))))
   :config
   ;; (load-library "gptel-org")
+  (gptel-make-openai "nvidia"
+              :stream t
+              :key gptel-api-key
+              :host "integrate.api.nvidia.com"
+              :models '(nvidia/llama-3.3-nemotron-super-49b-v1.5))
   (gptel-make-gemini "Gemini" :stream t :key gptel-api-key)
+  (gptel-make-anthropic "Claude" :stream t :key gptel-api-key)
   (require 'gptel-integrations)
   (setq gptel-expert-commands t)
   ;; (setq gptel-prompt-prefix-string "* AI")
