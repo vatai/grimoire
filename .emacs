@@ -1432,8 +1432,8 @@
   (require 'gptel-integrations)
   (setq gptel-expert-commands t)
   ;; (setq gptel-prompt-prefix-string "* AI")
-  (setf (alist-get 'org-mode gptel-prompt-prefix-alist) "@user\n")
-  (setf (alist-get 'org-mode gptel-response-prefix-alist) "@assistant\n")
+  (setf (alist-get 'org-mode gptel-prompt-prefix-alist) "* User:\n\n")
+  (setf (alist-get 'org-mode gptel-response-prefix-alist) "* Assistant:\n\n")
   )
 
 (use-package gptel-agent
