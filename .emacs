@@ -1405,13 +1405,14 @@
               :host "llm.ai.r-ccs.riken.jp:11434"
               :protocol "http"
               :key gptel-api-key
-              :stream t
-              ;; :endpoint "/v1/chat/completions"
+              :stream nil
               :models
               '(K2-Think
                 Kimi-K2-Instruct
                 qwen3-coder:30b
+                Llama-3_1-Nemotron-Ultra-253B-v1
                 codellama:latest
+                gpt-oss-120b
                 qwen2.5:0.5b
                 qwen3:8b
                 llava:7b
