@@ -73,6 +73,10 @@
 
 (package-initialize)
 
+;; (load (expand-file-name "~/Sync/.emacs.d/fugaku-vibe.el"))
+;; (require 'edebug)
+;; (edebug-instrument-function #'fugaku-vibe-submit)
+
 (require 'smtpmail)
 (let ((package 'use-package))
   (unless (package-installed-p package)
@@ -913,7 +917,9 @@
 ;; (set-face-attribute 'default nil :family "Iosevka")
 ;; (set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
 ;; (set-face-attribute 'default nil :height (get-font-size))
-(custom-set-faces '(line-number ((t (:inherit default)))))
+(custom-set-faces
+ ;; '(auto-dim-other-buffers-hide ((t (:background "11f" :foreground "11f"))))
+ '(line-number ((t (:inherit default)))))
 
 ;; (load "~/.emacs.d/sanity.el")
 ;; (load "~/.emacs.d/elegance.el")
@@ -944,13 +950,15 @@
   (interactive)
   "Switch to light  mode."
   (mapc #'disable-theme custom-enabled-themes)
-  (load-theme dynamic-theme-light-theme t))
+  (load-theme dynamic-theme-light-theme t)
+  (custom-set-faces '(auto-dim-other-buffers ((t (:foreground "#555" :background "#eee"))))))
 
 (defun dynamic-theme-dark-mode ()
   (interactive)
   "Switch to dark mode."
   (mapc #'disable-theme custom-enabled-themes)
-  (load-theme dynamic-theme-dark-theme t))
+  (load-theme dynamic-theme-dark-theme t)
+  (custom-set-faces '(auto-dim-other-buffers ((t (:foreground "#666" :background "#222"))))))
 
 ;; (dynamic-theme-dark-mode)
 (dynamic-theme-light-mode)
@@ -1034,6 +1042,10 @@
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag)))
 
+(use-package auto-dim-other-buffers
+  :config
+  (auto-dim-other-buffers-mode t))
+
 (use-package treemacs-evil
   :after treemacs evil
   :ensure t)
@@ -1045,6 +1057,9 @@
 (use-package treemacs-projectile
   :after treemacs projectile
   :ensure t)
+
+(use-package ace-window
+  :bind (("M-o" . ace-window)))
 
 (use-package elcord
   :ensure t)
@@ -1490,5 +1505,6 @@
          ("C-c r t" . read-aloud-this)
          ("C-c r s" . read-aloud-stop)))
 
+(message "LOADED .EMACS")
 (provide '.emacs)
 ;;; .emacs ends here
