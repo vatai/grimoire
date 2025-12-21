@@ -470,6 +470,8 @@
 
 (use-package cython-mode)
 
+(use-package flycheck-cython)
+
 (use-package poetry)
 
 "Development - Science"
