@@ -472,8 +472,6 @@
 
 (use-package flycheck-cython)
 
-(use-package poetry)
-
 "Development - Science"
 
 (use-package haskell-mode)
