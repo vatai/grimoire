@@ -711,11 +711,21 @@
   ;; for dailies
   (org-roam-dailies-capture-templates
    '(
-     ("w" "work" checkitem "- [ ] %?"
+     ("w" "work" checkitem nil
       :target (file+head+olp "%<%Y>.org"
                              "#+title: Year %<%Y>"
                              ("Work" "%<%B>" "Week %<%U>" "<%<%Y-%m-%d> %<%a>>"))
       :unnarrowed t
+      :immediate-finish t
+      :jump-to-captured t
+      :tree-type week
+      )
+     ("d" "daily" checkitem (file "templates/daily.org")
+      :target (file+head+olp "%<%Y>.org"
+                             "#+title: Year %<%Y>"
+                             ("Daily" "%<%B>" "Week %<%U>" "<%<%Y-%m-%d> %<%a>>"))
+      :unnarrowed t
+      :immediate-finish t
       :jump-to-captured t
       :tree-type week
       )
@@ -725,7 +735,8 @@
    '(("r" "roam-protocol" plain "#+filetags: web stub\n\n${body}\n"
       :target (file+head "webpages/${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)))
-  :bind (("C-c n l" . org-roam-buffer-toggle)
+  :bind (
+         ("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
          ("C-c n g" . org-roam-ui-mode)
          ("C-c n i" . org-roam-node-insert)
@@ -734,7 +745,9 @@
          ("C-c n b" . ivy-bibtex)
          ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today)
-         ("s-w" . (lambda () (interactive) (org-roam-dailies-capture-today nil "w"))))
+         ("s-w" . (lambda () (interactive) (org-roam-dailies-capture-today nil "w")))
+         ("s-d" . (lambda () (interactive) (org-roam-dailies-capture-today nil "d")))
+         )
   :config
   (org-roam-setup)
   (add-to-list 'display-buffer-alist
