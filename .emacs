@@ -238,7 +238,7 @@
   (search-default-mode #'char-fold-to-regexp)
   :config (ivy-mode)
   :bind
-  ("C-s" . 'swiper )
+  ("C-s" . 'swiper)
   ("C-c C-r" . 'ivy-resume)
   ("<f6>" . 'ivy-resume)
   ("M-x" . 'counsel-M-x)
