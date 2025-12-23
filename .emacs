@@ -710,15 +710,15 @@
       :unnarrowed t)))
   ;; for dailies
   (org-roam-dailies-capture-templates
-   '(("d" "default" checkitem "- [ ] %?" :target
-      (file+head+olp "%<%Y>.org" "#+title: Year %<%Y>" ("%<%B>" "Week %<%U>" "<%<%Y-%m-%d> %<%a>>"))
+   '(
+     ("w" "work" checkitem "- [ ] %?"
+      :target (file+head+olp "%<%Y>.org"
+                             "#+title: Year %<%Y>"
+                             ("Work" "%<%B>" "Week %<%U>" "<%<%Y-%m-%d> %<%a>>"))
       :unnarrowed t
       :jump-to-captured t
       :tree-type week
       )
-     ;; (file+head+olp "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d> "))
-     ;; ("w" "week" entry "* %?" :target
-     ;;  (file+head "" ""))
      ))
   ;; for roam-ref protocol
   (org-roam-capture-ref-templates
@@ -733,7 +733,8 @@
          ("C-c n c" . org-roam-capture)
          ("C-c n b" . ivy-bibtex)
          ;; Dailies
-         ("C-c n j" . org-roam-dailies-capture-today))
+         ("C-c n j" . org-roam-dailies-capture-today)
+         ("s-w" . (lambda () (interactive) (org-roam-dailies-capture-today nil "w"))))
   :config
   (org-roam-setup)
   (add-to-list 'display-buffer-alist
