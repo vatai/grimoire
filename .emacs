@@ -926,10 +926,10 @@
 "Bling - Appearance"
 
 ;; Fix for themes which keep the line number the same
-;; (add-to-list 'default-frame-alist
-;;              '(font . "NovaMono-12"))
-;; (set-face-attribute 'default nil :family "Iosevka")
-;; (set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
+(add-to-list 'default-frame-alist
+             '(font . "Iosevka Term Light"))
+(set-face-attribute 'default nil :family "Iosevka Term Light")
+(set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
 ;; (set-face-attribute 'default nil :height (get-font-size))
 (custom-set-faces
  ;; '(auto-dim-other-buffers-hide ((t (:background "11f" :foreground "11f"))))
