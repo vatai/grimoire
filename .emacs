@@ -1235,8 +1235,11 @@
   :commands (telega)
   :custom
   (telga-use-images t)
+  (telega-server-libs-prefix "/usr") ;; yay -S telegram-tdlib
   :defer t
-  :bind (("C-c t" . telega-prefix-map)))
+  :config (telega)
+  )
+
   ;; :hook ((telega-load-hook
   ;;         . (lambda ()
   ;;             (define-key
