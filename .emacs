@@ -1291,7 +1291,15 @@
   (slack-register-team
      :name "matsulab"
      :token (auth-source-pick-first-password :host "matsulab.slack.com" :user "emil.vatai@riken.jp")
-     :cookie (auth-source-pick-first-password :host "matsulab.slack.com^cookie" :user "emil.vatai@riken.jp")
+     :cookie (auth-source-pick-first-password :host "matsulab.slack.com" :user "emil.vatai@riken.jp^cookie")
+     :full-and-display-names t
+     :default t
+     :subscribed-channels nil ;; using slack-extra-subscribed-channels because I can change it dynamically
+     )
+  (slack-register-team
+     :name "riken"
+     :token (auth-source-pick-first-password :host "riken.slack.com" :user "emil.vatai@riken.jp")
+     :cookie (auth-source-pick-first-password :host "riken.slack.com" :user "emil.vatai@riken.jp^cookie")
      :full-and-display-names t
      :default t
      :subscribed-channels nil ;; using slack-extra-subscribed-channels because I can change it dynamically
@@ -1301,7 +1309,7 @@
 (use-package alert
   :commands (alert)
   :init
-  (setq alert-default-style 'notifier))
+  (setq alert-default-style 'libnotify)) ;; sudo pacman -S libnotify
 
 
 
