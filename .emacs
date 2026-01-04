@@ -958,9 +958,10 @@
 ;; (defconst dynamic-theme-dark-theme 'monokai)
 
 ;; (defconst dynamic-theme-light-theme 'modus-operandi-tinted)
+;; (defconst dynamic-theme-dark-theme 'evangelion)
+
 (defconst dynamic-theme-light-theme 'gruvbox-light-hard)
-;; (defconst dynamic-theme-dark-theme 'modus-vivendi-tinted)
-(defconst dynamic-theme-dark-theme 'evangelion)
+(defconst dynamic-theme-dark-theme 'gruvbox-dark-medium)
 
 (defun dynamic-theme-light-mode ()
   (interactive)
