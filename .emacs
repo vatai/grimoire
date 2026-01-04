@@ -942,6 +942,7 @@
 (use-package solarized-theme)
 (use-package monokai-theme)
 (use-package color-theme-sanityinc-tomorrow)
+(use-package gruvbox-theme)
 ;; (use-package color-theme-sanityinc-solarized)
 
 ;; (defconst dynamic-theme-dark-theme 'sanityinc-solarized-dark)
@@ -956,7 +957,8 @@
 ;; (defconst dynamic-theme-light-theme 'solarized-gruvbox-light)
 ;; (defconst dynamic-theme-dark-theme 'monokai)
 
-(defconst dynamic-theme-light-theme 'modus-operandi-tinted)
+;; (defconst dynamic-theme-light-theme 'modus-operandi-tinted)
+(defconst dynamic-theme-light-theme 'gruvbox-light-hard)
 ;; (defconst dynamic-theme-dark-theme 'modus-vivendi-tinted)
 (defconst dynamic-theme-dark-theme 'evangelion)
 
