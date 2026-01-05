@@ -1573,6 +1573,12 @@
          ("C-c r t" . read-aloud-this)
          ("C-c r s" . read-aloud-stop)))
 
+"Innsmouth"
+
+(use-package elpher)
+
+(use-package gemtext-mode)
+
 (message "LOADED .EMACS")
 (provide '.emacs)
 ;;; .emacs ends here
