@@ -539,7 +539,7 @@
   ;; BEGIN [from custom]
   (org-image-actual-width nil)
   (org-agenda-clockreport-parameter-plist
-   (quote (:link t :maxlevel nil :fileskip0 t :compact nil :stepskip0 t)))
+   (quote (:link t :maxlevel 10 :fileskip0 t :compact t :stepskip0 t)))
   (org-agenda-files (quote ("~/org/")))
   (org-agenda-custom-commands
    '(("n" "Agenda and all TODOs" ((agenda "" nil) (alltodo "" nil)) nil)
@@ -680,7 +680,7 @@
       (let ((feh-command
              (list
               "feh"
-              nil
+              "*feh*"
               "feh"
               "--zoom" "200"
               "--geometry" "-0+0"
@@ -1295,6 +1295,8 @@
 "Slack"
 
 (use-package slack
+  :custom
+  (slack-render-image-p t)
   :bind (("C-c S K" . slack-stop)
          ("C-c S c" . slack-select-rooms)
          ("C-c S u" . slack-select-unread-rooms)
