@@ -538,7 +538,8 @@
   :custom
   ;; BEGIN [from custom]
   (org-image-actual-width nil)
-  (org-agenda-clockreport-parameter-plist (quote (:link t :maxlevel 2 :fileskip0 t)))
+  (org-agenda-clockreport-parameter-plist
+   (quote (:link t :maxlevel nil :fileskip0 t :compact nil :stepskip0 t)))
   (org-agenda-files (quote ("~/org/")))
   (org-agenda-custom-commands
    '(("n" "Agenda and all TODOs" ((agenda "" nil) (alltodo "" nil)) nil)
@@ -711,8 +712,8 @@
   ;; for dailies
   (org-roam-dailies-capture-templates
    '(
-     ("w" "work" checkitem nil
-      :target (file+head+olp "%<%Y>.org"
+     ("w" "work" entry nil
+      :target (file+head+olp "~/org/%<%Y>.org"
                              "#+title: Year %<%Y>"
                              ("Work" "%<%B>" "Week %<%U>" "<%<%Y-%m-%d> %<%a>>"))
       :unnarrowed t
