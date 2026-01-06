@@ -668,6 +668,39 @@
   ;;   print('hi')
   ;; #+END_SRC
 
+  ;; BEGIN: in the zone
+  (defvar in-the-zone-image "~/Sync/Work/zone.png"
+    "The location of zone.png.")
+  (defvar in-the-zone-process nil
+    "Holds the process object for feh.")
+  (defun in-the-zone-clock-in ()
+    "Start feh to display zone.png when clocking in."
+    (interactive)
+    (when (null in-the-zone-process)
+      (let ((feh-command
+             (list
+              "feh"
+              nil
+              "feh"
+              "--zoom" "200"
+              "--geometry" "-0+0"
+              "-x"
+              "--xinerama-index" "1"
+              (expand-file-name in-the-zone-image))))
+        (setq in-the-zone-process (apply 'start-process feh-command)))))
+
+  (defun in-the-zone-clock-out ()
+    "Kill the feh process when clocking out."
+    (interactive)
+    (when (process-live-p in-the-zone-process)
+      (kill-process in-the-zone-process)
+      (setq in-the-zone-process nil)))
+
+  ;; Add the functions to the respective hooks
+  (add-hook 'org-clock-in-hook #'in-the-zone-clock-in)
+  (add-hook 'org-clock-out-hook #'in-the-zone-clock-out)
+  ;; END: in the zone
+
   (require 'ox)
   (defun org-html-add-mark-tag (src backend _info)
     (when (org-export-derived-backend-p backend 'html)
