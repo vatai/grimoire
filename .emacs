@@ -967,7 +967,8 @@
 ;; (set-face-attribute 'default nil :height (get-font-size))
 (custom-set-faces
  ;; '(auto-dim-other-buffers-hide ((t (:background "11f" :foreground "11f"))))
- '(line-number ((t (:inherit default)))))
+ '(line-number ((t (:inherit default))))
+ '(line-number-current-line ((t (:inherit default)))))
 
 ;; (load "~/.emacs.d/sanity.el")
 ;; (load "~/.emacs.d/elegance.el")
