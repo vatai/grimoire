@@ -1614,7 +1614,8 @@
 
 (use-package elpher)
 
-(use-package gemtext-mode)
+(use-package gemtext-mode
+  :hook ((gemtext-mode . flyspell-mode)))
 
 (message "LOADED .EMACS")
 (provide '.emacs)
