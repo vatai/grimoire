@@ -1601,7 +1601,8 @@
              ;;                                                         :GRAPHLIT_JWT_SECRET "your-jwt-secret")))
              ))
   :config (require 'mcp-hub)
-  :hook (after-init . mcp-hub-start-all-server))
+  ;; :hook (after-init . mcp-hub-start-all-server)
+  )
 
 (use-package read-aloud
   ;; Currently using RHVoice
