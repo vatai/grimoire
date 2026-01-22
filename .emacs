@@ -220,8 +220,18 @@
 ;;   ;; (use-package helm-org :ensure t)
 ;;   (helm-mode 1))
 
-(use-package swiper
-  :ensure t)
+;; (use-package swiper
+;;   :ensure t)
+
+;; Enable Vertico.
+(use-package vertico
+  :custom
+  ;; (vertico-scroll-margin 0) ;; Different scroll margin
+  ;; (vertico-count 20) ;; Show more candidates
+  ;; (vertico-resize t) ;; Grow and shrink the Vertico minibuffer
+  ;; (vertico-cycle t) ;; Enable cycling for `vertico-next/previous'
+  :init
+  (vertico-mode))
 
 ;; Example configuration for Consult
 (use-package consult
