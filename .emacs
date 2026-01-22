@@ -1488,7 +1488,7 @@
   :init
   (setq alert-default-style 'libnotify)) ;; sudo pacman -S libnotify
 
-(slack-start)
+;; (slack-start)
 
 "eshell"
 
