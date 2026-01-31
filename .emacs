@@ -1318,6 +1318,7 @@
   (mu4e-update-interval 600)
   (mu4e-headers-date-format "%F")
   (mu4e-headers-time-format "%R")
+  (mu4e-attachment-dir "/tmp")
   (user-mail-address "emil.vatai@riken.jp")
   (user-full-name "Emil VATAI")
   (smtpmail-smtp-user "emil.vatai@riken.jp")
