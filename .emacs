@@ -1271,7 +1271,11 @@
   :ensure t)
 
 (use-package ace-window
-  :bind (("M-o" . ace-window)))
+  :custom
+  (aw-scope 'frame)
+  :bind
+  ("M-o" . ace-window)
+  )
 
 (use-package elcord
   :ensure t)
