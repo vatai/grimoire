@@ -1452,10 +1452,10 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; (use-package mastodon
-;;   :custom
-;;   (mastodon-instance-url "https://mast.hpc.social")
-;;   (mastodon-active-user "vatai"))
+(use-package mastodon
+  :custom
+  (mastodon-instance-url "https://mast.hpc.social")
+  (mastodon-active-user "vatai"))
 
 
 "Slack"
