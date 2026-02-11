@@ -1437,10 +1437,10 @@
   :ensure t
   :commands (telega)
   :custom
-  (telga-use-images t)
+  (telega-use-images t)
   (telega-server-libs-prefix "/usr") ;; yay -S telegram-tdlib
   :defer t
-  :config (telega)
+  ;; :config (telega)
   )
 
   ;; :hook ((telega-load-hook
