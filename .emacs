@@ -479,6 +479,12 @@
 
 (use-package flycheck-mypy)
 
+(use-package flycheck-eglot
+  :ensure t
+  :after (flycheck eglot)
+  :config
+  (global-flycheck-eglot-mode 1))
+
 (use-package flycheck
   :ensure t
   :delight
