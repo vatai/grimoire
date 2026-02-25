@@ -1694,7 +1694,7 @@
   :hook ((gptel-post-stream . gptel-auto-scroll)
          (gptel-post-response-functions . gptel-end-of-response))
   :custom ((gptel-default-mode 'org-mode)
-           (gptel-model 'Kimi-K2-Instruct)
+           (gptel-model 'K2-Think)
            (gptel-directives
             '((default . "You are a large language model and a careful programmer. Provide code and only code as output without any additional text, prompt or note.")
               (tikz . "You are a professional TikZ artist. You create professional figures for scientific papers, either as full tex files using \documentclass[tikz,crop]{standalone}
