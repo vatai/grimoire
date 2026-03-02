@@ -1703,7 +1703,7 @@
               (writing . "You are a large language model and a writing assistant. Respond concisely.")
               (chat . "You are a large language model and a conversation partner. Respond concisely.")))
            (gptel-backend
-            (gptel-make-openai "OpenWebUI"
+            (gptel-make-openai "RiVault"
               :host "llm.ai.r-ccs.riken.jp:11434"
               :protocol "http"
               :key gptel-api-key
