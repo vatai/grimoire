@@ -208,21 +208,6 @@
 
 "Helm/Ivy"
 
-;; (use-package helm
-;;   :ensure t
-;;   :delight
-;;   :demand
-;;   :bind (("M-x" . helm-M-x)
-;;          ("C-x r b" . helm-filtered-bookmarks)
-;;          ("C-x C-f" . helm-find-files)
-;;          ("C-x b" . helm-mini))
-;;   :config
-;;   ;; (use-package helm-org :ensure t)
-;;   (helm-mode 1))
-
-;; (use-package swiper
-;;   :ensure t)
-
 ;; Example configuration for Consult
 (use-package consult
   ;; Replace bindings. Lazily loaded by `use-package'.
@@ -326,6 +311,7 @@
 ;; Enable Vertico.
 (use-package vertico
   :custom
+  (vertico-preselect 'first)
   ;; (vertico-scroll-margin 0) ;; Different scroll margin
   ;; (vertico-count 20) ;; Show more candidates
   ;; (vertico-resize t) ;; Grow and shrink the Vertico minibuffer
@@ -345,40 +331,6 @@
    '(read-only t cursor-intangible t face minibuffer-prompt))
   :init
   (vertico-mode))
-
-(use-package counsel
-  :ensure t
-  :delight
-  :config (counsel-mode))
-
-;; (use-package ivy
-;;   :ensure t
-;;   :delight
-;;   :custom
-;;   (ivy-use-selectable-prompt t)
-;;   (ivy-use-virtual-buffers t)
-;;   (enable-recursive-minibuffers t)
-;;   (search-default-mode #'char-fold-to-regexp)
-;;   :config (ivy-mode)
-;;   :bind
-;;   ("C-s" . 'swiper)
-;;   ("C-c C-r" . 'ivy-resume)
-;;   ("<f6>" . 'ivy-resume)
-;;   ("M-x" . 'counsel-M-x)
-;;   ("C-x C-f" . 'counsel-find-file)
-;;   ("<f1> f" . 'counsel-describe-function)
-;;   ("<f1> v" . 'counsel-describe-variable)
-;;   ("<f1> o" . 'counsel-describe-symbol)
-;;   ("<f1> l" . 'counsel-find-library)
-;;   ("<f2> i" . 'counsel-info-lookup-symbol)
-;;   ("<f2> u" . 'counsel-unicode-char)
-;;   ("C-c g" . 'counsel-git)
-;;   ("C-c j" . 'counsel-git-grep)
-;;   ("C-c k" . 'counsel-ag)
-;;   ("C-x l" . 'counsel-locate)
-;;   ("C-S-o" . 'counsel-rhythmbox)
-;;   (:map minibuffer-local-map
-;;         ("C-r" . 'counsel-minibuffer-history)))
 
 "Development"
 
@@ -457,15 +409,6 @@
   (sh-mode . shfmt-on-save-mode))
 
 "Helm/Ivy projectile"
-
-;; (use-package helm-projectile
-;;   :ensure t
-;;   :commands helm-projectile
-;;   :config (helm-projectile))
-
-(use-package counsel-projectile
-  :ensure t
-  :config (counsel-projectile-mode))
 
 (use-package eldoc
   :ensure t
@@ -1618,10 +1561,6 @@
 
 "Helm/Ivy bibtex ++"
 
-;; (use-package helm-bibtex
-;;   :ensure t
-;;   :requires helm)
-
 (use-package ivy-bibtex
   :ensure t
   :custom
@@ -1653,40 +1592,6 @@
   (:map org-mode-map ("C-c ]" . 'org-ref-insert-link))
   (:map bibtex-mode-map ("H-b" . 'org-ref-bibtex-hydra/body))
   )
-
-;; ivy, flx
-
-;; (use-package ivy
-;;   :config
-;;   (ivy-mode))
-
-;; (use-package flx
-;;   :ensure t
-;;   :requires ivy
-;;   :after (ivy)
-;;   :config
-;;   (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
-;;   ;(setq ivy-initial-inputs-alist nil)
-;;   )
-
-;; window-purpose
-
-;; (use-package window-purpose
-;;   :ensure t
-;;   :config
-;;   (purpose-mode)
-;;   (add-to-list 'purpose-user-mode-purposes '(python-mode . py))
-;;   (add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . py-repl))
-;;   (purpose-compile-user-configuration))
-
-;; (use-package helm-purpose
-;;   :ensure t
-;;   :requires (helm window-purpose)
-;;   :config (helm-purpose-setup))
-
-;; (use-package evil-tabs
-;;   :config
-;;   (global-evil-tabs-mode t))
 
 (use-package gptel
   :bind (("C-c m m" . gptel-menu)
