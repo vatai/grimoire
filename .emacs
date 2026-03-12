@@ -1599,7 +1599,6 @@
   :hook ((gptel-post-stream . gptel-auto-scroll)
          (gptel-post-response-functions . gptel-end-of-response))
   :custom ((gptel-default-mode 'org-mode)
-           (gptel-model 'K2-Think)
            (gptel-directives
             '((default . "You are a large language model and a careful programmer. Provide code and only code as output without any additional text, prompt or note.")
               (tikz . "You are a professional TikZ artist. You create professional figures for scientific papers, either as full tex files using \documentclass[tikz,crop]{standalone}
@@ -1607,33 +1606,33 @@
               (emacs . "You are a large language model living in Emacs and a helpful assistant. Respond concisely.")
               (writing . "You are a large language model and a writing assistant. Respond concisely.")
               (chat . "You are a large language model and a conversation partner. Respond concisely.")))
-           (gptel-backend
-            (gptel-make-openai "RiVault"
-              :host "llm.ai.r-ccs.riken.jp:11434"
-              :protocol "http"
-              :key gptel-api-key
-              :stream nil
-              :models
-              '(K2-Think
-                Kimi-K2-Instruct
-                qwen3-coder:30b
-                Llama-3_1-Nemotron-Ultra-253B-v1
-                codellama:latest
-                gpt-oss-120b
-                qwen2.5:0.5b
-                qwen3:8b
-                llava:7b
-                bge-m3:567m
-                gemma3:12b
-                gemma3:27b
-                ))))
+           )
   :config
+  (setq gptel-model "qwen3-coder:30b"
+        gptel-backend
+        (gptel-make-openai "RiVault"
+          :host "llm.ai.r-ccs.riken.jp:11434"
+          :protocol "http"
+          :key gptel-api-key
+          :stream t
+          :models
+          '(
+            "Kimi-K2-Thinking"
+            "K2-Think"
+            "codellama:7b"
+            "zai-org/GLM-4.7-Flash"
+            "qwen3-coder:30b"
+            "qwen3:8b"
+            "gemma3:12b"
+            "llava:7b"
+            "bge-m3:567m"
+            )))
   ;; (load-library "gptel-org")
   (gptel-make-openai "nvidia"
               :stream t
               :key gptel-api-key
               :host "integrate.api.nvidia.com"
-              :models '(nvidia/llama-3.3-nemotron-super-49b-v1.5))
+              :models '("nvidia/llama-3.3-nemotron-super-49b-v1.5"))
   (gptel-make-gemini "Gemini" :stream t :key gptel-api-key)
   (gptel-make-anthropic "Claude" :stream t :key gptel-api-key)
   (require 'gptel-integrations)
