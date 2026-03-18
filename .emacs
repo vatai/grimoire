@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+(setq initial-major-mode #'org-mode)
+(setq initial-scratch-message
+      "#+title: Scratch buffer")
 
 (setq custom-file "~/Sync/.emacs.d/customs.el")
 (load custom-file)
@@ -797,7 +800,6 @@
               "--xinerama-index" "1"
               (expand-file-name in-the-zone-image))))
         (setq in-the-zone-process (apply 'start-process feh-command)))))
-
   (defun in-the-zone-clock-out ()
     "Kill the feh process when clocking out."
     (interactive)
