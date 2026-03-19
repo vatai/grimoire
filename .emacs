@@ -1610,8 +1610,8 @@
               (chat . "You are a large language model and a conversation partner. Respond concisely.")))
            )
   :config
-  (setq gptel-model "qwen3-coder:30b"
-        gptel-backend
+  (setq gptel-model "qwen3-coder:30b")
+  (setq rivault
         (gptel-make-openai "RiVault"
           :host "llm.ai.r-ccs.riken.jp:11434"
           :protocol "http"
@@ -1628,13 +1628,17 @@
             "gemma3:12b"
             "llava:7b"
             "bge-m3:567m"
-            )))
+            ))
+        niku
+        (gptel-make-ollama "niku"
+          :host "localhost:11434"
+          :models '("qwen3:8b")
+          :stream t
+          )
+        )
+  (setq gptel-backend
+        (if (string-equal (system-name) "niku") niku rivault))
   ;; (load-library "gptel-org")
-  (gptel-make-openai "nvidia"
-              :stream t
-              :key gptel-api-key
-              :host "integrate.api.nvidia.com"
-              :models '("nvidia/llama-3.3-nemotron-super-49b-v1.5"))
   (gptel-make-gemini "Gemini" :stream t :key gptel-api-key)
   (gptel-make-anthropic "Claude" :stream t :key gptel-api-key)
   (require 'gptel-integrations)
