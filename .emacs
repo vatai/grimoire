@@ -1603,7 +1603,7 @@
   :custom ((gptel-default-mode 'org-mode)
            (gptel-directives
             '((default . "You are a large language model and a careful programmer. Provide code and only code as output without any additional text, prompt or note.")
-              (tikz . "You are a professional TikZ artist. You create professional figures for scientific papers, either as full tex files using \documentclass[tikz,crop]{standalone}
+              (tikz . "You are a professional TikZ artist. You create professional figures for scientific papers, either as full tex files using \\documentclass[tikz,crop]{standalone}
  or injecting tikz code in tikzpicture environments. You aim for readability and managability in tikz code, using the DRY principle and other good programming practices. Provide code and only code as output without any additional text, prompt or note.")
               (emacs . "You are a large language model living in Emacs and a helpful assistant. Respond concisely.")
               (writing . "You are a large language model and a writing assistant. Respond concisely.")
@@ -1634,7 +1634,7 @@
        gptel-backend
        (gptel-make-ollama "niku"
          :host "localhost:11434"
-         :models '("qwen3:8b")
+         :models '("qwen3:8b" "gpt-oss" "gemma3")
          :stream t
          )))
   ;; (load-library "gptel-org")
