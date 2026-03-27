@@ -20,6 +20,7 @@ if [[ ${HOSTNAME} == *-* ]]; then
   # ZSH_THEME="half-life"
   export PATH=$HOME/bin.compute:$PATH
   source $HOME/.ghcup/env
+  export TMPDIR=/worktmp
 fi
 
 # Set list of themes to pick from when loading at random
@@ -115,6 +116,7 @@ alias fixssh="ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock"
 
 alias qs="pjsub -mb -me -mr -ms --mail-list $(git config --get user.email)"
 alias qt="pjstat"
+alias qkill_interactive_session="pjdel $(pjstat | grep STDIN | cut -f1 -d\ )"
 # ZSH_DISABLE_COMPFIX=true
 
 # My stuff
@@ -153,3 +155,22 @@ function set_env ()
   fi
 }
 
+[[ $SHLVL -ge 2 ]] && source /home/apps/oss/llvm-v19.1.4/init.sh
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/u10039/vatai/opt/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/u10039/vatai/opt/miniconda/etc/profile.d/conda.sh" ]; then
+        . "/home/u10039/vatai/opt/miniconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/u10039/vatai/opt/miniconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+conda activate "${HOME}/code/tadashi/.venv"
