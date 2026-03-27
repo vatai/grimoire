@@ -1,6 +1,20 @@
 # .bashrc
 
-set -o noclobber
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/home/u10039/vatai/opt/miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/u10039/vatai/opt/miniconda/etc/profile.d/conda.sh" ]; then
+#         . "/home/u10039/vatai/opt/miniconda/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/u10039/vatai/opt/miniconda/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
+
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -41,7 +55,9 @@ function set_env ()
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export PATH
 
-export TMPDIR="/tmp"
+if [ -e /worktmp ]; then
+  export TMPDIR=/workdir
+fi
 
 if [ -e $HOME/spack ]; then
   source $HOME/spack/share/spack/setup-env.sh
@@ -51,10 +67,11 @@ fi
 [[ $- == *i* ]] || return
 
 alias l="ls -l"
-alias qs="pjsub -mb -me -mr -ms --mail-list $(git config --get user.email)"
+alias qs="pjsub -mb -me -mr -ms --mail-list "$(git config --get user.email)""
 alias qt="pjstat"
 alias st="source /home/ra000012/data/fj-pytorch-builds/v1.10/venv/bin/activate"
 alias sf="source /home/ra000012/data/fj-pytorch-builds/v1.10-Kfast/venv/bin/activate"
+alias newscr='screen -S $(basename $(pwd))'
 
 BLUE_BG='\[\033[44m\]'
 RED_BG='\[\033[41m\]'
@@ -97,8 +114,12 @@ fndscr(){
   for i in ${INDICES}; do
     wait ${pids[$i]}
     if [[ $(cat ${files[$i]} | wc -l) -ge 3 ]]; then
-      echo -n "ssh login${i} -t screen -r "
-      cat ${files[$i]} | tail -n+2 | head -n1 | sed -e 's/(Detached)//'
+      cat ${files[$i]} | while read line; do 
+        if [[ $line != There* ]] && [[ $line != */run/screen* ]]; then
+          echo -n "ssh login${i} -t screen -r "
+          echo ${line} | sed -e 's/(Detached)//'
+        fi
+      done
     fi
     rm ${files[$i]}
   done
@@ -115,11 +136,13 @@ else
 fi
 
 function try_to_build() {
-        ARGS=(${@})
+        ARGS=("${@}")
         #try first in ramdisk and hope its big enough
         export TMP=/worktmp ; export TMPDIR=/worktmp
-        exec ${ARGS[@]} && return
+        exec "${ARGS[@]}" && return
         #if not work, then llio disk
         export TMP=/local ; export TMPDIR=/local
-        exec ${ARGS[@]} || cp -r ${TMP}/$(whoami)/spack-stage ~/project_SPRT/
+        exec "${ARGS[@]}" || cp -r "${TMP}/$(whoami)/spack-stage" ~/project_SPRT/
 }
+
+
