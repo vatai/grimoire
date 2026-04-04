@@ -1638,6 +1638,7 @@
          :stream t
          )))
   ;; (load-library "gptel-org")
+  (gptel-make-openai "OpenAI" :stream t :key gptel-api-key)
   (gptel-make-gemini "Gemini" :stream t :key gptel-api-key)
   (gptel-make-anthropic "Claude" :stream t :key gptel-api-key)
   (require 'gptel-integrations)
