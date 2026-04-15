@@ -1070,6 +1070,9 @@
 
 "Bling - Appearance"
 
+(use-package rainbow-mode
+  :config (rainbow-mode))
+
 ;; Fix for themes which keep the line number the same
 (add-to-list 'default-frame-alist
              '(font . "Iosevka Term Light"))
@@ -1089,6 +1092,7 @@
 (use-package monokai-theme)
 (use-package color-theme-sanityinc-tomorrow)
 (use-package gruvbox-theme)
+(use-package faff-theme)
 ;; (use-package color-theme-sanityinc-solarized)
 
 ;; (defconst dynamic-theme-dark-theme 'sanityinc-solarized-dark)
@@ -1106,7 +1110,7 @@
 ;; (defconst dynamic-theme-light-theme 'modus-operandi-tinted)
 ;; (defconst dynamic-theme-dark-theme 'evangelion)
 
-(defconst dynamic-theme-light-theme 'gruvbox-light-hard)
+(defconst dynamic-theme-light-theme 'faff)
 (defconst dynamic-theme-dark-theme 'gruvbox-dark-medium)
 
 (defun dynamic-theme-light-mode ()
@@ -1114,14 +1118,14 @@
   "Switch to light  mode."
   (mapc #'disable-theme custom-enabled-themes)
   (load-theme dynamic-theme-light-theme t)
-  (custom-set-faces '(auto-dim-other-buffers ((t (:foreground "#555" :background "#eee"))))))
+  (custom-set-faces '(auto-dim-other-buffers ((t (:foreground "#777" :background "#ccb"))))))
 
 (defun dynamic-theme-dark-mode ()
   (interactive)
   "Switch to dark mode."
   (mapc #'disable-theme custom-enabled-themes)
   (load-theme dynamic-theme-dark-theme t)
-  (custom-set-faces '(auto-dim-other-buffers ((t (:foreground "#666" :background "#222"))))))
+  (custom-set-faces '(auto-dim-other-buffers ((t (:foreground "#b99" :background "#333030"))))))
 
 ;; (dynamic-theme-dark-mode)
 (dynamic-theme-light-mode)
