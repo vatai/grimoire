@@ -890,6 +890,7 @@
          ("C-c n b" . ivy-bibtex)
          ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today)
+         ("C-c n d" . org-roam-dailies-capture-date)
          ("s-w" . (lambda () (interactive) (org-roam-dailies-capture-today nil "w")))
          ("s-d" . (lambda () (interactive) (org-roam-dailies-capture-today nil "d")))
          )
