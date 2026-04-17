@@ -1635,6 +1635,7 @@
             )))
   (if (string-equal (system-name) "niku")
       (setq
+       gptel-model "qwen3:8b"
        gptel-backend
        (gptel-make-ollama "niku"
          :host "localhost:11434"
@@ -1655,7 +1656,9 @@
 (use-package gptel-agent
   :vc ( :url "https://github.com/karthink/gptel-agent"
         :rev :newest)
-  :config (gptel-agent-update))         ;Read files from agents directories
+  :config
+  (add-to-list 'gptel-agent-dirs "/home/vatai/Sync/gists/gptel-agents/agents/")
+  (gptel-agent-update))         ;Read files from agents directories
 
 (use-package mcp
   :after gptel
