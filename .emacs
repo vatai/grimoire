@@ -1118,14 +1118,14 @@
   "Switch to light  mode."
   (mapc #'disable-theme custom-enabled-themes)
   (load-theme dynamic-theme-light-theme t)
-  (custom-set-faces '(auto-dim-other-buffers ((t (:foreground "#777" :background "#ccb"))))))
+  (custom-set-faces '(auto-dim-other-buffers ((t (:foreground "#777"))))))
 
 (defun dynamic-theme-dark-mode ()
   (interactive)
   "Switch to dark mode."
   (mapc #'disable-theme custom-enabled-themes)
   (load-theme dynamic-theme-dark-theme t)
-  (custom-set-faces '(auto-dim-other-buffers ((t (:foreground "#b99" :background "#333030"))))))
+  (custom-set-faces '(auto-dim-other-buffers ((t (:foreground "#b99"))))))
 
 ;; (dynamic-theme-dark-mode)
 (dynamic-theme-light-mode)
