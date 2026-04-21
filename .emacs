@@ -676,6 +676,7 @@
      (python . t)
      (ditaa . t)
      (mermaid . t)
+     (plantuml . t)
      (sqlite . t))))
   (org-capture-templates
    (quote
