@@ -1637,11 +1637,11 @@
             )))
   (if (string-equal (system-name) "niku")
       (setq
-       gptel-model "qwen3:8b"
+       gptel-model "gemma4"
        gptel-backend
        (gptel-make-ollama "niku"
          :host "localhost:11434"
-         :models '("qwen3:8b" "gpt-oss" "gemma3")
+         :models '("qwen3.5" "qwen3:8b" "gpt-oss" "gemma4" "gemma3")
          :stream t
          )))
   ;; (load-library "gptel-org")
