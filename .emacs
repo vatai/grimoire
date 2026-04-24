@@ -1648,6 +1648,7 @@
   (gptel-make-openai "OpenAI" :stream t :key gptel-api-key)
   (gptel-make-gemini "Gemini" :stream t :key gptel-api-key)
   (gptel-make-anthropic "Claude" :stream t :key gptel-api-key)
+  (gptel-make-bedrock "Bedrock" :stream t :region "us-east-2" :model-region 'us)
   (require 'gptel-integrations)
   (setq gptel-expert-commands t)
   ;; (setq gptel-prompt-prefix-string "* AI")
