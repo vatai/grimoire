@@ -1662,6 +1662,11 @@
   (add-to-list 'gptel-agent-dirs "/home/vatai/Sync/gists/gptel-agents/agents/")
   (gptel-agent-update))         ;Read files from agents directories
 
+(use-package agent-shell
+  :bind (("C-c m a" . agent-shell-google-start-gemini))
+  :config
+  (setq agent-shell-google-acp-command '("gemini" "--acp")))
+
 (use-package mcp
   :after gptel
   :custom (mcp-hub-servers
