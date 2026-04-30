@@ -1275,6 +1275,7 @@
   :bind
   (([C-f1] . mu4e))
   :custom
+  (mu4e-use-fancy-chars t)
   (mu4e-change-filenames-when-moving t)
   (mu4e-update-interval 600)
   (mu4e-headers-date-format "%F")
