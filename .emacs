@@ -1664,7 +1664,8 @@
   (gptel-agent-update))         ;Read files from agents directories
 
 (use-package agent-shell
-  :bind (("C-c m a" . agent-shell-google-start-gemini))
+  :bind (("C-c m g" . agent-shell-google-start-gemini)
+         ("C-c m c" . agent-shell-anthropic-start-claude-code))
   :config
   (setq agent-shell-google-acp-command '("gemini" "--acp")))
 
