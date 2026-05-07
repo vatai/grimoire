@@ -47,3 +47,6 @@ else
 fi
 export PS1="${USER_COLOR}\u${CLEAR_COLOR}@${HOST_COLOR}\h${CLEAR_COLOR} \w"'$(__git_ps1 " (%s)") $ '
 
+
+# Added by NemoClaw installer
+export PATH="$HOME/.npm-global/bin:$PATH"

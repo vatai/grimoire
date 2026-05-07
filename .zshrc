@@ -106,3 +106,10 @@ fi
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib/mojo
 export PATH=$PATH:~/.modular/pkg/packages.modular.com_mojo/bin/
 export LD_LIBRARY_PATH=/home/vatai/.local/lib/arch-mojo:$LD_LIBRARY_PATH
+
+# Added by NemoClaw installer
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# NemoClaw PATH setup
+export PATH="/home/vatai/.local/bin:$PATH"
+# end NemoClaw PATH setup
