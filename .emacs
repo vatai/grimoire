@@ -1077,12 +1077,13 @@
 (use-package rainbow-mode
   :config (rainbow-mode))
 
-;; Fix for themes which keep the line number the same
+;; fonts
 (add-to-list 'default-frame-alist
              '(font . "Iosevka Term Light"))
 (set-face-attribute 'default nil :family "Iosevka Term Light")
 (set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
-;; (set-face-attribute 'default nil :height (get-font-size))
+
+;; Fix for themes which keep the line number the same
 (custom-set-faces
  ;; '(auto-dim-other-buffers-hide ((t (:background "11f" :foreground "11f"))))
  '(line-number ((t (:inherit default))))
