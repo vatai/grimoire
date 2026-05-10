@@ -1003,28 +1003,6 @@
 
 ;; (use-package visual-fill-column :ensure t)
 
-(use-package org-tree-slide
-  :ensure t
-  :requires org
-  ;; :custom
-  ;; (visual-fill-column-width 160)
-  ;; (visual-fill-column-center-text t)
-  ;; :hook ((org-tree-slide-play . (lambda ()
-  ;;                                 (visual-fill-column-mode 1)
-  ;;                                 (visual-line-mode 1)
-  ;;                                 (setq header-line-format " ")))
-  ;;        (org-tree-slide-stop . (lambda ()
-  ;;                                 (visual-fill-column-mode 0)
-  ;;                                 (visual-line-mode 0)
-  ;;                                 (setq header-line-format nil)))
-  ;;        )
-  :bind (("<f8>" . org-tree-slide-mode)
-         ("S-<f8>" . org-tree-slide-skip-done-toggle)
-         :map org-tree-slide-mode-map
-         ("<prior>" . org-tree-slide-move-previous-tree)
-         ("<next>" . org-tree-slide-move-next-tree)
-         ("<f11>" . org-tree-slide-content)))
-
 (defun vatai/org-present-prepare-slide (buffer-name heading)
   ;; Show only top-level headlines
   (org-overview)
