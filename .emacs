@@ -176,6 +176,7 @@
   ;; (setq evil-respect-visual-line-mode t)
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
+  (setq evil-normal-state-cursor 'hbar)
   :config
   ;; (add-to-list 'evil-emacs-state-modes 'nav-mode)
   ;; (add-to-list 'evil-emacs-state-modes 'neotree-mode)
