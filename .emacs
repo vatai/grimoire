@@ -1020,9 +1020,12 @@
                                      (org-document-title (:height 1.75) org-document-title)
                                      (org-code (:height 1.55) org-code)
                                      (org-verbatim (:height 1.55) org-verbatim)
-                                     (org-block (:height 1.25) org-block)
-                                     (org-block-begin-line (:height 0.7) org-block)))
+                                     (org-block (:height 1.25) (org-block fixed-pitch))
+                                     (org-block-begin-line (:height 0.7) org-block)
+                                     (org-block-end-line default)))
 
+  (mapc #'disable-theme custom-enabled-themes)
+  (load-theme 'monokai t)
   ;; Set a blank header line string to create blank space at the top
   (setq header-line-format " ")
 
@@ -1054,9 +1057,7 @@
   (visual-fill-column-width 120)
   (visual-fill-column-center-text t)
   :hook ((org-present-mode . vatai/org-present-start)
-         (org-present-mode-quit . vatai/org-present-end)
-         )
-  )
+         (org-present-mode-quit . vatai/org-present-end)))
 
 ;; (use-package org-drill)
 
