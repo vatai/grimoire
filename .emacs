@@ -1133,6 +1133,7 @@
 (use-package color-theme-sanityinc-tomorrow)
 (use-package gruvbox-theme)
 (use-package faff-theme)
+(use-package moe-theme)
 ;; (use-package color-theme-sanityinc-solarized)
 
 ;; (defconst dynamic-theme-dark-theme 'sanityinc-solarized-dark)
@@ -1150,8 +1151,11 @@
 ;; (defconst dynamic-theme-light-theme 'modus-operandi-tinted)
 ;; (defconst dynamic-theme-dark-theme 'evangelion)
 
-(defconst dynamic-theme-light-theme 'faff)
-(defconst dynamic-theme-dark-theme 'gruvbox-dark-medium)
+;; (defconst dynamic-theme-light-theme 'faff)
+;; (defconst dynamic-theme-dark-theme 'gruvbox-dark-medium)
+
+(defconst dynamic-theme-light-theme 'moe-light)
+(defconst dynamic-theme-dark-theme 'moe-dark)
 
 (defun dynamic-theme-light-mode ()
   (interactive)
