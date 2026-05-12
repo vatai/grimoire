@@ -166,7 +166,7 @@ https://auth.ict.r-ccs.riken.jp/user/
 - Private key: emil.vatai_1.p12
 - Password: one given when downloading cert (I think)
 
-* Speach WIP
+* Speech WIP
 - piper-voices-en...
   - add conf to speech dispatcher conf
 - pipewire-alsa
