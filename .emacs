@@ -734,6 +734,7 @@
   (org-preview-latex-default-process (quote dvisvgm))
   (org-use-property-inheritance (quote ("NOWEB-REF")))
   ;; END [from custom]
+  (org-plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar")
   (org-agenda-archives-mode nil)
   (org-agenda-skip-comment-trees nil)
   (org-agenda-skip-function nil)
