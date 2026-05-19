@@ -139,7 +139,7 @@ hl.config({
     kb_layout = "jp,us,us,rs",
     kb_variant = ",,dvp,",
     kb_model = "",
-    kb_options = "ctrl:swapcaps,grp:win_space_toggle,compose:ralt",
+    kb_options = "grp:win_space_toggle,compose:ralt",
     kb_rules = "",
     follow_mouse = 1,
     sensitivity = -0.5,
