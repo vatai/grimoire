@@ -1,16 +1,26 @@
 -- Converted from hyprland.conf for Hyprland 0.55+ Lua config.
 -- See https://wiki.hypr.land/Configuring/Start/
 
+local function get_hostname()
+    local handle = io.popen("hostname")
+    if handle then
+        local res = handle:read("*a"):gsub("%s+", "") -- Read output and strip whitespace/newlines
+        handle:close()
+        return res
+    end
+    return "unknown"
+end
+
+local host = get_hostname()
+
 ------------------
 ---- MONITORS ----
 ------------------
 
-hl.monitor({
-  output = "",
-  mode = "preferred",
-  position = "auto",
-  scale = "auto",
-})
+if host == "niku" then
+  hl.monitor({ output = "DP-2", mode = "2560x1440", position = "0x0", scale = 1 })
+  hl.monitor({ output = "DP-1", mode = "2560x1440", position = "2560x0", scale = 1 })
+end
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -19,7 +29,7 @@ hl.monitor({
 local terminal = "kitty"
 local fileManager = "kitty ranger"
 local emacsClient = "emacsclient -c"
-local menu = "wofi --show drun"
+local menu = "hyprlauncher"
 local browser = "firefox"
 
 -------------------
