@@ -414,6 +414,10 @@
   :hook
   (sh-mode . shfmt-on-save-mode))
 
+"LUA"
+
+(use-package lua-mode)
+
 "Helm/Ivy projectile"
 
 (use-package eldoc
