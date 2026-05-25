@@ -307,8 +307,6 @@
   ;; Both < and C-+ work reasonably well.
   (setq consult-narrow-key "<") ;; "C-+"
 
-  (setq completion-in-region-function #'consult-completion-in-region)
-  (setq tab-always-indent 'complete)
   ;; Optionally make narrowing help available in the minibuffer.
   ;; You may want to use `embark-prefix-help-command' or which-key instead.
   ;; (keymap-set consult-narrow-map (concat consult-narrow-key " ?") #'consult-narrow-help)
@@ -368,11 +366,11 @@
   (completion-pcm-leading-wildcard t)
   ) ;; Emacs 31: partial-completion behaves like substring
 
-;; (use-package corfu
-;;   :init
-;;   (global-corfu-mode)
-;;   :custom
-;;   (tab-always-indent 'complete))
+(use-package corfu
+  :init
+  (global-corfu-mode)
+  :custom
+  (tab-always-indent 'complete))
 
 (use-package cape
   ;; Bind prefix keymap providing all Cape commands under a mnemonic key.
