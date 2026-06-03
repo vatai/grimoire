@@ -1137,6 +1137,7 @@
 (use-package gruvbox-theme)
 (use-package faff-theme)
 (use-package moe-theme)
+(use-package base16-theme)
 ;; (use-package color-theme-sanityinc-solarized)
 
 ;; (defconst dynamic-theme-dark-theme 'sanityinc-solarized-dark)
@@ -1158,7 +1159,10 @@
 ;; (defconst dynamic-theme-dark-theme 'gruvbox-dark-medium)
 
 (defconst dynamic-theme-light-theme 'moe-light)
-(defconst dynamic-theme-dark-theme 'moe-dark)
+;; (defconst dynamic-theme-dark-theme 'base16-standardized-dark)
+;; (defconst dynamic-theme-dark-theme 'base16-primer-dark)
+;; (defconst dynamic-theme-dark-theme 'base16-precious-dark-eleven)
+(defconst dynamic-theme-dark-theme 'base16-oxocarbon-dark)
 
 (defun dynamic-theme-light-mode ()
   (interactive)
