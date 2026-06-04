@@ -1158,7 +1158,7 @@
 ;; (defconst dynamic-theme-light-theme 'faff)
 ;; (defconst dynamic-theme-dark-theme 'gruvbox-dark-medium)
 
-(defconst dynamic-theme-light-theme 'moe-light)
+(defconst dynamic-theme-light-theme 'base16-emil)
 ;; (defconst dynamic-theme-dark-theme 'base16-standardized-dark)
 ;; (defconst dynamic-theme-dark-theme 'base16-primer-dark)
 ;; (defconst dynamic-theme-dark-theme 'base16-precious-dark-eleven)
