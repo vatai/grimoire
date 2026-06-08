@@ -1158,7 +1158,12 @@
 ;; (defconst dynamic-theme-light-theme 'faff)
 ;; (defconst dynamic-theme-dark-theme 'gruvbox-dark-medium)
 
-(defconst dynamic-theme-light-theme 'base16-emil)
+;; (defconst dynamic-theme-light-theme 'base16-emil)
+;; (defconst dynamic-theme-light-theme 'base16-solarized-light)
+;; (defconst dynamic-theme-light-theme 'base16-atelier-dune-light)
+;; (defconst dynamic-theme-light-theme 'base16-penumbra-light)
+;; (defconst dynamic-theme-light-theme 'base16-still-alive)
+(defconst dynamic-theme-light-theme 'base16-unikitty-light)
 ;; (defconst dynamic-theme-dark-theme 'base16-standardized-dark)
 ;; (defconst dynamic-theme-dark-theme 'base16-primer-dark)
 ;; (defconst dynamic-theme-dark-theme 'base16-precious-dark-eleven)
