@@ -342,6 +342,10 @@
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 ;; (add-hook 'prog-mode-hook #'flymake-mode)
 
+(use-package direnv
+ :config
+ (direnv-mode))
+
 (use-package realgud)
 
 (use-package display-line-numbers

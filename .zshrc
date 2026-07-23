@@ -109,3 +109,5 @@ export PATH="/home/vatai/.local/bin:$PATH"
 # This section can be safely removed at any time if needed.
 [[ ! -r '/home/vatai/.opam/opam-init/init.zsh' ]] || source '/home/vatai/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
+
+eval "$(direnv hook zsh)"
