@@ -339,7 +339,7 @@
 "Development"
 
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)
-(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+;; (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 ;; (add-hook 'prog-mode-hook #'flymake-mode)
 
 (use-package direnv
@@ -351,8 +351,8 @@
 (use-package display-line-numbers
   :custom
   (display-line-numbers-type 'visual)
-  ;; :config
-  ;; (global-display-line-numbers-mode)
+  :config
+  (global-display-line-numbers-mode)
   )
 
 ;; (use-package company
@@ -1031,6 +1031,7 @@
                                      (org-block-begin-line (:height 0.7) org-block)
                                      (org-block-end-line default)))
 
+  (display-line-numbers-mode -1)
   (mapc #'disable-theme custom-enabled-themes)
   (load-theme 'monokai t)
   ;; Set a blank header line string to create blank space at the top
@@ -1046,6 +1047,7 @@
 (defun vatai/org-present-end ()
   ;; Reset font customizations
   (setq-local face-remapping-alist '())
+  (display-line-numbers-mode t)
 
   ;; Clear the header line string so that it isn't displayed
   (setq header-line-format nil)
