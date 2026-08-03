@@ -355,6 +355,9 @@
   (global-display-line-numbers-mode)
   )
 
+(use-package breadcrumb
+  :config (breadcrumb-mode))
+
 ;; (use-package company
 ;;   :ensure t
 ;;   :delight
