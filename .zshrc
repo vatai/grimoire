@@ -56,14 +56,12 @@ source /usr/share/autojump/autojump.zsh
 which dropbox-cli 1>/dev/null 2>&1 && dropbox-cli start
 
 # alias
-alias ringo='ssh -L 8080:ringo.is.s.u-tokyo.ac.jp:80 ringo.is.s.u-tokyo.ac.jp'
 alias wttr="curl wttr.in"
-alias kt="kitty +kitten themes"
 alias gg="git -C ${GRIMOIRE_PATH}"
 alias ee="emacsclient -r -n"
 alias en="emacsclient -nw"
 alias yuy="PKGEXT=.pkg.tar MAKEFLAGS=-j$(nproc) yay -Syu --noconfirm; yay -Scc --noconfirm"
-if [[ $TERM == xterm-kitty ]]; then alias ssh="kitten ssh";  fi
+if [[ $TERM == xterm-kitty ]]; then alias ssk="kitten ssh";  fi
 
 PATH=${HOME}/bin:${HOME}/.local/bin:${PATH}
 
