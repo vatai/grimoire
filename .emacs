@@ -1671,6 +1671,7 @@
   :hook ((gptel-post-stream . gptel-auto-scroll)
          (gptel-post-response-functions . gptel-end-of-response))
   :custom ((gptel-default-mode 'org-mode)
+           (gptel-org-branching-context t)
            (gptel-directives
             '((default . "You are a large language model living in Emacs and a helpful assistant. Respond concisely. Read the agents.md file in the current directory and incorporate the instructions it contains.")
               (tikz . "You are a professional TikZ artist. You create professional figures for scientific papers, either as full tex files using \\documentclass[tikz,crop]{standalone}
