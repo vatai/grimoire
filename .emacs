@@ -665,7 +665,7 @@
   (org-image-actual-width nil)
   (org-agenda-clockreport-parameter-plist
    (quote (:link t :maxlevel 10 :fileskip0 t :compact t :stepskip0 t)))
-  (org-agenda-files (quote ("~/org/")))
+  (org-agenda-files (quote ("~/org/" "~/org/current")))
   (org-agenda-custom-commands
    '(("n" "Agenda and all TODOs" ((agenda "" nil) (alltodo "" nil)) nil)
      ("N" "Next tasks" todo "NEXT" nil)
