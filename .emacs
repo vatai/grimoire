@@ -166,6 +166,7 @@
 ;;   (global-idle-highlight-mode))
 
 (use-package prettier
+  :init (setenv "NODE_PATH" "/usr/lib/node_modules")
   :hook (markdown-mode . prettier-mode))
 
 "evil"
@@ -1569,7 +1570,7 @@
           (add-to-list 'exec-path subdir)))))
 
 ;; (prepend-env "/home/vatai/code/polyhedral-tutor/deps/opt/pluto-0.11.4")
-(prepend-env "/home/vatai/code/polyhedral-tutor/deps/opt/llvm-project-10.0.0")
+;; (prepend-env "/home/vatai/code/polyhedral-tutor/deps/opt/llvm-project-10.0.0")
 
 "MAXIMA"
 
