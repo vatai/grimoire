@@ -1709,7 +1709,8 @@
          :stream t
          )))
   ;; (load-library "gptel-org")
-  (gptel-make-openai "OpenAI" :stream t :key gptel-api-key)
+  (gptel-make-openai "OpenAI-api" :stream t :key gptel-api-key)
+  (gptel-make-openai-oauth "OpenAI")
   (gptel-make-gemini "Gemini" :stream t :key gptel-api-key)
   (gptel-make-anthropic "Claude" :stream t :key gptel-api-key)
   (gptel-make-bedrock "Bedrock" :stream t :region "us-east-2" :model-region 'us)
