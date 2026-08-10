@@ -1680,26 +1680,8 @@
               (chat . "You are a large language model and a conversation partner. Respond concisely.")))
            )
   :config
-  (setq gptel-model "qwen3-coder:30b"
-        gptel-backend
-        (gptel-make-openai "RiVault"
-          :host "llm.ai.r-ccs.riken.jp:11434"
-          :protocol "http"
-          :key gptel-api-key
-          :stream t
-          :models
-          '(
-            "Kimi-K2-Thinking"
-            "K2-Think"
-            "codellama:7b"
-            "zai-org/GLM-4.7-Flash"
-            "qwen3-coder:30b"
-            "qwen3:8b"
-            "gemma3:12b"
-            "llava:7b"
-            "bge-m3:567m"
-            )))
-  (if (string-equal (system-name) "niku")
+  ;; (load-library "gptel-org")
+  (if (string-equal (system-name) "niku-ALWAYSFAIL")
       (setq
        gptel-model "gemma4"
        gptel-backend
@@ -1708,12 +1690,36 @@
          :models '("qwen3.5" "qwen3:8b" "gpt-oss" "gemma4" "gemma3")
          :stream t
          )))
-  ;; (load-library "gptel-org")
-  (gptel-make-openai "OpenAI-api" :stream t :key gptel-api-key)
+  (gptel-make-openai "RiVault"
+    :host "llm.ai.r-ccs.riken.jp:11434"
+    :protocol "http"
+    :key gptel-api-key
+    :stream t
+    :models '(
+              "Kimi-K2-Thinking"
+              "K2-Think"
+              "codellama:7b"
+              "zai-org/GLM-4.7-Flash"
+              "qwen3-coder:30b"
+              "qwen3:8b"
+              "gemma3:12b"
+              "llava:7b"
+              "bge-m3:567m"
+              ))
   (gptel-make-openai-oauth "OpenAI")
+  (gptel-make-openai "OpenAI-api" :stream t :key gptel-api-key)
   (gptel-make-gemini "Gemini" :stream t :key gptel-api-key)
   (gptel-make-anthropic "Claude" :stream t :key gptel-api-key)
   (gptel-make-bedrock "Bedrock" :stream t :region "us-east-2" :model-region 'us)
+  ;; Set defaults
+  (let
+      ((default-backend
+        (alist-get "OpenAI" gptel--known-backends nil nil #'equal)))
+    (setq
+     gptel-model (car (last (gptel-openai-oauth-models default-backend)))
+     gptel-backend default-backend)
+    )
+
   (require 'gptel-integrations)
   (setq gptel-expert-commands t)
   ;; (setq gptel-prompt-prefix-string "* AI")
