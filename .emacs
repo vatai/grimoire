@@ -656,6 +656,26 @@
 ;;       (if org-buffer-p
 ;;           (message (format "%s %s" var org-buffer-p))))))
 
+(defun my/org-capture-travel-fiscal-year ()
+  "Return a marker for the current Japanese fiscal year in travel.org."
+  (let* ((now (decode-time))
+         (month (nth 4 now))
+         (year (nth 5 now))
+         (fiscal-year (if (< month 4) (1- year) year))
+         (heading (format "FY%d" fiscal-year)))
+    ;; A function capture target must leave its destination buffer current.
+    (find-file (expand-file-name "~/org/travel.org"))
+    (widen)
+    (goto-char (point-min))
+    (let ((fiscal-year-marker
+           (org-find-exact-headline-in-buffer heading)))
+      (if fiscal-year-marker
+          (goto-char fiscal-year-marker)
+        (goto-char (point-max))
+        (unless (bolp) (insert "\n"))
+        (insert "* " heading "\n")
+        (forward-line -1)))))
+
 (use-package org
   :hook ((after-init . org-agenda-list)
          (org-mode . turn-on-org-cdlatex)
@@ -699,6 +719,9 @@
      ("L" "Protocol Link" entry
       (file+headline "~/org/capture.org" "Inbox")
       "* %? [[%:link][%:description]] \nCaptured On: %U")
+     ("v" "Travel" entry
+      (function my/org-capture-travel-fiscal-year)
+      "** %^{Event}\n*** Registration\n- website: %?\n- dates: %^{From}t--%^{To}t\n*** Travel\n**** airfare\n:PROPERTIES:\n:price:      0.0\n:END:\n**** hotel\n:PROPERTIES:\n:price:      0.0\n:END:\n**** daily\n:PROPERTIES:\n:price:      0.0\n:END:\n")
      ("r" "Remember" entry
       (file+headline "~/org/capture.org" "Remember")
       "* %T: %?\n")
