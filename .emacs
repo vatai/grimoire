@@ -1090,7 +1090,7 @@
   :init
   (add-hook 'org-present-after-navigate-functions #'vatai/org-present-prepare-slide)
   :custom
-  (visual-fill-column-width 120)
+  (visual-fill-column-width 160)
   (visual-fill-column-center-text t)
   :hook ((org-present-mode . vatai/org-present-start)
          (org-present-mode-quit . vatai/org-present-end)))
@@ -1103,7 +1103,7 @@
     (plist-put org-format-latex-options :scale new-scale)))
 
 ;; scale latex fragments
-(plist-put org-format-latex-options :scale 0.5)
+(plist-put org-format-latex-options :scale 1.3)
 (plist-put org-format-latex-options :foreground nil)
 (plist-put org-format-latex-options :background nil)
 (defun update-org-latex-fragments ()
@@ -1111,7 +1111,7 @@
   (when (derived-mode-p 'org-mode)
     ;; (org-latex-preview '(64)) ;; clear all frags
     (let ((scale (expt text-scale-mode-step text-scale-mode-amount)))
-      (plist-put org-format-latex-options :scale (* (max 1 (* 1.3 scale))  0.5)))
+      (plist-put org-format-latex-options :scale (* (max 1.5 (* 1.3 scale))  1.3)))
     ;; (org-latex-preview '(16))
     ))
 (add-hook 'text-scale-mode-hook 'update-org-latex-fragments)
@@ -1728,20 +1728,44 @@ You are a large language model and a conversation partner. Respond concisely.
          :stream t
          )))
   (gptel-make-openai "RiVault"
-    :host "llm.ai.r-ccs.riken.jp:11434"
-    :protocol "http"
+    :host "api.class2.llm.ai.r-ccs.riken.jp"
+    :protocol "https"
     :key gptel-api-key
     :stream t
     :models '(
-              "Kimi-K2-Thinking"
-              "K2-Think"
-              "codellama:7b"
+              "RiVault/Agentic-Medium"
+              "RiVault/Agentic-Small"
+              "RiVault/Embedding-Small"
+              "RiVault/Embedding-Tiny"
+              "RiVault/Instruction-Medium"
+              "RiVault/Instruction-Small"
+              "RiVault/Instruction-Tiny"
+              "RiVault/OCR-Small"
+              "RiVault/OCR-Tiny"
+              "RiVault/Reasoning-Large"
+              "RiVault/Reasoning-Medium"
+              "RiVault/Reasoning-Small"
+              "RiVault/Reasoning-Tiny"
+              "RiVault/STT-Small"
+              "moonshotai/Kimi-K3"
+              "zai-org/GLM-5.2"
+              "microsoft/Phi-4-mini-reasoning"
+              "Qwen/Qwen3.8-27B"
+              "deepseek-ai/DeepSeek-V4-Flash"
+              "zai-org/GLM-4.7"
+              "meta-llama/Llama-3.1-8B-Instruct"
+              "ByteDance-Seed/Seed-OSS-36B-Instruct"
+              "meta-llama/Llama-4-Scout-17B-16E-Instruct"
+              "Qwen/Qwen3.6-35B-A3B"
+              "lightonai/mLateOn"
+              "nvidia/Nemotron-3-Embed-8B"
+              "lightonai/LightOnOCR-2-1B"
+              "zai-org/GLM-OCR"
+              "openai/whisper-large-v3"
+              "google/translategemma-27b-it"
+              "moonshotai/Kimi-K2-Thinking"
+              "LLM360/K2-Think"
               "zai-org/GLM-4.7-Flash"
-              "qwen3-coder:30b"
-              "qwen3:8b"
-              "gemma3:12b"
-              "llava:7b"
-              "bge-m3:567m"
               ))
   (gptel-make-openai-oauth "OpenAI")
   (gptel-make-openai "OpenAI-api" :stream t :key gptel-api-key)
