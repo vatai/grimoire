@@ -1050,8 +1050,8 @@
 (defun vatai/org-present-start ()
   ;; Tweak font sizes
   (setq-local face-remapping-alist '((default (:height 1.5) variable-pitch)
-                                     (header-line (:height 4.0) variable-pitch)
-                                     (org-document-title (:height 1.75) org-document-title)
+                                     (header-line (:height 0.7) variable-pitch)
+                                     (org-document-title (:height 2.75) org-document-title)
                                      (org-code (:height 1.55) org-code)
                                      (org-verbatim (:height 1.55) org-verbatim)
                                      (org-block (:height 1.25) (org-block fixed-pitch))
@@ -1090,7 +1090,7 @@
   :init
   (add-hook 'org-present-after-navigate-functions #'vatai/org-present-prepare-slide)
   :custom
-  (visual-fill-column-width 160)
+  (visual-fill-column-width 120)
   (visual-fill-column-center-text t)
   :hook ((org-present-mode . vatai/org-present-start)
          (org-present-mode-quit . vatai/org-present-end)))
