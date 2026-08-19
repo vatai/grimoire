@@ -1039,17 +1039,18 @@
 
 (defun vatai/org-present-prepare-slide (buffer-name heading)
   ;; Show only top-level headlines
-  (org-overview)
+  ;; (org-overview)
 
   ;; Unfold the current entry
-  (org-show-entry)
+  ;; (org-show-entry)
 
   ;; Show only direct subheadings of the slide but don't expand them
-  (org-show-children))
+  ;; (org-show-children)
+  )
 
 (defun vatai/org-present-start ()
   ;; Tweak font sizes
-  (setq-local face-remapping-alist '((default (:height 1.5) variable-pitch)
+  (setq-local face-remapping-alist '((default (:height 1.8) variable-pitch)
                                      (header-line (:height 0.7) variable-pitch)
                                      (org-document-title (:height 2.75) org-document-title)
                                      (org-code (:height 1.55) org-code)
