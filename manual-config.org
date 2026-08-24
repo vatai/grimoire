@@ -148,6 +148,25 @@ in URL field
     - ~tenant~ seems to be anything. (I got it working initially with =Directory (tenant) ID=)
 ** SMTP
 - msmtp for sendmail...
+* Kitty Icon
+#+begin_src bash
+  #!/bin/sh
+  set -e
+
+  icons="$HOME/.local/share/icons"
+  applications="$HOME/.local/share/applications"
+  url="https://raw.githubusercontent.com/DinkDonk/kitty-icon/main"
+
+  mkdir -p "$icons" "$applications"
+  curl -fLo "$icons/kitty-dark.png" "$url/kitty-dark.png"
+  curl -fLo "$icons/kitty-light.png" "$url/kitty-light.png"
+
+  sed "s|^Icon=.*|Icon=$icons/kitty-light.png|" \
+      /usr/share/applications/kitty.desktop > "$applications/kitty.desktop"
+
+  update-desktop-database "$applications"
+
+#+end_src
 * Riken VPN
 https://auth.ict.r-ccs.riken.jp/user/
 
