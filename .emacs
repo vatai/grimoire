@@ -1,4 +1,4 @@
-;;; Package: --- Summary
+;;; Package: --- Summary  -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;;; Code:
 
@@ -454,6 +454,10 @@
   ;; (flycheck-add-mode 'proselint 'latex-mode)
   (global-flycheck-mode))
 
+(defun project-find-go-module (dir)
+  (when-let* ((root (locate-dominating-file dir "go.mod")))
+    (cons 'go-module root)))
+
 (use-package eglot
   :hook ;; (prog-mode . lsp)
   (c-mode-common . eglot-ensure)
@@ -468,10 +472,6 @@
   ;;                    (flycheck-add-next-checker 'python-pylint 'python-mypy)))
   :config
   (require 'project)
-
-  (defun project-find-go-module (dir)
-    (when-let ((root (locate-dominating-file dir "go.mod")))
-      (cons 'go-module root)))
 
   (cl-defmethod project-root ((project (head go-module)))
     (cdr project))
@@ -580,10 +580,13 @@
 (use-package python-isort
   :hook (python-base-mode . python-isort-on-save-mode))
 
+(defun remove-py-isort-hook ()
+  (interactive)
+  (remove-hook 'before-save-hook #'python-isort-on-save-mode))
+
 ;; (use-package pet
 ;;   :hook
 ;;   (python-base-mode . pet-mode))
-
 
 (use-package sphinx-mode
   :ensure t
@@ -592,10 +595,6 @@
 (use-package sphinx-doc
   :ensure t
   :hook (python-base-mode . sphinx-doc-mode))
-
-(defun remove-py-isort-hook ()
-  (interactive)
-  (remove-hook 'before-save-hook #'py-isort-before-save))
 
 (use-package cython-mode)
 
@@ -933,7 +932,7 @@
          ("s-d" . (lambda () (interactive) (org-roam-dailies-capture-today nil "d")))
          )
   :config
-  (org-roam-setup)
+  (org-roam-db-autosync-mode)
   (add-to-list 'display-buffer-alist
                '("\\*org-roam\\*"
                  (display-buffer-in-side-window)
@@ -947,10 +946,10 @@
     (interactive "P")
     (let* ((args (cons arg args))
            (template (copy-sequence (car org-roam-capture-templates)))
-           (target (plist-get template :target))
-           (new-text (caddr target))
-           (new-target (append (butlast target) (list new-text)))
-           (new-template (plist-put template :target new-target))
+           ;; (target (plist-get template :target))
+           ;; (new-text (caddr target))
+           ;; (new-target (append (butlast target) (list new-text)))
+           ;; (new-template (plist-put template :target new-target))
            (org-roam-capture-templates
             (list (append template '(:immediate-finish t)))))
       (message "%s" org-roam-capture-templates)
@@ -1037,16 +1036,16 @@
 
 ;; (use-package visual-fill-column :ensure t)
 
-(defun vatai/org-present-prepare-slide (buffer-name heading)
-  ;; Show only top-level headlines
-  ;; (org-overview)
+;; (defun vatai/org-present-prepare-slide (buffer-name heading)
+;;   ;; Show only top-level headlines
+;;   (org-overview)
 
-  ;; Unfold the current entry
-  ;; (org-show-entry)
+;;   ;; Unfold the current entry
+;;   (org-show-entry)
 
-  ;; Show only direct subheadings of the slide but don't expand them
-  ;; (org-show-children)
-  )
+;;   ;; Show only direct subheadings of the slide but don't expand them
+;;   (org-show-children)
+;;   )
 
 (defun vatai/org-present-start ()
   ;; Tweak font sizes
@@ -1066,7 +1065,7 @@
   (setq header-line-format " ")
 
   ;; Display inline images automatically
-  (org-display-inline-images)
+  (org-link-preview-region)
 
   ;; Center the presentation and wrap lines
   (visual-fill-column-mode 1)
@@ -1081,15 +1080,15 @@
   (setq header-line-format nil)
 
   ;; Stop displaying inline images
-  (org-remove-inline-images)
+  (org-link-preview-clear)
 
   ;; Stop centering the document
   (visual-fill-column-mode 0)
   (visual-line-mode 0))
 
 (use-package org-present
-  :init
-  (add-hook 'org-present-after-navigate-functions #'vatai/org-present-prepare-slide)
+  ;; :init
+  ;; (add-hook 'org-present-after-navigate-functions #'vatai/org-present-prepare-slide)
   :custom
   (visual-fill-column-width 120)
   (visual-fill-column-center-text t)
@@ -1204,15 +1203,15 @@
 (defconst dynamic-theme-dark-theme 'base16-oxocarbon-dark)
 
 (defun dynamic-theme-light-mode ()
-  (interactive)
   "Switch to light  mode."
+  (interactive)
   (mapc #'disable-theme custom-enabled-themes)
   (load-theme dynamic-theme-light-theme t)
   (custom-set-faces '(auto-dim-other-buffers ((t (:foreground "#777"))))))
 
 (defun dynamic-theme-dark-mode ()
-  (interactive)
   "Switch to dark mode."
+  (interactive)
   (mapc #'disable-theme custom-enabled-themes)
   (load-theme dynamic-theme-dark-theme t)
   (custom-set-faces '(auto-dim-other-buffers ((t (:foreground "#b99"))))))
@@ -1504,58 +1503,58 @@
   (mastodon-active-user "vatai"))
 
 
-"Slack"
+;; "Slack"
 
-(use-package slack
-  :custom
-  (slack-render-image-p t)
-  :bind (("C-c S K" . slack-stop)
-         ("C-c S c" . slack-select-rooms)
-         ("C-c S u" . slack-select-unread-rooms)
-         ("C-c S U" . slack-user-select)
-         ("C-c S s" . slack-search-from-messages)
-         ("C-c S J" . slack-jump-to-browser)
-         ("C-c S j" . slack-jump-to-app)
-         ("C-c S e" . slack-insert-emoji)
-         ("C-c S E" . slack-message-edit)
-         ("C-c S r" . slack-message-add-reaction)
-         ("C-c S t" . slack-thread-show-or-create)
-         ("C-c S g" . slack-message-redisplay)
-         ("C-c S G" . slack-conversations-list-update-quick)
-         ("C-c S q" . slack-quote-and-reply)
-         ("C-c S Q" . slack-quote-and-reply-with-link)
-         (:map slack-mode-map
-               (("@" . slack-message-embed-mention)
-                ("#" . slack-message-embed-channel)))
-         (:map slack-thread-message-buffer-mode-map
-               (("C-c '" . slack-message-write-another-buffer)
-                ("@" . slack-message-embed-mention)
-                ("#" . slack-message-embed-channel)))
-         (:map slack-message-buffer-mode-map
-               (("C-c '" . slack-message-write-another-buffer)))
-         (:map slack-message-compose-buffer-mode-map
-               (("C-c '" . slack-message-send-from-buffer)))
-         )
-  ;; :custom
-  ;; (slack-extra-subscribed-channels (mapcar 'intern (list "some-channel")))
-  :config
-  (slack-register-team
-     :name "matsulab"
-     :token (auth-source-pick-first-password :host "matsulab.slack.com" :user "emil.vatai@riken.jp")
-     :cookie (auth-source-pick-first-password :host "matsulab.slack.com" :user "emil.vatai@riken.jp^cookie")
-     :full-and-display-names t
-     :default t
-     :subscribed-channels nil ;; using slack-extra-subscribed-channels because I can change it dynamically
-     )
-  (slack-register-team
-     :name "riken"
-     :token (auth-source-pick-first-password :host "riken.slack.com" :user "emil.vatai@riken.jp")
-     :cookie (auth-source-pick-first-password :host "riken.slack.com" :user "emil.vatai@riken.jp^cookie")
-     :full-and-display-names t
-     :default t
-     :subscribed-channels nil ;; using slack-extra-subscribed-channels because I can change it dynamically
-     )
-  )
+;; (use-package slack
+;;   :custom
+;;   (slack-render-image-p t)
+;;   :bind (("C-c S K" . slack-stop)
+;;          ("C-c S c" . slack-select-rooms)
+;;          ("C-c S u" . slack-select-unread-rooms)
+;;          ("C-c S U" . slack-user-select)
+;;          ("C-c S s" . slack-search-from-messages)
+;;          ("C-c S J" . slack-jump-to-browser)
+;;          ("C-c S j" . slack-jump-to-app)
+;;          ("C-c S e" . slack-insert-emoji)
+;;          ("C-c S E" . slack-message-edit)
+;;          ("C-c S r" . slack-message-add-reaction)
+;;          ("C-c S t" . slack-thread-show-or-create)
+;;          ("C-c S g" . slack-message-redisplay)
+;;          ("C-c S G" . slack-conversations-list-update-quick)
+;;          ("C-c S q" . slack-quote-and-reply)
+;;          ("C-c S Q" . slack-quote-and-reply-with-link)
+;;          (:map slack-mode-map
+;;                (("@" . slack-message-embed-mention)
+;;                 ("#" . slack-message-embed-channel)))
+;;          (:map slack-thread-message-buffer-mode-map
+;;                (("C-c '" . slack-message-write-another-buffer)
+;;                 ("@" . slack-message-embed-mention)
+;;                 ("#" . slack-message-embed-channel)))
+;;          (:map slack-message-buffer-mode-map
+;;                (("C-c '" . slack-message-write-another-buffer)))
+;;          (:map slack-message-compose-buffer-mode-map
+;;                (("C-c '" . slack-message-send-from-buffer)))
+;;          )
+;;   ;; :custom
+;;   ;; (slack-extra-subscribed-channels (mapcar 'intern (list "some-channel")))
+;;   :config
+;;   (slack-register-team
+;;      :name "matsulab"
+;;      :token (auth-source-pick-first-password :host "matsulab.slack.com" :user "emil.vatai@riken.jp")
+;;      :cookie (auth-source-pick-first-password :host "matsulab.slack.com" :user "emil.vatai@riken.jp^cookie")
+;;      :full-and-display-names t
+;;      :default t
+;;      :subscribed-channels nil ;; using slack-extra-subscribed-channels because I can change it dynamically
+;;      )
+;;   (slack-register-team
+;;      :name "riken"
+;;      :token (auth-source-pick-first-password :host "riken.slack.com" :user "emil.vatai@riken.jp")
+;;      :cookie (auth-source-pick-first-password :host "riken.slack.com" :user "emil.vatai@riken.jp^cookie")
+;;      :full-and-display-names t
+;;      :default t
+;;      :subscribed-channels nil ;; using slack-extra-subscribed-channels because I can change it dynamically
+;;      )
+;;   )
 
 (use-package alert
   :commands (alert)
@@ -1687,7 +1686,7 @@
    (lambda (fpath) (call-process "xdg-open" nil 0 nil fpath)))
   :bind
   (:map org-mode-map ("C-c ]" . 'org-ref-insert-link))
-  (:map bibtex-mode-map ("H-b" . 'org-ref-bibtex-hydra/body))
+  (:map bibtex-mode-map ("H-b" . 'org-ref-bibtex-entry-menu))
   )
 
 (use-package gptel
