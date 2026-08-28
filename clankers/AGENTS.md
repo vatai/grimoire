@@ -1,6 +1,6 @@
 # Project management
 
-Always keep PLAN.md (in the repo root) updated with what you are currently doing: goals, steps, status, and results. Update it as work progresses.
+If a PLAN.md exists in the repo roo, keep PLAN.md updated with what you are currently doing: goals, steps, status, and results. Update it as work progresses.
 
 # User interaction
 
