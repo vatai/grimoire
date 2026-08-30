@@ -1796,9 +1796,7 @@ You are a large language model and a conversation partner. Respond concisely.
   (gptel-agent-update))         ;Read files from agents directories
 
 (use-package agent-shell
-  :bind (("C-c m a" . agent-shell))
-  :custom
-  (agent-shell-prefer-viewport-interaction t))
+  :bind (("C-c m a" . agent-shell)))
 
 (use-package mcp
   :after gptel
