@@ -1179,8 +1179,8 @@
 ;; (defconst dynamic-theme-light-theme 'solarized-light)
 ;; (defconst dynamic-theme-dark-theme 'solarized-dark-high-contrast)
 
-;; (defconst dynamic-theme-light-theme 'leuven)
-;; (defconst dynamic-theme-dark-theme 'modus-vivendi)
+(defconst dynamic-theme-light-theme 'leuven)
+(defconst dynamic-theme-dark-theme 'modus-vivendi)
 
 ;; (defconst dynamic-theme-light-theme 'solarized-gruvbox-light)
 ;; (defconst dynamic-theme-dark-theme 'monokai)
@@ -1196,11 +1196,11 @@
 ;; (defconst dynamic-theme-light-theme 'base16-atelier-dune-light)
 ;; (defconst dynamic-theme-light-theme 'base16-penumbra-light)
 ;; (defconst dynamic-theme-light-theme 'base16-still-alive)
-(defconst dynamic-theme-light-theme 'base16-unikitty-light)
+;; (defconst dynamic-theme-light-theme 'base16-unikitty-light)
 ;; (defconst dynamic-theme-dark-theme 'base16-standardized-dark)
 ;; (defconst dynamic-theme-dark-theme 'base16-primer-dark)
 ;; (defconst dynamic-theme-dark-theme 'base16-precious-dark-eleven)
-(defconst dynamic-theme-dark-theme 'base16-oxocarbon-dark)
+;; (defconst dynamic-theme-dark-theme 'base16-oxocarbon-dark)
 
 (defun dynamic-theme-light-mode ()
   "Switch to light  mode."
