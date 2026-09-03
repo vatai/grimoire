@@ -109,6 +109,6 @@ export PATH="/home/vatai/.local/bin:$PATH"
 # END opam configuration
 
 # export CLAUDE_CODE_USE_BEDROCK=1
-export AWS_REGION="us-east-2"
-export AWS_BEARER_TOKEN_BEDROCK="$(pass claude.com/$AWS_REGION)"
+# export AWS_REGION="us-east-2"
+# export AWS_BEARER_TOKEN_BEDROCK="$(pass claude.com/$AWS_REGION)"
 eval "$(direnv hook zsh)"
