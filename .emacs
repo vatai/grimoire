@@ -1796,7 +1796,17 @@ You are a large language model and a conversation partner. Respond concisely.
   (gptel-agent-update))         ;Read files from agents directories
 
 (use-package agent-shell
-  :bind (("C-c m a" . agent-shell)))
+  :bind (("C-c m a" . agent-shell))
+  :config
+  ;; Evil state-specific RET behavior: insert mode = newline, normal mode = send
+  (evil-define-key 'insert agent-shell-mode-map (kbd "RET") #'newline)
+  (evil-define-key 'normal agent-shell-mode-map (kbd "RET") #'comint-send-input)
+
+  ;; Configure *agent-shell-diff* buffers to start in Emacs state
+  (add-hook 'diff-mode-hook
+	    (lambda ()
+	      (when (string-match-p "\\*agent-shell-diff\\*" (buffer-name))
+		(evil-emacs-state)))))
 
 (use-package mcp
   :after gptel
