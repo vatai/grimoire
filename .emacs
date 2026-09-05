@@ -1796,7 +1796,10 @@ You are a large language model and a conversation partner. Respond concisely.
   (gptel-agent-update))         ;Read files from agents directories
 
 (use-package agent-shell
-  :bind (("C-c m a" . agent-shell))
+  :hook
+  (agent-shell-mode . flyspell-mode)
+  :bind
+  (("C-c m a" . agent-shell))
   :config
   ;; Evil state-specific RET behavior: insert mode = newline, normal mode = send
   (evil-define-key 'insert agent-shell-mode-map (kbd "RET") #'newline)
@@ -1809,6 +1812,7 @@ You are a large language model and a conversation partner. Respond concisely.
 		(evil-emacs-state)))))
 
 (use-package mcp
+  :defer t
   :after gptel
   :custom (mcp-hub-servers
            `(("filesystem"
@@ -1817,16 +1821,17 @@ You are a large language model and a conversation partner. Respond concisely.
                  :args
                  ("-y" "@modelcontextprotocol/server-filesystem" "/home/vatai/code/")))
              ("fetch" . (:command "uvx" :args ("mcp-server-fetch")))
-             ("time"
-              . (:url
-                 "http://llm.ai.r-ccs.riken.jp:11434/time/mcp"
-                 :token
-                 ,(cadr (auth-source-user-and-password "llm.ai.r-ccs.riken.jp:11434"))))
-             ("paper-search"
-              . (:url
-                 "http://llm.ai.r-ccs.riken.jp:11434/papersearch/mcp"
-                 :token
-                 ,(cadr (auth-source-user-and-password "llm.ai.r-ccs.riken.jp:11434"))))
+             ;; ("time"
+             ;;  . (:url
+             ;;     "http://llm.ai.r-ccs.riken.jp:11434/time/mcp"
+             ;;     :token
+             ;;     ,(cadr (auth-source-user-and-password "llm.ai.r-ccs.riken.jp:11434"))))
+             ;; ("paper-search"
+             ;;  . (:url
+             ;;     "http://llm.ai.r-ccs.riken.jp:11434/papersearch/mcp"
+             ;;     :token
+             ;;     ,(cadr (auth-source-user-and-password "llm.ai.r-ccs.riken.jp:11434"))))
+             ;;;;;;;;
              ;; ("qdrant" . (:url "http://localhost:8000/sse"))
              ;; ("graphlit" . (
              ;;                :command "npx"
