@@ -1626,6 +1626,17 @@
 
 (use-package proof-general :ensure t)
 
+(use-package lean4-mode
+  :commands lean4-mode
+  :vc (:url "https://github.com/leanprover-community/lean4-mode.git"
+       :rev :last-release
+       ;; Or, if you prefer the bleeding edge version of Lean4-Mode:
+       ;; :rev :newest
+       )
+  :hook ((lean-mode . (lambda () (set-input-method "Lean")))
+         (lean-mode . lean-toggle-show-goal))
+  )
+
 "ERC"
 
 (require 'erc)
