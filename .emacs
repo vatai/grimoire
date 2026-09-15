@@ -4,7 +4,7 @@
 
 (setq initial-major-mode #'org-mode)
 (setq initial-scratch-message
-      "#+title: Scratch buffer")
+      "#+title: Scratch buffer\n* Still aiming to be a top notch researcher")
 
 (setq custom-file "~/Sync/.emacs.d/customs.el")
 (load custom-file)
