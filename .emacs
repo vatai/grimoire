@@ -1626,18 +1626,10 @@
 
 (use-package proof-general :ensure t)
 
-(use-package lean4-mode
-  :commands lean4-mode
-  :vc (:url "https://github.com/leanprover-community/lean4-mode.git"
-       ;; :rev :last-release
-       ;; Or, if you prefer the bleeding edge version of Lean4-Mode:
-       :rev :newest
-       )
-  :hook ((lean4-mode . lsp-deferred)
-         (lean4-mode . (lambda () (set-input-method "Lean")))
-         ;; (lean4-mode . lean4-toggle-show-goal)
-         )
-  )
+(use-package  nael
+  :hook ((nael-mode . abbrev-mode)
+         (nael-mode . eglot-ensure)))
+
 
 "ERC"
 
