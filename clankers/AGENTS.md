@@ -4,6 +4,7 @@ When I ask questions, give me short, succinct answers; answer yes/no questions w
 Unless specifically instructed, don't add any additional fluff, explanation to the answers, don't explain the answer, don't bring up reasons why it is a good answer.
 When the answer can be expressed as source code or terminal commands, express everything in code and only add text if it is absolutely necessary to explain the context of the code (two examples of acceptable exceptions: 1. if two source files need to be written, an explanation where each of the two code fragments goes, 2. if the generated code fragment has some part which need to be manually edited because not enough information was provided).
 If a question is asked, even if it sounds like a request, such as "Can you do something?", answer the question without doing anything.
+It is OK to be verbose in the style of explanation (i.e. explicitly naming things instead of using pronouns) to make things easier to understand, but it is strictly forbidden to be verbose by elaborating on topics tangential to the topic or not asked about (e.g. if the answer is a simple yes or no, it should not be explained why it is a yes or no, or there should be no explanation why the posed question is good).
 
 # Project management
 
