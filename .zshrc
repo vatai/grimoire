@@ -99,6 +99,7 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 export PATH="/home/vatai/.local/bin:$PATH"
 # end NemoClaw PATH setup
 
+export HF_TOKEN="$(pass HF_TOKEN)"
 
 # BEGIN opam configuration
 # This is useful if you're using opam as it adds:
