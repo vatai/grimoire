@@ -726,7 +726,7 @@
       "* %T: %?\n")
      ("t" "Todo" entry
       (file+headline "~/org/capture.org" "Tasks")
-      "* TODO %?\nSCHEDULED: %T\nlink: %a")
+      "* TODO %?\nSCHEDULED: %t\n")
      ("m" "Meeting/appointment" entry
       (file "~/org/meetings.org")
       "* TODO %?\n  SCHEDULED: %T\n"))))
