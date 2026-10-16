@@ -1,0 +1,21 @@
+include /etc/sway/config
+
+# Overrides
+unbindsym $mod+Shift+e
+bindsym $mod+Shift+e exec emacsclient -c
+bindsym $mod+Ctrl+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+# Window transparency
+for_window [app_id=".*"] opacity 0.9
+for_window [class=".*"] opacity 0.9
+
+# Keyboard layouts (Alt+Shift to switch)
+input type:keyboard {
+    xkb_layout jp,us,jp
+    xkb_variant ,,dvorak
+    xkb_options grp:alt_shift_toggle
+}
+
+# Input method
+exec dbus-update-activation-environment --systemd QT_IM_MODULE=fcitx XMODIFIERS=@im=fcitx SDL_IM_MODULE=fcitx
+exec fcitx5 -d
