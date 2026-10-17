@@ -1,0 +1,31 @@
+/* Catppuccin Mocha for swayosd */
+window#osd {
+    background: alpha(#1e1e2e, 0.95);
+    border: 2px solid #313244;
+    border-radius: 999px;
+    padding: 10px 20px;
+    color: #cdd6f4;
+}
+#container { margin: 4px 8px; }
+image, label {
+    color: #cdd6f4;
+    font-family: "Iosevka Aile", "Symbols Nerd Font Mono";
+    font-size: 14px;
+}
+image { margin-right: 8px; }
+progressbar {
+    min-height: 8px;
+    border-radius: 999px;
+    background: transparent;
+    border: none;
+}
+progressbar > trough {
+    min-height: 8px;
+    border-radius: 999px;
+    background: #313244;
+}
+progressbar > trough > progress {
+    min-height: 8px;
+    border-radius: 999px;
+    background: #cba6f7;
+}
