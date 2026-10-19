@@ -77,7 +77,7 @@ bindsym $mod+Shift+o opacity set 0.92
 
 ### Output #####################################################################
 output * bg $wallpaper fill
-output eDP-1 scale 2 adaptive_sync on
+output eDP-1 scale 1 adaptive_sync on
 
 # Workspaces 1-9 on the external monitor, 10 on the laptop panel;
 # with DP-1 unplugged everything falls back to eDP-1
