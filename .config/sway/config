@@ -14,7 +14,9 @@ set $editor emacsclient -c
 set $files kitty ranger
 set $menu fuzzel
 set $scripts ~/.config/sway/scripts
-set $wallpaper ~/.config/sway/wallpaper.jpg
+# set $wallpaper ~/.config/sway/wallpaper.jpg
+# set $wallpaper ~/Sync/Photos/wallpaper/waves-of-kanagawa.jpg
+set $wallpaper ~/Sync/Photos/wallpaper/the-laughing-man-1920x1080.png
 set $lock swaylock -f
 
 ### Catppuccin Mocha palette ###################################################
