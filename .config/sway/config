@@ -108,7 +108,7 @@ for_window [class=".*"] inhibit_idle fullscreen
 input type:keyboard {
     xkb_layout jp,us,jp
     xkb_variant ,,dvorak
-    xkb_options grp:alt_shift_toggle,compose:ralt
+    xkb_options grp:sclk_toggle,compose:ralt
     repeat_delay 250
     repeat_rate 40
 }
