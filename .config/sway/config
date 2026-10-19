@@ -245,6 +245,9 @@ assign [app_id="^kitty$"] workspace number 2
 assign [app_id="^emacs$"] workspace number 3
 assign [class="^Emacs$"] workspace number 3
 assign [app_id="^firefox$"] workspace number 4
+# Spotify sets its class only after mapping, so assign doesn't work for it
+for_window [class="^Spotify$"] move window to workspace number 10
+for_window [app_id="^spotify$"] move window to workspace number 10
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
