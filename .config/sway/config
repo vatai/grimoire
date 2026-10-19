@@ -280,5 +280,7 @@ exec gnome-keyring-daemon --start --components=secrets
 exec swaync
 exec swayosd-server
 exec nm-applet --indicator
+exec /usr/lib/geoclue-2.0/demos/agent
+exec gammastep -l geoclue2 -t 6500:3500
 
 include /etc/sway/config.d/*
