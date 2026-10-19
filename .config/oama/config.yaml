@@ -49,7 +49,7 @@ services:
         https://outlook.office.com/SMTP.Send
         offline_access
      # tenant: common
-     tenant_cmd: gpg2 -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg | awk '/machine login.microsoftonline.com login tenant/ {print $NF}'
+     tenant: fce8b959-27d5-4b4e-a4e9-1014a2f95c90
 
   ## User configured providers
   ## Required fields: client_id, client_secret, auth_endpoint, auth_scope, token_endpoint
