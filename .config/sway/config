@@ -270,8 +270,6 @@ bar {
 }
 
 ### Autostart ##################################################################
-exec gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-exec gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
 exec gsettings set org.gnome.desktop.interface cursor-theme Adwaita
 exec gsettings set org.gnome.desktop.interface font-name 'Iosevka Aile 11'
 exec gsettings set org.gnome.desktop.interface monospace-font-name 'Iosevka Term 11'
@@ -284,5 +282,8 @@ exec swayosd-server
 exec nm-applet --indicator
 exec /usr/lib/geoclue-2.0/demos/agent
 exec gammastep -l geoclue2 -t 6500:3500
+# darkman: pacman -S darkman; add [darkman] allowed=true system=false users= to /etc/geoclue/geoclue.conf;
+#          ln -s ~/.config/darkman/scripts ~/.local/share/darkman
+exec darkman run
 
 include /etc/sway/config.d/*
