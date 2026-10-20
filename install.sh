@@ -43,3 +43,5 @@ do_syncfiles
 
 do_files "ln -sf" system/home ${HOME}
 # do_files "sudo ln -sf" system/etc /etc
+
+ln -s ~/.config/darkman/scripts ~/.local/share/darkman
