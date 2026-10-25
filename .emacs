@@ -1317,6 +1317,9 @@
 (use-package ace-window
   :custom
   (aw-scope 'frame)
+  (aw-dispatch-always t)
+  :custom-face
+  (aw-leading-char-face ((t (:foreground "red" :height 7.0))))
   :bind
   ("M-o" . ace-window)
   )
