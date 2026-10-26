@@ -72,8 +72,8 @@ focus_on_window_activation smart
 popup_during_fullscreen smart
 
 # Window transparency
-for_window [app_id=".*"] opacity 0.92
-for_window [class=".*"] opacity 0.92
+# for_window [app_id=".*"] opacity 0.92
+# for_window [class=".*"] opacity 0.92
 bindsym $mod+o opacity set 1
 bindsym $mod+Shift+o opacity set 0.92
 
