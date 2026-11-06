@@ -258,6 +258,7 @@ for_window [window_role="bubble"] floating enable
 for_window [window_role="dialog"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [app_id="^(pavucontrol|nm-connection-editor|blueman-manager)$"] floating enable
+for_window [app_id="^annotate_toolbar$"] floating enable
 for_window [app_id="^org.gnome.Calculator$"] floating enable
 for_window [app_id="^fcitx5-config-qt$"] floating enable
 for_window [title="^Picture-in-Picture$"] floating enable, sticky enable, border none
