@@ -1808,6 +1808,8 @@ You are a large language model and a conversation partner. Respond concisely.
   (agent-shell-mode . flyspell-mode)
   :bind
   (("C-c m a" . agent-shell))
+  :custom
+  (agent-shell-session-restore-verbosity 'full)
   :config
   ;; Evil state-specific RET behavior: insert mode = newline, normal mode = send
   (evil-define-key 'insert agent-shell-mode-map (kbd "RET") #'newline)
