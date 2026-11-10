@@ -52,6 +52,37 @@ function do_files {
 	done
 }
 
+function check_geoclue_conf {
+	GEOCLUE_CONF=/etc/geoclue/geoclue.conf
+	for APP in gammastep darkman; do
+		if ! grep -q "^\[${APP}\]$" "${GEOCLUE_CONF}"; then
+			printf '%s\n%s\n' \
+				"Missing [${APP}] section in ${GEOCLUE_CONF}, add it with:" \
+				"printf '\\n[${APP}]\\nallowed=true\\nsystem=false\\nusers=\\n' | sudo tee -a ${GEOCLUE_CONF}"
+		fi
+	done
+}
+
+function check_packages {
+	PACKAGES=(
+		# used by .config/sway/config
+		sway swaybg swayidle swaylock swaync swayosd waybar
+		kitty firefox fuzzel ranger emacs-wayland
+		fcitx5 gnome-keyring network-manager-applet blueman playerctl
+		geoclue gammastep darkman
+		# used by .config/sway/scripts
+		grim slurp wl-clipboard jq libnotify
+	)
+	MISSING_PKGS=()
+	for PKG in "${PACKAGES[@]}"; do
+		pacman -Qq "${PKG}" >/dev/null 2>&1 || MISSING_PKGS+=("${PKG}")
+	done
+	if [ "${#MISSING_PKGS[@]}" -gt 0 ]; then
+		echo "Missing packages, install them with:"
+		echo "sudo pacman -S ${MISSING_PKGS[*]}"
+	fi
+}
+
 do_dotfiles
 do_syncfiles
 
@@ -61,20 +92,5 @@ do_files "ln -sf" system/home "${HOME}"
 mkdir -p ~/.local/share
 ln -fsn ~/.config/darkman/scripts ~/.local/share/darkman
 
-GEOCLUE_CONF=/etc/geoclue/geoclue.conf
-for APP in gammastep darkman; do
-	if ! grep -q "^\[${APP}\]$" "${GEOCLUE_CONF}"; then
-		printf '%s\n%s\n' \
-			"Missing [${APP}] section in ${GEOCLUE_CONF}, add it with:" \
-			"printf '\\n[${APP}]\\nallowed=true\\nsystem=false\\nusers=\\n' | sudo tee -a ${GEOCLUE_CONF}"
-	fi
-done
-
-MISSING_PKGS=()
-for PKG in geoclue darkman gammastep; do
-	pacman -Qq "${PKG}" >/dev/null 2>&1 || MISSING_PKGS+=("${PKG}")
-done
-if [ "${#MISSING_PKGS[@]}" -gt 0 ]; then
-	echo "Missing packages, install them with:"
-	echo "sudo pacman -S ${MISSING_PKGS[*]}"
-fi
+check_geoclue_conf
+check_packages
