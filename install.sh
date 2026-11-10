@@ -47,3 +47,11 @@ do_files "ln -sf" system/home "${HOME}"
 
 ln -fs ~/.config/darkman/scripts ~/.local/share/darkman
 
+GEOCLUE_CONF=/etc/geoclue/geoclue.conf
+for APP in gammastep darkman; do
+	if ! grep -q "^\[${APP}\]$" "${GEOCLUE_CONF}"; then
+		printf '%s\n%s\n' \
+			"Missing [${APP}] section in ${GEOCLUE_CONF}, add it with:" \
+			"printf '\\n[${APP}]\\nallowed=true\\nsystem=false\\nusers=\\n' | sudo tee -a ${GEOCLUE_CONF}"
+	fi
+done
