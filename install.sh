@@ -2,8 +2,15 @@
 
 # set -x
 
+cd "$(dirname "$(readlink -f "$0")")" || exit 1
+
 if [ ! -d system ]; then
 	echo "Missing 'system' symlink, create it with e.g.: ln -s arch system"
+	exit 1
+fi
+
+if [ ! -d "${HOME}/Sync" ]; then
+	echo "${HOME}/Sync is not mounted"
 	exit 1
 fi
 
@@ -51,6 +58,7 @@ do_syncfiles
 do_files "ln -sf" system/home "${HOME}"
 # do_files "sudo ln -sf" system/etc /etc
 
+mkdir -p ~/.local/share
 ln -fsn ~/.config/darkman/scripts ~/.local/share/darkman
 
 GEOCLUE_CONF=/etc/geoclue/geoclue.conf
@@ -61,3 +69,12 @@ for APP in gammastep darkman; do
 			"printf '\\n[${APP}]\\nallowed=true\\nsystem=false\\nusers=\\n' | sudo tee -a ${GEOCLUE_CONF}"
 	fi
 done
+
+MISSING_PKGS=()
+for PKG in geoclue darkman gammastep; do
+	pacman -Qq "${PKG}" >/dev/null 2>&1 || MISSING_PKGS+=("${PKG}")
+done
+if [ "${#MISSING_PKGS[@]}" -gt 0 ]; then
+	echo "Missing packages, install them with:"
+	echo "sudo pacman -S ${MISSING_PKGS[*]}"
+fi
