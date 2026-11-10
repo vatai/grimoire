@@ -2,6 +2,11 @@
 
 # set -x
 
+if [ ! -d system ]; then
+	echo "Missing 'system' symlink, create it with e.g.: ln -s arch system"
+	exit 1
+fi
+
 function do_dotfiles {
 	mapfile -t DOT_FILES < \
 		<(
@@ -12,6 +17,7 @@ function do_dotfiles {
 
 	for FILE in "${DOT_FILES[@]}"; do
 		rm -rf "${HOME:?}/${FILE}"
+		mkdir -p "$(dirname "${HOME}/${FILE}")"
 		ln -sf "$(pwd)/${FILE}" "${HOME}/${FILE}"
 	done
 }
@@ -24,7 +30,7 @@ function do_syncfiles {
 	)
 
 	for FILE in "${SYNC_FILES[@]}"; do
-		[ -L "${HOME}/${FILE}" ] || ln -sf "${HOME}/Sync/${FILE}" "${HOME}/${FILE}"
+		ln -sfn "${HOME}/Sync/${FILE}" "${HOME}/${FILE}"
 	done
 }
 
@@ -45,7 +51,7 @@ do_syncfiles
 do_files "ln -sf" system/home "${HOME}"
 # do_files "sudo ln -sf" system/etc /etc
 
-ln -fs ~/.config/darkman/scripts ~/.local/share/darkman
+ln -fsn ~/.config/darkman/scripts ~/.local/share/darkman
 
 GEOCLUE_CONF=/etc/geoclue/geoclue.conf
 for APP in gammastep darkman; do
