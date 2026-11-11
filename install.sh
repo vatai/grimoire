@@ -17,7 +17,7 @@ fi
 function do_dotfiles {
 	mapfile -t DOT_FILES < \
 		<(
-			find . -maxdepth 1 -type f -name '.*' ! -name '.git*' -or -name '.gitconfig'
+			find . -maxdepth 1 -type f -name '.*' ! -name '.git*' ! -name '*~' -or -name '.gitconfig'
 			find .config -mindepth 1 -maxdepth 1
 			echo .ssh/config
 		)
