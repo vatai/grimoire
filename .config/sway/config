@@ -11,6 +11,7 @@ set $right l
 set $term kitty
 set $browser firefox
 set $editor emacsclient -c
+set $bibliography zotero
 set $files kitty ranger
 set $menu fuzzel
 set $scripts ~/.config/sway/scripts
@@ -133,6 +134,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+b exec $browser
 bindsym $mod+Shift+e exec $editor
 bindsym $mod+Shift+t exec $files
+bindsym $mod+Shift+z exec $bibliography
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
@@ -249,6 +251,7 @@ assign [app_id="^kitty$"] workspace number 2
 assign [app_id="^emacs$"] workspace number 3
 assign [class="^Emacs$"] workspace number 3
 assign [app_id="^firefox$"] workspace number 4
+assign [app_id="^Zotero$"] workspace number 5
 # Spotify sets its class only after mapping, so assign doesn't work for it
 for_window [class="^Spotify$"] move window to workspace number 10
 for_window [app_id="^spotify$"] move window to workspace number 10
