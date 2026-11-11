@@ -245,7 +245,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ### Window rules ###############################################################
-assign [app_id="^(org.telegram.desktop|discord|Slack)$"] workspace number 1
+assign [app_id="^(org.telegram.desktop|discord|slack)$"] workspace number 1
 assign [class="^(org.telegram.desktop|discord|Slack)$"] workspace number 1
 assign [app_id="^kitty$"] workspace number 2
 assign [app_id="^emacs$"] workspace number 3
