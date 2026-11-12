@@ -26,6 +26,10 @@ Ignore pattern: #include stignore-shared.txt
 
 * Zotero
 ** Zotero Advanced perf
+*** Configure File Renaming
+#+begin_example
+{{ authors max="1" name="family" case="lower" }}{{ year }}{{ title case="lower" match="^\w+" }}
+#+end_example
 *** Base dir
 
 /home/vatai/Sync
