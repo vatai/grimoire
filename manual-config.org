@@ -193,3 +193,16 @@ https://auth.ict.r-ccs.riken.jp/user/
 - piper-voices-en...
   - add conf to speech dispatcher conf
 - pipewire-alsa
+
+* Old vpn
+
+#+begin_src bash
+  sudo pacman -U https://archive.archlinux.org/packages/s/strongswan/strongswan-6.0.7-1-x86_64.pkg.tar.zst
+  # /etc/pacman.conf
+  # [options]
+  # IgnorePkg = strongswan
+#+end_src
+---
+#+begin_example
+
+#+end_example
