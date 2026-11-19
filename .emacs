@@ -6,8 +6,9 @@
 (setq initial-scratch-message
       "#+title: Scratch buffer\n* Still aiming to be a top notch researcher")
 
-(setq custom-file "~/Sync/.emacs.d/customs.el")
-(load custom-file)
+(when (file-directory-p "~/Sync")
+  (setq custom-file "~/Sync/.emacs.d/customs.el")
+  (load custom-file))
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/"))
