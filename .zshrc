@@ -61,6 +61,8 @@ alias gg="git -C ${GRIMOIRE_PATH}"
 alias ee="emacsclient -r -n"
 alias en="emacsclient -nw"
 alias yuy="PKGEXT=.pkg.tar MAKEFLAGS=-j$(nproc) yay -Syu --noconfirm; yay -Sc --noconfirm"
+alias rup="sudo ipsec up vpn-ict-conn"
+alias rdn="sudo ipsec down vpn-ict-conn"
 if [[ $TERM == xterm-kitty ]]; then alias ssk="kitten ssh";  fi
 
 PATH=${HOME}/bin:${HOME}/.local/bin:${PATH}
@@ -92,12 +94,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib/mojo
 export PATH=$PATH:~/.modular/pkg/packages.modular.com_mojo/bin/
 export LD_LIBRARY_PATH=/home/vatai/.local/lib/arch-mojo:$LD_LIBRARY_PATH
 
-# Added by NemoClaw installer
-export PATH="$HOME/.npm-global/bin:$PATH"
-
-# NemoClaw PATH setup
-export PATH="/home/vatai/.local/bin:$PATH"
-# end NemoClaw PATH setup
+export GEM_HOME="$HOME/.gem"
+export PATH="$GEM_HOME/bin:$PATH"
 
 export HF_TOKEN="$(pass HF_TOKEN)"
 

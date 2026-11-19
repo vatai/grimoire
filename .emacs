@@ -165,9 +165,10 @@
 ;;     idle-highlight-mode idle-highlight-mode)
 ;;   (global-idle-highlight-mode))
 
-(use-package prettier
-  :init (setenv "NODE_PATH" "/usr/lib/node_modules")
-  :hook (markdown-mode . prettier-mode))
+(use-package prettier-js
+  :config
+  (setq prettier-js-use-modules-bin t)
+  :hook (markdown-mode . prettier-js-mode))
 
 "evil"
 
