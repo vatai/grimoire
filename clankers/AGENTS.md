@@ -10,9 +10,9 @@ It is OK to be verbose in the style of explanation (i.e. explicitly naming thing
 
 If a PLAN.md exists in the repo roo, keep PLAN.md updated with what you are currently doing. Update it as work progresses. PLAN.md should contain the following sections:
 
-1. Goal: a short description of what the overarching goal should be. Never modify this section.
-2. Specification: detailed specification about of different aspects of the project. Never modify this section.
-3. Plan/Steps: A list of steps currently being executed. Keep this section updated.
+1. Goal: a short description of what the overarching goal should be. Static: update only when explicitly asked.
+2. Specification: detailed specification about of different aspects of the project. Static: update only when explicitly asked.
+3. Plan/Steps: A list of steps currently being executed. Dynamic: keep this section updated.
 
 After completing each step suggest a summarize what has been done and commit it to git history. Always check that you're not committing to main/master but a separate branch. The commit message should also contain any results, observations and conclusions.
 
