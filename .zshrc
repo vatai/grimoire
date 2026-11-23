@@ -64,6 +64,7 @@ alias yuy="PKGEXT=.pkg.tar MAKEFLAGS=-j$(nproc) yay -Syu --noconfirm; yay -Sc --
 alias rup="sudo ipsec up vpn-ict-conn"
 alias rdn="sudo ipsec down vpn-ict-conn"
 if [[ $TERM == xterm-kitty ]]; then alias ssk="kitten ssh";  fi
+alias tz_set_jp="sudo timedatectl set-timezone Asia/Tokyo"
 
 PATH=${HOME}/bin:${HOME}/.local/bin:${PATH}
 
