@@ -14,10 +14,9 @@ HISTSIZE=1000
 SAVEHIST=1000
 # End of lines configured by zsh-newuser-install
 
-
 ##### My stuff #####
 
-# git -C 
+# git -C
 GRIMOIRE_PATH=$(dirname $(readlink -f ~/.zshrc))
 git -C ${GRIMOIRE_PATH} pull 1>/dev/null &
 
@@ -28,17 +27,16 @@ bindkey -M viins '\e.' insert-last-word
 set -o noclobber
 
 # set_env()
-function set_env ()
-{
-    export PATH="$1/bin${PATH:+:${PATH}}"
-    export PATH="$1/bin64${PATH:+:${PATH}}"
-    export LD_LIBRARY_PATH="$1/lib${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
-    export LIBRARY_PATH="$1/lib${LIBRARY_PATH:+:${LIBRARY_PATH}}"
-    export LD_LIBRARY_PATH="$1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
-    export LIBRARY_PATH="$1/lib64${LIBRARY_PATH:+:${LIBRARY_PATH}}"
-    export C_INCLUDE_PATH="$1/include${C_INCLUDE_PATH:+:${C_INCLUDE_PATH}}"
-    export CPLUS_INCLUDE_PATH="$1/include${CPLUS_INCLUDE_PATH:+:${CPLUS_INCLUDE_PATH}}"
-    export MAN_PATH="$1/man${MAN_PATH:+:${MAN_PATH}}"
+function set_env() {
+	export PATH="$1/bin${PATH:+:${PATH}}"
+	export PATH="$1/bin64${PATH:+:${PATH}}"
+	export LD_LIBRARY_PATH="$1/lib${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
+	export LIBRARY_PATH="$1/lib${LIBRARY_PATH:+:${LIBRARY_PATH}}"
+	export LD_LIBRARY_PATH="$1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
+	export LIBRARY_PATH="$1/lib64${LIBRARY_PATH:+:${LIBRARY_PATH}}"
+	export C_INCLUDE_PATH="$1/include${C_INCLUDE_PATH:+:${C_INCLUDE_PATH}}"
+	export CPLUS_INCLUDE_PATH="$1/include${CPLUS_INCLUDE_PATH:+:${CPLUS_INCLUDE_PATH}}"
+	export MAN_PATH="$1/man${MAN_PATH:+:${MAN_PATH}}"
 }
 
 # AutoJump
@@ -63,8 +61,8 @@ alias en="emacsclient -nw"
 alias yuy="PKGEXT=.pkg.tar MAKEFLAGS=-j$(nproc) yay -Syu --noconfirm; yay -Sc --noconfirm"
 alias rup="sudo ipsec up vpn-ict-conn"
 alias rdn="sudo ipsec down vpn-ict-conn"
-if [[ $TERM == xterm-kitty ]]; then alias ssk="kitten ssh";  fi
 alias tz_set_jp="sudo timedatectl set-timezone Asia/Tokyo"
+if [[ $TERM == xterm-kitty ]]; then alias ssk="kitten ssh"; fi
 
 PATH=${HOME}/bin:${HOME}/.local/bin:${PATH}
 
@@ -72,9 +70,9 @@ PATH=${HOME}/bin:${HOME}/.local/bin:${PATH}
 bindkey -v
 bindkey -M vicmd v edit-command-line
 function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-    RPS2=$RPS1
-    zle reset-prompt
+	RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+	RPS2=$RPS1
+	zle reset-prompt
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
@@ -85,11 +83,11 @@ zle -N zle-keymap-select
 # fi
 
 if [ "$TERM" = xterm-kitty ]; then
-    alias s="kitty +kitten ssh"
-    KITTY_SHELL_INTEGRATION="enabled"
-    autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
-    kitty-integration
-    unfunction kitty-integration
+	alias s="kitty +kitten ssh"
+	KITTY_SHELL_INTEGRATION="enabled"
+	autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
+	kitty-integration
+	unfunction kitty-integration
 fi
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib/mojo
 export PATH=$PATH:~/.modular/pkg/packages.modular.com_mojo/bin/
@@ -105,7 +103,7 @@ export HF_TOKEN="$(pass HF_TOKEN)"
 #   - the correct directories to the PATH
 #   - auto-completion for the opam binary
 # This section can be safely removed at any time if needed.
-[[ ! -r '/home/vatai/.opam/opam-init/init.zsh' ]] || source '/home/vatai/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+[[ ! -r '/home/vatai/.opam/opam-init/init.zsh' ]] || source '/home/vatai/.opam/opam-init/init.zsh' >/dev/null 2>/dev/null
 # END opam configuration
 
 # export CLAUDE_CODE_USE_BEDROCK=1
