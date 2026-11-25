@@ -1870,30 +1870,6 @@ You are a large language model and a conversation partner. Respond concisely.
 (use-package gemtext-mode
   :hook ((gemtext-mode . flyspell-mode)))
 
-;; utility functions
-
-(defun my/reference-pdf-file ()
-  (when-let ((pos (org-find-property "NOTER_DOCUMENT")))
-    (org-string-nw-p (org-entry-get pos "NOTER_DOCUMENT"))))
-
-(defun my/insert-pdf-link (pdf)
-  (goto-char (point-min))
-  (unless (re-search-forward "^- pdf :: " nil t)
-    (when (re-search-forward "^- keywords :: .*$" nil t)
-      (insert (format "\n- pdf :: [[file:%s]]" pdf)))))
-
-(defun my/add-pdf-link-to-reference-file (file)
-  (with-current-buffer (find-file-noselect file)
-    (when-let ((pdf (my/reference-pdf-file)))
-      (my/insert-pdf-link pdf)
-      (save-buffer))))
-
-(defun my/add-pdf-links-to-references ()
-  (interactive)
-  (mapc #'my/add-pdf-link-to-reference-file
-        (directory-files (expand-file-name "references" org-roam-directory)
-                         t "\\.org\\'")))
-
 ;; BEGIN: keep the "- pdf ::" line of org-roam reference notes in sync with the bibliography
 (defun my/roam-reference-files ()
   "Return the org-roam reference note files."
