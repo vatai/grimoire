@@ -1893,6 +1893,50 @@ You are a large language model and a conversation partner. Respond concisely.
   (mapc #'my/add-pdf-link-to-reference-file
         (directory-files (expand-file-name "references" org-roam-directory)
                          t "\\.org\\'")))
+
+;; BEGIN: keep the "- pdf ::" line of org-roam reference notes in sync with the bibliography
+(defun my/roam-reference-files ()
+  "Return the org-roam reference note files."
+  (directory-files (expand-file-name "references" org-roam-directory) t "\\.org\\'"))
+
+(defun my/roam-reference-pdf (citekey)
+  "Return the abbreviated path of the PDF which the bibliography lists for CITEKEY."
+  (when-let* ((pdf (seq-find (lambda (file) (string-suffix-p ".pdf" file t))
+                             (bibtex-completion-find-pdf citekey))))
+    (abbreviate-file-name pdf)))
+
+(defun my/roam-reference-set-pdf-line (pdf-line)
+  "Make PDF-LINE the pdf line of the current buffer; return non-nil if it changed."
+  (goto-char (point-min))
+  (cond ((re-search-forward "^- pdf :: .*$" nil t)
+         (unless (string= (match-string 0) pdf-line)
+           (replace-match pdf-line t t)
+           t))
+        ((re-search-forward "^- keywords :: .*\n" nil t)
+         (insert pdf-line "\n")
+         t)))
+
+(defun my/roam-reference-update-pdf (note)
+  "Update the pdf line of the reference NOTE; return NOTE if it changed."
+  (when-let* ((pdf (my/roam-reference-pdf (file-name-base note)))
+              (pdf-line (format "- pdf :: [[file:%s]]" pdf))
+              (was-open (or (get-file-buffer note) 'no)))
+    (with-current-buffer (find-file-noselect note)
+      (prog1 (when (save-excursion (my/roam-reference-set-pdf-line pdf-line))
+               (save-buffer)
+               note)
+        (when (eq was-open 'no) (kill-buffer))))))
+
+(defun my/roam-references-update-pdfs ()
+  "Update the pdf line of every org-roam reference note from the bibliography."
+  (interactive)
+  (require 'bibtex-completion)
+  (let ((updated (delq nil (mapcar #'my/roam-reference-update-pdf
+                                   (my/roam-reference-files)))))
+    (message "Updated the pdf line of %d reference note(s)" (length updated))
+    updated))
+;; END: org-roam reference pdf lines
+
 (message "LOADED .EMACS")
 (provide '.emacs)
 ;;; .emacs ends here
