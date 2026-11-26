@@ -9,11 +9,18 @@ set $up k
 set $right l
 
 set $term kitty
+set $termkey Return
 set $browser firefox
+set $browserkey d
 set $editor emacsclient -c
+set $editorkey e
 set $bibliography zotero
+set $bibliographykey z
 set $files kitty ranger
+set $fileskey t
 set $menu fuzzel
+set $menukey p
+# c is still free
 set $scripts ~/.config/sway/scripts
 # set $wallpaper ~/.config/sway/wallpaper.jpg
 # set $wallpaper ~/Sync/Photos/wallpaper/waves-of-kanagawa.jpg
@@ -130,14 +137,14 @@ seat * xcursor_theme Adwaita 24
 seat * hide_cursor when-typing enable
 
 ### Key bindings: apps #########################################################
-bindsym $mod+Return exec $term
-bindsym $mod+Shift+b exec $browser
-bindsym $mod+Shift+e exec $editor
-bindsym $mod+Shift+t exec $files
-bindsym $mod+Shift+z exec $bibliography
-bindsym $mod+d exec $menu
+bindsym $mod+Shift+$termkey exec $term
+bindsym $mod+Shift+$browserkey exec $browser
+bindsym $mod+Shift+$editorkey exec $editor
+bindsym $mod+Shift+$fileskey exec $files
+bindsym $mod+Shift+$bibliographykey exec $bibliography
+bindsym $mod+menukey exec $menu
 bindsym $mod+Shift+q kill
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+Backspace reload
 bindsym $mod+Shift+x exec $scripts/powermenu.sh
 bindsym $mod+Escape exec $lock
 bindsym $mod+n exec swaync-client -t -sw
@@ -186,26 +193,29 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 ### Key bindings: workspaces ###################################################
+bindsym $mod+Shift+1 exec slack
+bindsym $mod+Shift+2 exec discord
+bindsym $mod+Shift+3 exec telegram
 bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
+bindsym $mod+$termkey workspace number 2
+bindsym $mod+$editorkey workspace number 3
+bindsym $mod+$browserkey workspace number 4
+bindsym $mod+$bibliographykey workspace number 5
+bindsym $mod+$fileskey workspace number 6
 bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 10
+bindsym $mod+Ctrl+Shift+1 move container to workspace number 1
+bindsym $mod+Ctrl+Shift+$termkey move container to workspace number 2
+bindsym $mod+Ctrl+Shift+$editorkey move container to workspace number 3
+bindsym $mod+Ctrl+Shift+$browserkey move container to workspace number 4
+bindsym $mod+Ctrl+Shift+$bibliographykey move container to workspace number 5
+bindsym $mod+Ctrl+Shift+$fileskey move container to workspace number 6
+bindsym $mod+Ctrl+Shift+7 move container to workspace number 7
+bindsym $mod+Ctrl+Shift+8 move container to workspace number 8
+bindsym $mod+Ctrl+Shift+9 move container to workspace number 9
+bindsym $mod+Ctrl+Shift+0 move container to workspace number 10
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+bracketright move workspace to output right
 bindsym $mod+Shift+bracketleft move workspace to output left
@@ -220,7 +230,7 @@ bindsym $mod+b splith
 bindsym $mod+v splitv
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Shift+s layout toggle split
 bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
