@@ -16,7 +16,7 @@ set $editor emacsclient -c
 set $editorkey e
 set $bibliography zotero
 set $bibliographykey z
-set $files kitty ranger
+set $files kitty --app-id ranger ranger
 set $fileskey t
 set $menu fuzzel
 set $menukey p
@@ -142,7 +142,7 @@ bindsym $mod+Shift+$browserkey exec $browser
 bindsym $mod+Shift+$editorkey exec $editor
 bindsym $mod+Shift+$fileskey exec $files
 bindsym $mod+Shift+$bibliographykey exec $bibliography
-bindsym $mod+menukey exec $menu
+bindsym $mod+$menukey exec $menu
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+Backspace reload
 bindsym $mod+Shift+x exec $scripts/powermenu.sh
@@ -195,7 +195,7 @@ bindsym $mod+Shift+Right move right
 ### Key bindings: workspaces ###################################################
 bindsym $mod+Shift+1 exec slack
 bindsym $mod+Shift+2 exec discord
-bindsym $mod+Shift+3 exec telegram
+bindsym $mod+Shift+3 exec Telegram
 bindsym $mod+1 workspace number 1
 bindsym $mod+$termkey workspace number 2
 bindsym $mod+$editorkey workspace number 3
@@ -262,6 +262,7 @@ assign [app_id="^emacs$"] workspace number 3
 assign [class="^Emacs$"] workspace number 3
 assign [app_id="^firefox$"] workspace number 4
 assign [app_id="^Zotero$"] workspace number 5
+assign [app_id="^ranger$"] workspace number 6
 # Spotify sets its class only after mapping, so assign doesn't work for it
 for_window [class="^Spotify$"] move window to workspace number 10
 for_window [app_id="^spotify$"] move window to workspace number 10
